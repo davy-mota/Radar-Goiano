@@ -33,20 +33,21 @@ function App() {
       let url = "";
       let setDadosAtuais = null;
 
+      // 🔄 MUDANÇA AQUI: Agora ele busca os arquivos locais da pasta 'public/dados'
       if (abaAtiva === 'Visão Geral' && !dadosGerais) { 
-        url = `http://localhost:8000/api/geral/resumo?ano=${anoAtivo}`; 
+        url = `/dados/cache_visao_geral_${anoAtivo}.json`; 
         setDadosAtuais = setDadosGerais; 
       }
       else if (abaAtiva === 'Contratos' && !dadosContratos) { 
-        url = `http://localhost:8000/api/contratos/resumo?ano=${anoAtivo}`; 
+        url = `/dados/cache_contratos_${anoAtivo}.json`; 
         setDadosAtuais = setDadosContratos; 
       }
       else if (abaAtiva === 'Folha' && !dadosFolha) { 
-        url = `http://localhost:8000/api/folha/resumo?ano=${anoAtivo}`; 
+        url = `/dados/cache_folha_${anoAtivo}.json`; 
         setDadosAtuais = setDadosFolha; 
       }
       else if (abaAtiva === 'Diárias' && !dadosDiarias) { 
-        url = `http://localhost:8000/api/diarias/resumo?ano=${anoAtivo}`; 
+        url = `/dados/cache_diarias_${anoAtivo}.json`; 
         setDadosAtuais = setDadosDiarias; 
       }
 
@@ -56,7 +57,7 @@ function App() {
           const resposta = await fetch(url, { signal: abortController.signal });
           clearTimeout(timeoutId); 
           
-          if (!resposta.ok) throw new Error("Erro interno do servidor Python");
+          if (!resposta.ok) throw new Error("Arquivo JSON não encontrado.");
           
           const dados = await resposta.json();
           if (isMounted) setDadosAtuais(dados);
@@ -64,10 +65,12 @@ function App() {
         } catch (erro) {
           if (!isMounted) return; 
           console.error("🚨 Falha na Busca:", erro);
+          
           if (erro.name === 'AbortError') {
-            setDadosAtuais({ erro: "⏳ O Servidor demorou muito a responder (Timeout de 15s)." });
+            setDadosAtuais({ erro: "⏳ Tempo de carregamento excedido." });
           } else {
-            setDadosAtuais({ erro: "🔌 Falha de conexão. O servidor Python está ligado?" });
+            // Nova mensagem de erro amigável caso o arquivo daquele ano ainda não exista
+            setDadosAtuais({ erro: `📄 Os dados para o ano '${anoAtivo}' ainda não foram processados ou enviados para a nuvem.` });
           }
         } finally {
           if (isMounted) setCarregando(false);
