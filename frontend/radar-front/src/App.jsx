@@ -334,8 +334,8 @@ function App() {
                 </div>
               </div>
             </div>
-          )}
-
+            
+          )}  
           {/* --- ABA DIÁRIAS --- */}
           {abaAtiva === 'Diárias' && dadosDiarias && !dadosDiarias.erro && !carregando && (
             <div className="animate-fade-in">
@@ -364,9 +364,35 @@ function App() {
                   </div>
                 </div>
               </div>
+                          {/* ALERTA DE IA - FOLHA */}
+            {dadosFolha.alertas_ia && dadosFolha.alertas_ia.length > 0 && (
+              <div className={`border rounded-xl p-6 shadow-lg mt-6 ${temaClaro ? 'bg-red-50 border-red-200' : 'bg-darkCard border-red-900/50 shadow-[0_0_15px_rgba(239,68,68,0.1)]'}`}>
+                <h3 className={`text-xl font-bold mb-4 flex items-center gap-2 ${temaClaro ? 'text-red-700' : 'text-red-400'}`}>
+                  🤖 Malha Fina da Inteligência Artificial
+                </h3>
+                <p className={`text-sm mb-4 ${temaClaro ? 'text-red-600' : 'text-gray-400'}`}>
+                  O algoritmo <i>Isolation Forest</i> processou todos os contracheques e isolou estes pagamentos como atípicos:
+                </p>
+                <div className="space-y-3">
+                  {dadosFolha.alertas_ia.map((alerta, index) => (
+                    <div key={index} className={`p-4 rounded-lg border-l-4 flex flex-col sm:flex-row justify-between sm:items-center gap-2 ${temaClaro ? 'bg-white border-red-500 shadow-sm' : 'bg-red-900/10 border-red-500'}`}>
+                      <div>
+                        <p className={`font-bold ${t.titulo}`}>{alerta.nome}</p>
+                        <p className={`text-xs ${t.subtitulo}`}>{alerta.orgao}</p>
+                      </div>
+                      <div className="text-left sm:text-right">
+                        <p className={`text-lg font-bold ${temaClaro ? 'text-red-600' : 'text-red-400'}`}>{formatarMoeda(alerta.valor)}</p>
+                        <span className={`text-[10px] px-2 py-1 rounded-full uppercase tracking-wider ${temaClaro ? 'bg-red-100 text-red-700' : 'bg-red-900/40 text-red-300'}`}>
+                          {alerta.motivo}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
             </div>
           )}
-
         </main>
       </div>
     </div>

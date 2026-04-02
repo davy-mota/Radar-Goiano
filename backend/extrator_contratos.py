@@ -150,6 +150,8 @@ def transformar_e_salvar(df_lote, ano_do_arquivo):
     df_lote_db.to_sql('contratos_licitacoes', engine, if_exists='append', index=False)
     return len(df_lote_db)
 
+    
+
 # =====================================================================
 # 4. MOTOR DE EXTRAÇÃO
 # =====================================================================
