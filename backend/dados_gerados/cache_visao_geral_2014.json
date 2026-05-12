@@ -1,0 +1,70 @@
+{
+    "kpis": {
+        "custo_total": 27403767764.27,
+        "orgao_campeao": "FUNDO DE PREVIDENCIA ESTADUAL",
+        "maior_despesa": 399709898.39,
+        "alerta_teto": 3400
+    },
+    "raio_x": [
+        {
+            "name": "Folha",
+            "value": 16463846345.26
+        },
+        {
+            "name": "Contratos",
+            "value": 10939921419.01
+        },
+        {
+            "name": "Diárias",
+            "value": 0.0
+        }
+    ],
+    "top_orgaos": [
+        {
+            "nome": "FUNDO DE PREVIDENCIA ESTADUAL",
+            "total": 5381386540.86
+        },
+        {
+            "nome": "SECRETARIA DE ESTADO DA EDUCAÃÃO",
+            "total": 3471969464.44
+        },
+        {
+            "nome": "POLÃCIA MILITAR",
+            "total": 1805511928.24
+        },
+        {
+            "nome": "SECRETARIA DE ESTADO DA SAÃDE",
+            "total": 1092339635.54
+        },
+        {
+            "nome": "SECRETARIA DE ESTADO DA FAZENDA",
+            "total": 917724291.72
+        }
+    ],
+    "anomalias": {
+        "maior_viajante": {
+            "nome": "N/A",
+            "valor": 0
+        },
+        "empresa_favorita": {
+            "nome": "NÃO INFORMADO",
+            "qtd": 5067
+        }
+    },
+    "radar_ia_geral": [
+        {
+            "nome": "LUZIA IGNEZ CURADO",
+            "orgao": "FUNDO DE PREVIDENCIA ESTADUAL",
+            "valor": 526479.65,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA",
+            "tipo": "Folha"
+        },
+        {
+            "nome": "CAIXA ECONOMICA FEDERAL",
+            "orgao": "Não especificado",
+            "valor": 399709898.39,
+            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA",
+            "tipo": "Contratos"
+        }
+    ]
+}

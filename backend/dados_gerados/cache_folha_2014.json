@@ -1,0 +1,83 @@
+{
+    "kpis": {
+        "total_folha": 16463846345.26,
+        "qtd_servidores": 4091228,
+        "media_salarial": 4024.182065937171
+    },
+    "top_salarios": [
+        {
+            "nome": "LUZIA IGNEZ CURADO",
+            "valor": 526479.65
+        },
+        {
+            "nome": "LUZIA IGNEZ CURADO",
+            "valor": 526479.65
+        },
+        {
+            "nome": "JAIR RODRIGUES DOS SANTOS",
+            "valor": 330620.62
+        },
+        {
+            "nome": "JAIR RODRIGUES DOS SANTOS",
+            "valor": 330620.62
+        },
+        {
+            "nome": "SELMA JANE BATISTA RODRIGUES",
+            "valor": 231789.34
+        }
+    ],
+    "distribuicao": [
+        {
+            "name": "FUNDO DE PREVIDENCIA ESTADUAL",
+            "value": 5381386540.86
+        },
+        {
+            "name": "SECRETARIA DE ESTADO DA EDUCAÃÃO",
+            "value": 3471969464.44
+        },
+        {
+            "name": "POLÃCIA MILITAR",
+            "value": 1805511928.24
+        },
+        {
+            "name": "SECRETARIA DE ESTADO DA SAÃDE",
+            "value": 1092339635.54
+        },
+        {
+            "name": "SECRETARIA DE ESTADO DA FAZENDA",
+            "value": 917724291.72
+        }
+    ],
+    "alertas_ia": [
+        {
+            "nome": "LUZIA IGNEZ CURADO",
+            "orgao": "FUNDO DE PREVIDENCIA ESTADUAL",
+            "valor": 526479.65,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA"
+        },
+        {
+            "nome": "LUZIA IGNEZ CURADO",
+            "orgao": "FUNDO DE PREVIDENCIA ESTADUAL",
+            "valor": 526479.65,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA"
+        },
+        {
+            "nome": "JAIR RODRIGUES DOS SANTOS",
+            "orgao": "FUNDO DE PREVIDENCIA ESTADUAL",
+            "valor": 330620.62,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA"
+        },
+        {
+            "nome": "JAIR RODRIGUES DOS SANTOS",
+            "orgao": "FUNDO DE PREVIDENCIA ESTADUAL",
+            "valor": 330620.62,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA"
+        },
+        {
+            "nome": "SELMA JANE BATISTA RODRIGUES",
+            "orgao": "POLICIA CIVIL",
+            "valor": 231789.34,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA"
+        }
+    ]
+}

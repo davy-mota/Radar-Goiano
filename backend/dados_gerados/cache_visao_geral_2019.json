@@ -1,0 +1,77 @@
+{
+    "kpis": {
+        "custo_total": 25307955207.44,
+        "orgao_campeao": "GOIÃS PREVIDÃNCIA - GOIASPREV",
+        "maior_despesa": 721745990.4,
+        "alerta_teto": 15740
+    },
+    "raio_x": [
+        {
+            "name": "Folha",
+            "value": 23787814960.5
+        },
+        {
+            "name": "Contratos",
+            "value": 1508969274.94
+        },
+        {
+            "name": "Diárias",
+            "value": 11170972.0
+        }
+    ],
+    "top_orgaos": [
+        {
+            "nome": "GOIÃS PREVIDÃNCIA - GOIASPREV",
+            "total": 9407061064.06
+        },
+        {
+            "nome": "SECRETARIA DE ESTADO DA EDUCAÃÃO",
+            "total": 3808523408.52
+        },
+        {
+            "nome": "POLÃCIA MILITAR",
+            "total": 3079247837.04
+        },
+        {
+            "nome": "SECRETARIA DE ESTADO DA ECONOMIA",
+            "total": 1090436811.8
+        },
+        {
+            "nome": "SECRETARIA DE ESTADO DA SAÃDE",
+            "total": 1037187080.18
+        }
+    ],
+    "anomalias": {
+        "maior_viajante": {
+            "nome": "sebastiao silvestre de souza",
+            "valor": 40180.0
+        },
+        "empresa_favorita": {
+            "nome": "NÃO INFORMADO",
+            "qtd": 1470
+        }
+    },
+    "radar_ia_geral": [
+        {
+            "nome": "TEREZINHA AVELINO ARRAIS",
+            "orgao": "GOIÃS PREVIDÃNCIA - GOIASPREV",
+            "valor": 433936.72,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA",
+            "tipo": "Folha"
+        },
+        {
+            "nome": "NÃ£o se aplica",
+            "orgao": "Não especificado",
+            "valor": 721745990.4,
+            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA",
+            "tipo": "Contratos"
+        },
+        {
+            "nome": "daniel goncalves vitorino campos de miranda",
+            "orgao": "fortaleza - ce",
+            "valor": 9920.0,
+            "motivo": "Gasto com diária estatisticamente acima do padrão estadual",
+            "tipo": "Diárias"
+        }
+    ]
+}

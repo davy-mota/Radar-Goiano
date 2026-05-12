@@ -1,0 +1,34 @@
+{
+    "kpis": {
+        "custo_total": 0.0,
+        "orgao_campeao": "N/A",
+        "maior_despesa": 0.0,
+        "alerta_teto": 0
+    },
+    "raio_x": [
+        {
+            "name": "Folha",
+            "value": 0.0
+        },
+        {
+            "name": "Contratos",
+            "value": 0.0
+        },
+        {
+            "name": "Diárias",
+            "value": 0.0
+        }
+    ],
+    "top_orgaos": [],
+    "anomalias": {
+        "maior_viajante": {
+            "nome": "N/A",
+            "valor": 0
+        },
+        "empresa_favorita": {
+            "nome": "N/A",
+            "qtd": 0
+        }
+    },
+    "radar_ia_geral": []
+}

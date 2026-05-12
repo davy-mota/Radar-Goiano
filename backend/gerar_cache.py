@@ -20,6 +20,7 @@ def aplicar_ia_anomalias(df, coluna_valor, contaminacao=0.01):
 
 # ==============================================================================
 # MOTOR PRINCIPAL DE GERAÇÃO
+
 # ==============================================================================
 def gerar_caches_completos():
     anos = ["todos"] + list(range(2013, 2027))

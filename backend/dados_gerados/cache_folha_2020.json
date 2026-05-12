@@ -1,0 +1,83 @@
+{
+    "kpis": {
+        "total_folha": 22036818756.74,
+        "qtd_servidores": 3225410,
+        "media_salarial": 6832.253498544371
+    },
+    "top_salarios": [
+        {
+            "nome": "DANIEL MATHIAS RIBEIRO",
+            "valor": 324566.91
+        },
+        {
+            "nome": "DANIEL MATHIAS RIBEIRO",
+            "valor": 324566.91
+        },
+        {
+            "nome": "EUDESIO PAULINO DA CUNHA",
+            "valor": 299384.5
+        },
+        {
+            "nome": "EUDESIO PAULINO DA CUNHA",
+            "valor": 299384.5
+        },
+        {
+            "nome": "ANTONIO MARTINS DA SILVA",
+            "valor": 295218.42
+        }
+    ],
+    "distribuicao": [
+        {
+            "name": "GOIÃS PREVIDÃNCIA - GOIASPREV",
+            "value": 9082173679.32
+        },
+        {
+            "name": "SECRETARIA DE ESTADO DA EDUCAÃÃO",
+            "value": 3781257796.48
+        },
+        {
+            "name": "POLÃCIA MILITAR",
+            "value": 2751491480.36
+        },
+        {
+            "name": "SECRETARIA DE ESTADO DA ECONOMIA",
+            "value": 1095960201.56
+        },
+        {
+            "name": "POLICIA CIVIL",
+            "value": 911639877.3
+        }
+    ],
+    "alertas_ia": [
+        {
+            "nome": "DANIEL MATHIAS RIBEIRO",
+            "orgao": "SECRETARIA DE ESTADO DA ECONOMIA",
+            "valor": 324566.91,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA"
+        },
+        {
+            "nome": "DANIEL MATHIAS RIBEIRO",
+            "orgao": "SECRETARIA DE ESTADO DA ECONOMIA",
+            "valor": 324566.91,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA"
+        },
+        {
+            "nome": "EUDESIO PAULINO DA CUNHA",
+            "orgao": "SECRETARIA DE ESTADO DA ECONOMIA",
+            "valor": 299384.5,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA"
+        },
+        {
+            "nome": "EUDESIO PAULINO DA CUNHA",
+            "orgao": "SECRETARIA DE ESTADO DA ECONOMIA",
+            "valor": 299384.5,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA"
+        },
+        {
+            "nome": "ANTONIO MARTINS DA SILVA",
+            "orgao": "SECRETARIA DE ESTADO DA ECONOMIA",
+            "valor": 295218.42,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA"
+        }
+    ]
+}

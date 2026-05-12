@@ -1,0 +1,77 @@
+{
+    "kpis": {
+        "custo_total": 29871489922.4,
+        "orgao_campeao": "GOIÃS PREVIDÃNCIA - GOIASPREV",
+        "maior_despesa": 1107428695.68,
+        "alerta_teto": 19848
+    },
+    "raio_x": [
+        {
+            "name": "Folha",
+            "value": 25241948766.2
+        },
+        {
+            "name": "Contratos",
+            "value": 4616855910.2
+        },
+        {
+            "name": "Diárias",
+            "value": 12685246.0
+        }
+    ],
+    "top_orgaos": [
+        {
+            "nome": "GOIÃS PREVIDÃNCIA - GOIASPREV",
+            "total": 10509462115.32
+        },
+        {
+            "nome": "SECRETARIA DE ESTADO DA EDUCAÃÃO",
+            "total": 4592284280.2
+        },
+        {
+            "nome": "POLÃCIA MILITAR",
+            "total": 2892085539.58
+        },
+        {
+            "nome": "SECRETARIA DE ESTADO DA ECONOMIA",
+            "total": 1143876811.22
+        },
+        {
+            "nome": "SECRETARIA DE ESTADO DA SAÃDE",
+            "total": 1022420709.2
+        }
+    ],
+    "anomalias": {
+        "maior_viajante": {
+            "nome": "mauricio barbosa de oliveira",
+            "valor": 50080.0
+        },
+        "empresa_favorita": {
+            "nome": "NÃO INFORMADO",
+            "qtd": 769
+        }
+    },
+    "radar_ia_geral": [
+        {
+            "nome": "LIA CANDIDA MIRANDA DE CASTRO",
+            "orgao": "GOIÃS PREVIDÃNCIA - GOIASPREV",
+            "valor": 310496.16,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA",
+            "tipo": "Folha"
+        },
+        {
+            "nome": "NÃ£o se aplica",
+            "orgao": "Não especificado",
+            "valor": 1107428695.68,
+            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA",
+            "tipo": "Contratos"
+        },
+        {
+            "nome": "tyago de paula ferreira",
+            "orgao": "belem - pa",
+            "valor": 15520.0,
+            "motivo": "Gasto com diária estatisticamente acima do padrão estadual",
+            "tipo": "Diárias"
+        }
+    ]
+}

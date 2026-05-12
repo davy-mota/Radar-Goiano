@@ -47,5 +47,37 @@
             "name": "SECRETARIA DE EDUCAÃÃO, CULTURA E ESPORTE",
             "value": 16783881481.9
         }
+    ],
+    "alertas_ia": [
+        {
+            "nome": "MARIETA CRUZ DIAS TEIXEIRA",
+            "orgao": "GOIÃS PREVIDÃNCIA - GOIASPREV",
+            "valor": 1288983.52,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA"
+        },
+        {
+            "nome": "MARIA RAIMUNDA DO VALE MODESTO",
+            "orgao": "GOIÃS PREVIDÃNCIA - GOIASPREV",
+            "valor": 1080022.8,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA"
+        },
+        {
+            "nome": "MARCOS IVAN CARDOSO MARTINS",
+            "orgao": "GOIÃS PREVIDÃNCIA - GOIASPREV",
+            "valor": 707874.52,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA"
+        },
+        {
+            "nome": "MARCOS IVAN CARDOSO MARTINS",
+            "orgao": "GOIÃS PREVIDÃNCIA - GOIASPREV",
+            "valor": 707874.52,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA"
+        },
+        {
+            "nome": "EDUARDO RODRIGUES DA COSTA",
+            "orgao": "POLÃCIA MILITAR",
+            "valor": 637043.13,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA"
+        }
     ]
 }

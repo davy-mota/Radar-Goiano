@@ -1,0 +1,77 @@
+{
+    "kpis": {
+        "custo_total": 23211997715.49,
+        "orgao_campeao": "GOIÃS PREVIDÃNCIA - GOIASPREV",
+        "maior_despesa": 113547600.0,
+        "alerta_teto": 17210
+    },
+    "raio_x": [
+        {
+            "name": "Folha",
+            "value": 22036818756.74
+        },
+        {
+            "name": "Contratos",
+            "value": 1168258945.75
+        },
+        {
+            "name": "Diárias",
+            "value": 6920013.0
+        }
+    ],
+    "top_orgaos": [
+        {
+            "nome": "GOIÃS PREVIDÃNCIA - GOIASPREV",
+            "total": 9082173679.32
+        },
+        {
+            "nome": "SECRETARIA DE ESTADO DA EDUCAÃÃO",
+            "total": 3781257796.48
+        },
+        {
+            "nome": "POLÃCIA MILITAR",
+            "total": 2751491480.36
+        },
+        {
+            "nome": "SECRETARIA DE ESTADO DA ECONOMIA",
+            "total": 1095960201.56
+        },
+        {
+            "nome": "POLICIA CIVIL",
+            "total": 911639877.3
+        }
+    ],
+    "anomalias": {
+        "maior_viajante": {
+            "nome": "mauricio barbosa de oliveira",
+            "valor": 42660.0
+        },
+        "empresa_favorita": {
+            "nome": "NÃO INFORMADO",
+            "qtd": 593
+        }
+    },
+    "radar_ia_geral": [
+        {
+            "nome": "DANIEL MATHIAS RIBEIRO",
+            "orgao": "SECRETARIA DE ESTADO DA ECONOMIA",
+            "valor": 324566.91,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA",
+            "tipo": "Folha"
+        },
+        {
+            "nome": "NÃ£o se aplica",
+            "orgao": "Não especificado",
+            "valor": 113547600.0,
+            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA",
+            "tipo": "Contratos"
+        },
+        {
+            "nome": "welington messias aires de araujo",
+            "orgao": "belo horizonte - mg",
+            "valor": 8960.0,
+            "motivo": "Gasto com diária estatisticamente acima do padrão estadual",
+            "tipo": "Diárias"
+        }
+    ]
+}

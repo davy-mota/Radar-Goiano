@@ -1,0 +1,81 @@
+{
+    "kpis": {
+        "valor_total": 5561450231.58,
+        "qtd_contratos": 3840,
+        "ticket_medio": 1448294.331140625
+    },
+    "top_fornecedores": [
+        {
+            "nome": "ASSOCIACAO GOIANA DE INT E REABILITACAO",
+            "valor": 1482513062.46
+        },
+        {
+            "nome": "EMPRESA NAO IDENTIFICADA",
+            "valor": 597711679.58
+        },
+        {
+            "nome": "REVENDEDORES AUTONOMOS DOS PRODUTOS AMWAY DO BRASIL LTDA",
+            "valor": 401138936.86
+        },
+        {
+            "nome": "CONSORCIO CCONV ANAPOLIS",
+            "valor": 224557835.66
+        },
+        {
+            "nome": "OLIVEIRA MELO ENGENHARIA E CONSTRUÃÃES LTDA",
+            "valor": 198108236.74
+        },
+        {
+            "nome": "CELG DISTRIBUICAO S.A. - CELG D",
+            "valor": 147022059.87
+        },
+        {
+            "nome": "PORTO BELO ENGENHARIA E COMERCIO LTDA",
+            "valor": 134020840.28
+        },
+        {
+            "nome": "SIGLA ENGENHARIA E CONSTRUCOES LTDA",
+            "valor": 124323283.94
+        },
+        {
+            "nome": "CONCEPCAO ENGENHARIA LTDA",
+            "valor": 113884949.89
+        },
+        {
+            "nome": "SIND EMPRESAS TRANSP COLETIVO URB PASSAGEIROS GOIANIA",
+            "valor": 103624346.0
+        }
+    ],
+    "alertas_ia": [
+        {
+            "nome": "ASSOCIACAO GOIANA DE INT E REABILITACAO",
+            "orgao": "Não especificado",
+            "valor": 720999840.0,
+            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA"
+        },
+        {
+            "nome": "ASSOCIACAO GOIANA DE INT E REABILITACAO",
+            "orgao": "Não especificado",
+            "valor": 720999840.0,
+            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA"
+        },
+        {
+            "nome": "REVENDEDORES AUTONOMOS DOS PRODUTOS AMWAY DO BRASIL LTDA",
+            "orgao": "Não especificado",
+            "valor": 238717128.48,
+            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA"
+        },
+        {
+            "nome": "CELG DISTRIBUICAO S.A. - CELG D",
+            "orgao": "Não especificado",
+            "valor": 112515240.0,
+            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA"
+        },
+        {
+            "nome": "CONSORCIO CCONV ANAPOLIS",
+            "orgao": "Não especificado",
+            "valor": 112278917.83,
+            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA"
+        }
+    ]
+}

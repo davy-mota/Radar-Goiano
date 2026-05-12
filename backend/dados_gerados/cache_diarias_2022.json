@@ -1,0 +1,83 @@
+{
+    "kpis": {
+        "total_gasto": 28473005.0,
+        "qtd_viagens": 64118,
+        "maior_diaria": 12825.0
+    },
+    "top_viajantes": [
+        {
+            "nome": "mauricio barbosa de oliveira",
+            "valor": 70090.0
+        },
+        {
+            "nome": "marlyane menezes da silva",
+            "valor": 67390.0
+        },
+        {
+            "nome": "sebastiao silvestre de souza",
+            "valor": 60065.0
+        },
+        {
+            "nome": "julio cesar pereira da silva",
+            "valor": 57750.0
+        },
+        {
+            "nome": "vagner braulio cunha pietrobon",
+            "valor": 56475.0
+        }
+    ],
+    "top_destinos": [
+        {
+            "name": "brasilia - df",
+            "value": 1112680.0
+        },
+        {
+            "name": "goiania - go",
+            "value": 994508.0
+        },
+        {
+            "name": "formosa - go",
+            "value": 804815.0
+        },
+        {
+            "name": "goias - go",
+            "value": 693885.0
+        },
+        {
+            "name": "sao paulo - sp",
+            "value": 691275.0
+        }
+    ],
+    "alertas_ia": [
+        {
+            "nome": "elcimar junio de sousa",
+            "orgao": "braganca paulista - sp",
+            "valor": 12825.0,
+            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
+        },
+        {
+            "nome": "teofilo roberto decrosse da silva zardine rocha",
+            "orgao": "sao paulo - sp",
+            "valor": 11025.0,
+            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
+        },
+        {
+            "nome": "everson jivago araujo roldao",
+            "orgao": "jaguarao - rs",
+            "valor": 11025.0,
+            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
+        },
+        {
+            "nome": "vagner braulio cunha pietrobon",
+            "orgao": "sao paulo - sp",
+            "valor": 10575.0,
+            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
+        },
+        {
+            "nome": "pedro luiz dos santos",
+            "orgao": "fortaleza - ce",
+            "valor": 9225.0,
+            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
+        }
+    ]
+}

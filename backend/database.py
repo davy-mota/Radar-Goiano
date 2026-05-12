@@ -1,9 +1,6 @@
 from sqlalchemy import create_engine
-from urllib.parse import quote_plus
 
-# Coloque a sua password e o nome do seu banco de dados
-senha_segura = quote_plus("gatodebotas") 
-engine = create_engine(f'postgresql://postgres:{senha_segura}@localhost:5432/gastos_governamentais') 
+# URL limpa! Lembre-se de colocar a senha correta que você descobriu/alterou
+DATABASE_URL = "postgresql+psycopg2://postgres:gatodebotas@localhost:5433/radar_goiano"
 
-# Cria o "motor" de ligação
-engine = create_engine(f'postgresql://postgres:{senha_segura}@localhost:5432/gastos_governamentais')
+engine = create_engine(DATABASE_URL)
