@@ -1,1 +1,83 @@
-{"kpis": {"total_gasto": 24545758.0, "qtd_viagens": 85139, "maior_diaria": 11514.0}, "top_viajantes": [{"nome": "eberson holanda", "valor": 47992.0}, {"nome": "esmeraldino jacinto de lemos", "valor": 47980.0}, {"nome": "alessandro guilherme de oliveira", "valor": 36861.0}, {"nome": "carlos borges dos santos", "valor": 36680.0}, {"nome": "rogerio barbosa mendonca", "valor": 35140.0}], "top_destinos": [{"name": "brasilia - df", "value": 1361433.0}, {"name": "goiania - go", "value": 1206568.0}, {"name": "pirenopolis - go", "value": 470734.0}, {"name": "goias - go", "value": 398175.0}, {"name": "sao miguel do araguaia - go", "value": 393009.0}]}
+{
+    "kpis": {
+        "total_gasto": 24545758.0,
+        "qtd_viagens": 85139,
+        "maior_diaria": 11514.0
+    },
+    "top_viajantes": [
+        {
+            "nome": "eberson holanda",
+            "valor": 47992.0
+        },
+        {
+            "nome": "esmeraldino jacinto de lemos",
+            "valor": 47980.0
+        },
+        {
+            "nome": "alessandro guilherme de oliveira",
+            "valor": 36861.0
+        },
+        {
+            "nome": "carlos borges dos santos",
+            "valor": 36680.0
+        },
+        {
+            "nome": "rogerio barbosa mendonca",
+            "valor": 35140.0
+        }
+    ],
+    "top_destinos": [
+        {
+            "name": "brasilia - df",
+            "value": 1361433.0
+        },
+        {
+            "name": "goiania - go",
+            "value": 1206568.0
+        },
+        {
+            "name": "pirenopolis - go",
+            "value": 470734.0
+        },
+        {
+            "name": "goias - go",
+            "value": 398175.0
+        },
+        {
+            "name": "sao miguel do araguaia - go",
+            "value": 393009.0
+        }
+    ],
+    "alertas_ia": [
+        {
+            "nome": "murilo mendonÃ§a barra",
+            "orgao": "porto e covilha portugal",
+            "valor": 11514.0,
+            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
+        },
+        {
+            "nome": "esmeraldino jacinto de lemos",
+            "orgao": "rio de janeiro - rj",
+            "valor": 9920.0,
+            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
+        },
+        {
+            "nome": "carlos borges dos santos",
+            "orgao": "brasilia - df",
+            "valor": 9920.0,
+            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
+        },
+        {
+            "nome": "eberson holanda",
+            "orgao": "rio de janeiro - rj",
+            "valor": 9920.0,
+            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
+        },
+        {
+            "nome": "eberson holanda",
+            "orgao": "rio de janeiro - rj",
+            "valor": 9700.0,
+            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
+        }
+    ]
+}

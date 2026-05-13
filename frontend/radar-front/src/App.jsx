@@ -66,14 +66,15 @@ function App() {
           if (!resposta.ok) throw new Error("Arquivo JSON não encontrado.");
           
           const dados = await resposta.json();
+          console.log("ALERTA DA IA AQUI:", dados.alertas_ia);
           if (isMounted) setDadosAtuais(dados);
 
         } catch (erro) {
           if (!isMounted) return; 
           if (erro.name === 'AbortError') {
-            setDadosAtuais({ erro: "⏳ Tempo de carregamento excedido." });
+            setDadosAtuais({ erro: "Tempo de carregamento excedido." });
           } else {
-            setDadosAtuais({ erro: `📄 Os dados para '${anoAtivo}' ainda não foram processados.` });
+            setDadosAtuais({ erro: `Os dados para '${anoAtivo}' ainda não foram processados.` });
           }
         } finally {
           if (isMounted) setCarregando(false);
@@ -135,7 +136,7 @@ function App() {
 
           <div className={`border rounded-lg p-1 transition-colors ${t.seletorAno}`}>
             <select value={anoAtivo} onChange={(e) => handleMudarAno(e.target.value)} className="w-full bg-transparent text-sm p-2 outline-none cursor-pointer font-medium">
-              <option value="todos" className={temaClaro ? "bg-white" : "bg-darkCard text-goiasYellow"}>🌟 Todos os Anos</option>
+              <option value="todos" className={temaClaro ? "bg-white" : "bg-darkCard text-goiasYellow"}>Todos os Anos</option>
               {Array.from({ length: 2026 - 2013 + 1 }, (_, i) => 2026 - i).map(ano => (
                 <option key={ano} value={ano.toString()} className={temaClaro ? "bg-white" : "bg-darkCard"}>Exercício {ano}</option>
               ))}
@@ -190,7 +191,7 @@ function App() {
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
                 <div className={`border rounded-xl p-4 md:p-6 ${t.card}`}>
-                  <h3 className={`text-base md:text-lg font-semibold mb-4 ${t.titulo}`}>🍰 Distribuição do Orçamento</h3>
+                  <h3 className={`text-base md:text-lg font-semibold mb-4 ${t.titulo}`}>Distribuição do Orçamento</h3>
                   <div className="h-64 min-h-[250px]">
                     <ResponsiveContainer width="100%" height="100%">
                       <PieChart><Pie data={dadosGerais?.raio_x || []} innerRadius={50} outerRadius={80} paddingAngle={5} dataKey="value" label={({name}) => name.substring(0, 12) + ".."} fill={t.graficoTexto}>{(dadosGerais?.raio_x || []).map((e, i) => <Cell key={i} fill={CORES_GRAFICOS[i % CORES_GRAFICOS.length]} />)}</Pie><Tooltip contentStyle={{ backgroundColor: t.tooltipBg, borderColor: t.tooltipBorder, color: t.tooltipTexto }} itemStyle={{ color: t.tooltipTexto }} formatter={formatarMoeda}/></PieChart>
@@ -198,7 +199,7 @@ function App() {
                   </div>
                 </div>
                 <div className={`border rounded-xl p-4 md:p-6 ${t.card}`}>
-                  <h3 className={`text-base md:text-lg font-semibold mb-4 ${t.titulo}`}>🏛️ Top 5 Órgãos</h3>
+                  <h3 className={`text-base md:text-lg font-semibold mb-4 ${t.titulo}`}>Top 5 Órgãos</h3>
                   <div className="h-64 min-h-[250px]">
                     <ResponsiveContainer width="100%" height="100%">
                       <BarChart data={dadosGerais?.top_orgaos || []} layout="vertical" margin={{ left: 0, right: 20 }}><CartesianGrid strokeDasharray="3 3" stroke={t.graficoGrid} horizontal={false} /><XAxis type="number" stroke={t.graficoTexto} tickFormatter={(v) => `R$ ${(v/1000000).toFixed(0)}M`}/><YAxis dataKey="nome" type="category" width={110} stroke={t.graficoTexto} fontSize={10}/><Tooltip cursor={{fill: t.graficoGrid}} contentStyle={{ backgroundColor: t.tooltipBg, borderColor: t.tooltipBorder, color: t.tooltipTexto }} itemStyle={{ color: t.tooltipTexto }} formatter={formatarMoeda}/><Bar dataKey="total" radius={[0, 4, 4, 0]}>{(dadosGerais?.top_orgaos || []).map((entry, index) => (<Cell key={`cell-${index}`} fill={CORES_GRAFICOS[index % CORES_GRAFICOS.length]} />))}</Bar></BarChart>
@@ -241,7 +242,7 @@ function App() {
               
               <div className="grid grid-cols-1 gap-6">
                 <div className={`border rounded-xl p-4 md:p-6 ${t.card}`}>
-                  <h3 className={`text-base md:text-lg font-semibold mb-4 ${t.titulo}`}>🏆 Maiores Fornecedores</h3>
+                  <h3 className={`text-base md:text-lg font-semibold mb-4 ${t.titulo}`}>Maiores Fornecedores</h3>
                   <div className="h-[400px]">
                     <ResponsiveContainer width="100%" height="100%">
                       <BarChart data={dadosContratos?.top_fornecedores || []} layout="vertical" margin={{ left: 0, right: 20 }}><CartesianGrid strokeDasharray="3 3" stroke={t.graficoGrid} horizontal={false} /><XAxis type="number" scale="log" domain={[10000, 'auto']} stroke={t.graficoTexto} tickFormatter={(v) => `R$ ${(v/1000000).toFixed(0)}M`}/><YAxis dataKey="nome" type="category" width={110} stroke={t.graficoTexto} fontSize={10}/><Tooltip cursor={{fill: t.graficoGrid}} contentStyle={{ backgroundColor: t.tooltipBg, borderColor: t.tooltipBorder, color: t.tooltipTexto }} itemStyle={{ color: t.tooltipTexto }} formatter={formatarMoeda}/><Bar dataKey="valor" radius={[0, 4, 4, 0]}>{(dadosContratos?.top_fornecedores || []).map((entry, index) => (<Cell key={`cell-${index}`} fill={CORES_GRAFICOS[index % CORES_GRAFICOS.length]} />))}</Bar></BarChart>
@@ -264,7 +265,7 @@ function App() {
               
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
                 <div className={`border rounded-xl p-4 md:p-6 ${t.card}`}>
-                  <h3 className={`text-base md:text-lg font-semibold mb-4 ${t.titulo}`}>🚨 Maiores Salários</h3>
+                  <h3 className={`text-base md:text-lg font-semibold mb-4 ${t.titulo}`}>Maiores Salários</h3>
                   <div className="h-64 min-h-[250px]">
                     <ResponsiveContainer width="100%" height="100%">
                       <BarChart data={dadosFolha?.top_salarios || []} layout="vertical" margin={{ left: 0, right: 20 }}><CartesianGrid strokeDasharray="3 3" stroke={t.graficoGrid} horizontal={false} /><XAxis type="number" stroke={t.graficoTexto} tickFormatter={(v) => `R$ ${(v/1000).toFixed(0)}k`}/><YAxis dataKey="nome" type="category" width={110} stroke={t.graficoTexto} fontSize={10}/><Tooltip cursor={{fill: t.graficoGrid}} contentStyle={{ backgroundColor: t.tooltipBg, borderColor: t.tooltipBorder, color: t.tooltipTexto }} itemStyle={{ color: t.tooltipTexto }} formatter={formatarMoeda}/><Bar dataKey="valor" radius={[0, 4, 4, 0]}>{(dadosFolha?.top_salarios || []).map((entry, index) => (<Cell key={`cell-${index}`} fill={CORES_GRAFICOS[index % CORES_GRAFICOS.length]} />))}</Bar></BarChart>
@@ -272,7 +273,7 @@ function App() {
                   </div>
                 </div>
                 <div className={`border rounded-xl p-4 md:p-6 ${t.card}`}>
-                  <h3 className={`text-base md:text-lg font-semibold mb-4 ${t.titulo}`}>🏛️ Gastos por Órgão</h3>
+                  <h3 className={`text-base md:text-lg font-semibold mb-4 ${t.titulo}`}>Gastos por Órgão</h3>
                   <div className="h-64 min-h-[250px]">
                     <ResponsiveContainer width="100%" height="100%">
                       <PieChart><Pie data={dadosFolha?.distribuicao || []} outerRadius={80} dataKey="value" label={({name}) => name.substring(0, 10) + ".."} fill={t.graficoTexto}>{(dadosFolha?.distribuicao || []).map((e, i) => (<Cell key={i} fill={CORES_GRAFICOS[i % CORES_GRAFICOS.length]} />))}</Pie><Tooltip contentStyle={{ backgroundColor: t.tooltipBg, borderColor: t.tooltipBorder, color: t.tooltipTexto }} itemStyle={{ color: t.tooltipTexto }} formatter={formatarMoeda}/></PieChart>
@@ -285,7 +286,7 @@ function App() {
               {dadosFolha?.alertas_ia && dadosFolha.alertas_ia.length > 0 && (
                 <div className={`border rounded-xl p-6 shadow-lg mt-6 ${temaClaro ? 'bg-red-50 border-red-200' : 'bg-darkCard border-red-900/50 shadow-[0_0_15px_rgba(239,68,68,0.1)]'}`}>
                   <h3 className={`text-xl font-bold mb-4 flex items-center gap-2 ${temaClaro ? 'text-red-700' : 'text-red-400'}`}>
-                    🤖 Malha Fina da Inteligência Artificial
+                    Malha Fina da Inteligência Artificial
                   </h3>
                   <p className={`text-sm mb-4 ${temaClaro ? 'text-red-600' : 'text-gray-400'}`}>
                     O algoritmo <i>Isolation Forest</i> processou todos os contracheques e isolou estes pagamentos como atípicos:
@@ -323,7 +324,7 @@ function App() {
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
                 <div className={`border rounded-xl p-4 md:p-6 ${t.card}`}>
-                  <h3 className={`text-base md:text-lg font-semibold mb-4 ${t.titulo}`}>✈️ Top Viajantes</h3>
+                  <h3 className={`text-base md:text-lg font-semibold mb-4 ${t.titulo}`}>Top Viajantes</h3>
                   <div className="h-64 min-h-[250px]">
                     <ResponsiveContainer width="100%" height="100%">
                       <BarChart data={dadosDiarias?.top_viajantes || []} layout="vertical" margin={{ left: 0, right: 20 }}><CartesianGrid strokeDasharray="3 3" stroke={t.graficoGrid} horizontal={false} /><XAxis type="number" stroke={t.graficoTexto} tickFormatter={(v) => `R$ ${(v/1000).toFixed(0)}k`}/><YAxis dataKey="nome" type="category" width={110} stroke={t.graficoTexto} fontSize={10}/><Tooltip cursor={{fill: t.graficoGrid}} contentStyle={{ backgroundColor: t.tooltipBg, borderColor: t.tooltipBorder, color: t.tooltipTexto }} itemStyle={{ color: t.tooltipTexto }} formatter={formatarMoeda}/><Bar dataKey="valor" radius={[0, 4, 4, 0]}>{(dadosDiarias?.top_viajantes || []).map((entry, index) => (<Cell key={`cell-${index}`} fill={CORES_GRAFICOS[index % CORES_GRAFICOS.length]} />))}</Bar></BarChart>
@@ -331,7 +332,7 @@ function App() {
                   </div>
                 </div>
                 <div className={`border rounded-xl p-4 md:p-6 ${t.card}`}>
-                  <h3 className={`text-base md:text-lg font-semibold mb-4 ${t.titulo}`}>📍 Top Destinos</h3>
+                  <h3 className={`text-base md:text-lg font-semibold mb-4 ${t.titulo}`}>Top Destinos</h3>
                   <div className="h-64 min-h-[250px]">
                     <ResponsiveContainer width="100%" height="100%">
                       <PieChart><Pie data={dadosDiarias?.top_destinos || []} outerRadius={80} dataKey="value" label={({name}) => name.substring(0, 10) + ".."} fill={t.graficoTexto}>{(dadosDiarias?.top_destinos || []).map((e, i) => (<Cell key={i} fill={CORES_GRAFICOS[i % CORES_GRAFICOS.length]} />))}</Pie><Tooltip contentStyle={{ backgroundColor: t.tooltipBg, borderColor: t.tooltipBorder, color: t.tooltipTexto }} itemStyle={{ color: t.tooltipTexto }} formatter={formatarMoeda}/></PieChart>

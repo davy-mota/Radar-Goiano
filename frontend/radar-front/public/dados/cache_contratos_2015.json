@@ -1,1 +1,81 @@
-{"kpis": {"valor_total": 13484021118.31, "qtd_contratos": 7478, "ticket_medio": 1803158.7481024337}, "top_fornecedores": [{"nome": "PORTO BELO ENGENHARIA E COMERCIO LTDA", "valor": 1610037965.04}, {"nome": "ASSOCIACAO GOIANA DE INT E REABILITACAO", "valor": 1513999680.0}, {"nome": "EMPRESA NAO IDENTIFICADA", "valor": 495315865.14}, {"nome": "NÃ£o se aplica", "valor": 492491712.33}, {"nome": "SCCV ENGENHARIA LTDA", "valor": 471818895.7}, {"nome": "CONSTRUTORA ARTEC S/A", "valor": 436885187.82}, {"nome": "FUNDACAO PRO CERRADO", "valor": 421825327.92}, {"nome": "DATA TRAFFIC S/A", "valor": 285632513.82}, {"nome": "CONSTRUTORA CAIAPO LTDA", "valor": 265807941.58}, {"nome": "CONCEPCAO ENGENHARIA LTDA", "valor": 261451504.46}]}
+{
+    "kpis": {
+        "valor_total": 13484021118.31,
+        "qtd_contratos": 7478,
+        "ticket_medio": 1803158.7481024337
+    },
+    "top_fornecedores": [
+        {
+            "nome": "PORTO BELO ENGENHARIA E COMERCIO LTDA",
+            "valor": 1610037965.04
+        },
+        {
+            "nome": "ASSOCIACAO GOIANA DE INT E REABILITACAO",
+            "valor": 1513999680.0
+        },
+        {
+            "nome": "EMPRESA NAO IDENTIFICADA",
+            "valor": 495315865.14
+        },
+        {
+            "nome": "NÃ£o se aplica",
+            "valor": 492491712.33
+        },
+        {
+            "nome": "SCCV ENGENHARIA LTDA",
+            "valor": 471818895.7
+        },
+        {
+            "nome": "CONSTRUTORA ARTEC S/A",
+            "valor": 436885187.82
+        },
+        {
+            "nome": "FUNDACAO PRO CERRADO",
+            "valor": 421825327.92
+        },
+        {
+            "nome": "DATA TRAFFIC S/A",
+            "valor": 285632513.82
+        },
+        {
+            "nome": "CONSTRUTORA CAIAPO LTDA",
+            "valor": 265807941.58
+        },
+        {
+            "nome": "CONCEPCAO ENGENHARIA LTDA",
+            "valor": 261451504.46
+        }
+    ],
+    "alertas_ia": [
+        {
+            "nome": "ASSOCIACAO GOIANA DE INT E REABILITACAO",
+            "orgao": "Não especificado",
+            "valor": 720999840.0,
+            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA"
+        },
+        {
+            "nome": "ASSOCIACAO GOIANA DE INT E REABILITACAO",
+            "orgao": "Não especificado",
+            "valor": 720999840.0,
+            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA"
+        },
+        {
+            "nome": "STYLUS PROPAGANDA E CONSULTORIA LTDA",
+            "orgao": "Não especificado",
+            "valor": 119000000.0,
+            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA"
+        },
+        {
+            "nome": "ESPACO NOBRE COMUNICACAO E MARKETING LTDA - EPP",
+            "orgao": "Não especificado",
+            "valor": 119000000.0,
+            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA"
+        },
+        {
+            "nome": "NÃ£o se aplica",
+            "orgao": "Não especificado",
+            "valor": 119000000.0,
+            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA"
+        }
+    ]
+}

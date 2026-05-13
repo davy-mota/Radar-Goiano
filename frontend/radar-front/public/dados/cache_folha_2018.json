@@ -1,1 +1,83 @@
-{"kpis": {"total_folha": 25003687716.62, "qtd_servidores": 4085768, "media_salarial": 6119.703252025079}, "top_salarios": [{"nome": "CLAUDIA NUNES TRONCOSO RIBEIRO", "valor": 474214.85}, {"nome": "CLAUDIA NUNES TRONCOSO RIBEIRO", "valor": 474214.85}, {"nome": "LUIZ HENRIQUE SOUSA DE CARVALHO", "valor": 458599.69}, {"nome": "LUIZ HENRIQUE SOUSA DE CARVALHO", "valor": 458599.69}, {"nome": "LUCIOLA CAROLINE DE OLIVEIRA", "valor": 342225.45}], "distribuicao": [{"name": "GOIÃS PREVIDÃNCIA - GOIASPREV", "value": 9433069962.1}, {"name": "SECRETARIA DE EDUCAÃÃO, CULTURA E ESPORTE", "value": 4811163094.68}, {"name": "POLÃCIA MILITAR", "value": 2928240221.18}, {"name": "SECRETARIA DE ESTADO DA FAZENDA", "value": 1345854887.32}, {"name": "SECRETARIA DE ESTADO DA SAÃDE", "value": 1186133391.5}]}
+{
+    "kpis": {
+        "total_folha": 25003687716.62,
+        "qtd_servidores": 4085768,
+        "media_salarial": 6119.703252025079
+    },
+    "top_salarios": [
+        {
+            "nome": "CLAUDIA NUNES TRONCOSO RIBEIRO",
+            "valor": 474214.85
+        },
+        {
+            "nome": "CLAUDIA NUNES TRONCOSO RIBEIRO",
+            "valor": 474214.85
+        },
+        {
+            "nome": "LUIZ HENRIQUE SOUSA DE CARVALHO",
+            "valor": 458599.69
+        },
+        {
+            "nome": "LUIZ HENRIQUE SOUSA DE CARVALHO",
+            "valor": 458599.69
+        },
+        {
+            "nome": "LUCIOLA CAROLINE DE OLIVEIRA",
+            "valor": 342225.45
+        }
+    ],
+    "distribuicao": [
+        {
+            "name": "GOIÃS PREVIDÃNCIA - GOIASPREV",
+            "value": 9433069962.1
+        },
+        {
+            "name": "SECRETARIA DE EDUCAÃÃO, CULTURA E ESPORTE",
+            "value": 4811163094.68
+        },
+        {
+            "name": "POLÃCIA MILITAR",
+            "value": 2928240221.18
+        },
+        {
+            "name": "SECRETARIA DE ESTADO DA FAZENDA",
+            "value": 1345854887.32
+        },
+        {
+            "name": "SECRETARIA DE ESTADO DA SAÃDE",
+            "value": 1186133391.5
+        }
+    ],
+    "alertas_ia": [
+        {
+            "nome": "CLAUDIA NUNES TRONCOSO RIBEIRO",
+            "orgao": "DEFENSORIA PÃBLICA DO ESTADO DE GOIÃS",
+            "valor": 474214.85,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA"
+        },
+        {
+            "nome": "CLAUDIA NUNES TRONCOSO RIBEIRO",
+            "orgao": "DEFENSORIA PÃBLICA DO ESTADO DE GOIÃS",
+            "valor": 474214.85,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA"
+        },
+        {
+            "nome": "LUIZ HENRIQUE SOUSA DE CARVALHO",
+            "orgao": "PROCURADORIA-GERAL DO ESTADO",
+            "valor": 458599.69,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA"
+        },
+        {
+            "nome": "LUIZ HENRIQUE SOUSA DE CARVALHO",
+            "orgao": "PROCURADORIA-GERAL DO ESTADO",
+            "valor": 458599.69,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA"
+        },
+        {
+            "nome": "LUCIOLA CAROLINE DE OLIVEIRA",
+            "orgao": "GOIÃS PREVIDÃNCIA - GOIASPREV",
+            "valor": 342225.45,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA"
+        }
+    ]
+}

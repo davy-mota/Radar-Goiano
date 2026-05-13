@@ -1,1 +1,81 @@
-{"kpis": {"valor_total": 4616855910.2, "qtd_contratos": 2167, "ticket_medio": 2130528.8002768806}, "top_fornecedores": [{"nome": "NÃ£o se aplica", "valor": 1718007119.6}, {"nome": "Dell Computadores do Brasil ltda", "valor": 527345193.78}, {"nome": "ASSOCIACAO GOIANA DE INT E REABILITACAO", "valor": 187589392.37}, {"nome": "ZETTA FROTAS LTDA", "valor": 182594232.4}, {"nome": "MULTILASER INDUSTRIAL LTDA", "valor": 144630000.0}, {"nome": "CONSTRUTORA CENTRO LESTE S/A", "valor": 122637233.94}, {"nome": "RODOCON CONSTRUCOES RODOVIARIAS LTDA", "valor": 92007337.15}, {"nome": "CONSTRUTORA MILAO LTDA", "valor": 85298874.68}, {"nome": "BTB CONSTRUCOES E PARTICIPACOES EIRELI", "valor": 84192435.68}, {"nome": "TRIVALE ADMINISTRACAO LTDA", "valor": 79797557.53}]}
+{
+    "kpis": {
+        "valor_total": 4616855910.2,
+        "qtd_contratos": 2167,
+        "ticket_medio": 2130528.8002768806
+    },
+    "top_fornecedores": [
+        {
+            "nome": "NÃ£o se aplica",
+            "valor": 1718007119.6
+        },
+        {
+            "nome": "Dell Computadores do Brasil ltda",
+            "valor": 527345193.78
+        },
+        {
+            "nome": "ASSOCIACAO GOIANA DE INT E REABILITACAO",
+            "valor": 187589392.37
+        },
+        {
+            "nome": "ZETTA FROTAS LTDA",
+            "valor": 182594232.4
+        },
+        {
+            "nome": "MULTILASER INDUSTRIAL LTDA",
+            "valor": 144630000.0
+        },
+        {
+            "nome": "CONSTRUTORA CENTRO LESTE S/A",
+            "valor": 122637233.94
+        },
+        {
+            "nome": "RODOCON CONSTRUCOES RODOVIARIAS LTDA",
+            "valor": 92007337.15
+        },
+        {
+            "nome": "CONSTRUTORA MILAO LTDA",
+            "valor": 85298874.68
+        },
+        {
+            "nome": "BTB CONSTRUCOES E PARTICIPACOES EIRELI",
+            "valor": 84192435.68
+        },
+        {
+            "nome": "TRIVALE ADMINISTRACAO LTDA",
+            "valor": 79797557.53
+        }
+    ],
+    "alertas_ia": [
+        {
+            "nome": "NÃ£o se aplica",
+            "orgao": "Não especificado",
+            "valor": 1107428695.68,
+            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA"
+        },
+        {
+            "nome": "Dell Computadores do Brasil ltda",
+            "orgao": "Não especificado",
+            "valor": 484700000.0,
+            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA"
+        },
+        {
+            "nome": "MULTILASER INDUSTRIAL LTDA",
+            "orgao": "Não especificado",
+            "valor": 144630000.0,
+            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA"
+        },
+        {
+            "nome": "ZETTA FROTAS LTDA",
+            "orgao": "Não especificado",
+            "valor": 104857060.2,
+            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA"
+        },
+        {
+            "nome": "ASSOCIACAO GOIANA DE INT E REABILITACAO",
+            "orgao": "Não especificado",
+            "valor": 74506536.0,
+            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA"
+        }
+    ]
+}

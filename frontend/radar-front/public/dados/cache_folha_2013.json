@@ -1,1 +1,83 @@
-{"kpis": {"total_folha": 14548817216.74, "qtd_servidores": 3940032, "media_salarial": 3692.5632118571625}, "top_salarios": [{"nome": "ALEXANDRE CRUVINEL FERREIRA", "valor": 405983.49}, {"nome": "ALEXANDRE CRUVINEL FERREIRA", "valor": 405983.49}, {"nome": "BARTOLOMEU MUNIZ GRANJA", "valor": 359875.93}, {"nome": "BARTOLOMEU MUNIZ GRANJA", "valor": 359875.93}, {"nome": "ERSON DE SOUSA BASTOS", "valor": 280441.64}], "distribuicao": [{"name": "FUNDO DE PREVIDENCIA ESTADUAL", "value": 4724103283.02}, {"name": "SECRETARIA DE ESTADO DA EDUCAÃÃO", "value": 3209834957.36}, {"name": "POLÃCIA MILITAR", "value": 1513919787.44}, {"name": "SECRETARIA DE ESTADO DA SAÃDE", "value": 1028799660.36}, {"name": "SECRETARIA DE ESTADO DA FAZENDA", "value": 866187807.26}]}
+{
+    "kpis": {
+        "total_folha": 14548817216.74,
+        "qtd_servidores": 3940032,
+        "media_salarial": 3692.5632118571625
+    },
+    "top_salarios": [
+        {
+            "nome": "ALEXANDRE CRUVINEL FERREIRA",
+            "valor": 405983.49
+        },
+        {
+            "nome": "ALEXANDRE CRUVINEL FERREIRA",
+            "valor": 405983.49
+        },
+        {
+            "nome": "BARTOLOMEU MUNIZ GRANJA",
+            "valor": 359875.93
+        },
+        {
+            "nome": "BARTOLOMEU MUNIZ GRANJA",
+            "valor": 359875.93
+        },
+        {
+            "nome": "ERSON DE SOUSA BASTOS",
+            "valor": 280441.64
+        }
+    ],
+    "distribuicao": [
+        {
+            "name": "FUNDO DE PREVIDENCIA ESTADUAL",
+            "value": 4724103283.02
+        },
+        {
+            "name": "SECRETARIA DE ESTADO DA EDUCAÃÃO",
+            "value": 3209834957.36
+        },
+        {
+            "name": "POLÃCIA MILITAR",
+            "value": 1513919787.44
+        },
+        {
+            "name": "SECRETARIA DE ESTADO DA SAÃDE",
+            "value": 1028799660.36
+        },
+        {
+            "name": "SECRETARIA DE ESTADO DA FAZENDA",
+            "value": 866187807.26
+        }
+    ],
+    "alertas_ia": [
+        {
+            "nome": "ALEXANDRE CRUVINEL FERREIRA",
+            "orgao": "FUNDO DE PREVIDENCIA ESTADUAL",
+            "valor": 405983.49,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA"
+        },
+        {
+            "nome": "ALEXANDRE CRUVINEL FERREIRA",
+            "orgao": "FUNDO DE PREVIDENCIA ESTADUAL",
+            "valor": 405983.49,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA"
+        },
+        {
+            "nome": "BARTOLOMEU MUNIZ GRANJA",
+            "orgao": "FUNDO DE PREVIDENCIA ESTADUAL",
+            "valor": 359875.93,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA"
+        },
+        {
+            "nome": "BARTOLOMEU MUNIZ GRANJA",
+            "orgao": "FUNDO DE PREVIDENCIA ESTADUAL",
+            "valor": 359875.93,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA"
+        },
+        {
+            "nome": "ERSON DE SOUSA BASTOS",
+            "orgao": "FUNDO DE PREVIDENCIA ESTADUAL",
+            "valor": 280441.64,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA"
+        }
+    ]
+}

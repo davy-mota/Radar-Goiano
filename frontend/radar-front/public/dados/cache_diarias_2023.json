@@ -1,1 +1,83 @@
-{"kpis": {"total_gasto": 27275487.0, "qtd_viagens": 57734, "maior_diaria": 15525.0}, "top_viajantes": [{"nome": "mauricio barbosa de oliveira", "valor": 88795.0}, {"nome": "marlyane menezes da silva", "valor": 82050.0}, {"nome": "kenia menezes mesquita", "valor": 59530.0}, {"nome": "maria oneide da silva veiga jardim", "valor": 54970.0}, {"nome": "sebastiao silvestre de souza", "valor": 52785.0}], "top_destinos": [{"name": "brasilia - df", "value": 1908000.0}, {"name": "sao paulo - sp", "value": 1040175.0}, {"name": "goiania - go", "value": 934473.0}, {"name": "goias - go", "value": 651630.0}, {"name": "rio verde - go", "value": 589950.0}]}
+{
+    "kpis": {
+        "total_gasto": 27275487.0,
+        "qtd_viagens": 57734,
+        "maior_diaria": 15525.0
+    },
+    "top_viajantes": [
+        {
+            "nome": "mauricio barbosa de oliveira",
+            "valor": 88795.0
+        },
+        {
+            "nome": "marlyane menezes da silva",
+            "valor": 82050.0
+        },
+        {
+            "nome": "kenia menezes mesquita",
+            "valor": 59530.0
+        },
+        {
+            "nome": "maria oneide da silva veiga jardim",
+            "valor": 54970.0
+        },
+        {
+            "nome": "sebastiao silvestre de souza",
+            "valor": 52785.0
+        }
+    ],
+    "top_destinos": [
+        {
+            "name": "brasilia - df",
+            "value": 1908000.0
+        },
+        {
+            "name": "sao paulo - sp",
+            "value": 1040175.0
+        },
+        {
+            "name": "goiania - go",
+            "value": 934473.0
+        },
+        {
+            "name": "goias - go",
+            "value": 651630.0
+        },
+        {
+            "name": "rio verde - go",
+            "value": 589950.0
+        }
+    ],
+    "alertas_ia": [
+        {
+            "nome": "andre alves souza",
+            "orgao": "porto alegre - rs",
+            "valor": 15525.0,
+            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
+        },
+        {
+            "nome": "pedro luiz dos santos",
+            "orgao": "recife - pe",
+            "valor": 11025.0,
+            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
+        },
+        {
+            "nome": "pedro marinho de oliveira filho",
+            "orgao": "recife - pe",
+            "valor": 11025.0,
+            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
+        },
+        {
+            "nome": "wersiley costa de jesus",
+            "orgao": "sao paulo - sp",
+            "valor": 10125.0,
+            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
+        },
+        {
+            "nome": "kennedy martins bastos",
+            "orgao": "sao paulo - sp",
+            "valor": 10125.0,
+            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
+        }
+    ]
+}

@@ -1,1 +1,81 @@
-{"kpis": {"valor_total": 5634431893.8, "qtd_contratos": 2648, "ticket_medio": 2127806.6064199395}, "top_fornecedores": [{"nome": "SOCIEDADE BENF ISRAELITABRAS HOSPITAL ALBERT EISTEIN", "valor": 879246326.58}, {"nome": "CAIXA ECONOMICA FEDERAL", "valor": 717847732.6}, {"nome": "NÃ£o se aplica", "valor": 713497075.0}, {"nome": "CS BRASIL FROTAS LTDA", "valor": 607905744.0}, {"nome": "INSTITUTO DE PLANEJAMENTO E GESTAO DE SERVICOS ESPECIALIZADOS - IPGSE", "valor": 231924309.18}, {"nome": "MULTILASER INDUSTRIAL LTDA", "valor": 130832540.88}, {"nome": "LOCALIZA VEICULOS ESPECIAIS S.A.", "valor": 112752964.8}, {"nome": "EBN COMERCIO, IMPORTACAO E EXPORTACAO LTDA", "valor": 86211656.0}, {"nome": "TERRACO SERVICOS E ASSESSORIA LTDA", "valor": 64082868.43}, {"nome": "PRIMOR ENGENHARIA LTDA", "valor": 50057355.05}]}
+{
+    "kpis": {
+        "valor_total": 5634431893.8,
+        "qtd_contratos": 2648,
+        "ticket_medio": 2127806.6064199395
+    },
+    "top_fornecedores": [
+        {
+            "nome": "SOCIEDADE BENF ISRAELITABRAS HOSPITAL ALBERT EISTEIN",
+            "valor": 879246326.58
+        },
+        {
+            "nome": "CAIXA ECONOMICA FEDERAL",
+            "valor": 717847732.6
+        },
+        {
+            "nome": "NÃ£o se aplica",
+            "valor": 713497075.0
+        },
+        {
+            "nome": "CS BRASIL FROTAS LTDA",
+            "valor": 607905744.0
+        },
+        {
+            "nome": "INSTITUTO DE PLANEJAMENTO E GESTAO DE SERVICOS ESPECIALIZADOS - IPGSE",
+            "valor": 231924309.18
+        },
+        {
+            "nome": "MULTILASER INDUSTRIAL LTDA",
+            "valor": 130832540.88
+        },
+        {
+            "nome": "LOCALIZA VEICULOS ESPECIAIS S.A.",
+            "valor": 112752964.8
+        },
+        {
+            "nome": "EBN COMERCIO, IMPORTACAO E EXPORTACAO LTDA",
+            "valor": 86211656.0
+        },
+        {
+            "nome": "TERRACO SERVICOS E ASSESSORIA LTDA",
+            "valor": 64082868.43
+        },
+        {
+            "nome": "PRIMOR ENGENHARIA LTDA",
+            "valor": 50057355.05
+        }
+    ],
+    "alertas_ia": [
+        {
+            "nome": "SOCIEDADE BENF ISRAELITABRAS HOSPITAL ALBERT EISTEIN",
+            "orgao": "Não especificado",
+            "valor": 767607590.16,
+            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA"
+        },
+        {
+            "nome": "CAIXA ECONOMICA FEDERAL",
+            "orgao": "Não especificado",
+            "valor": 677500000.0,
+            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA"
+        },
+        {
+            "nome": "CS BRASIL FROTAS LTDA",
+            "orgao": "Não especificado",
+            "valor": 340594271.4,
+            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA"
+        },
+        {
+            "nome": "NÃ£o se aplica",
+            "orgao": "Não especificado",
+            "valor": 325881055.37,
+            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA"
+        },
+        {
+            "nome": "NÃ£o se aplica",
+            "orgao": "Não especificado",
+            "valor": 294980116.68,
+            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA"
+        }
+    ]
+}

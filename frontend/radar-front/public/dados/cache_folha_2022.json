@@ -1,1 +1,83 @@
-{"kpis": {"total_folha": 33510610827.58, "qtd_servidores": 3944894, "media_salarial": 8494.679661248185}, "top_salarios": [{"nome": "MARCOS IVAN CARDOSO MARTINS", "valor": 707874.52}, {"nome": "MARCOS IVAN CARDOSO MARTINS", "valor": 707874.52}, {"nome": "EDUARDO RODRIGUES DA COSTA", "valor": 637043.13}, {"nome": "EDUARDO RODRIGUES DA COSTA", "valor": 637043.13}, {"nome": "WILSON BENTO DOS ANJOS", "valor": 389760.0}], "distribuicao": [{"name": "GOIÃS PREVIDÃNCIA - GOIASPREV", "value": 13769996283.02}, {"name": "SECRETARIA DE ESTADO DA EDUCAÃÃO", "value": 6825780082.66}, {"name": "POLÃCIA MILITAR", "value": 3534211965.26}, {"name": "SECRETARIA DE ESTADO DA ECONOMIA", "value": 1431120657.12}, {"name": "DELEGACIA-GERAL DA POLÃCIA CIVIL", "value": 1380908487.44}]}
+{
+    "kpis": {
+        "total_folha": 33510610827.58,
+        "qtd_servidores": 3944894,
+        "media_salarial": 8494.679661248185
+    },
+    "top_salarios": [
+        {
+            "nome": "MARCOS IVAN CARDOSO MARTINS",
+            "valor": 707874.52
+        },
+        {
+            "nome": "MARCOS IVAN CARDOSO MARTINS",
+            "valor": 707874.52
+        },
+        {
+            "nome": "EDUARDO RODRIGUES DA COSTA",
+            "valor": 637043.13
+        },
+        {
+            "nome": "EDUARDO RODRIGUES DA COSTA",
+            "valor": 637043.13
+        },
+        {
+            "nome": "WILSON BENTO DOS ANJOS",
+            "valor": 389760.0
+        }
+    ],
+    "distribuicao": [
+        {
+            "name": "GOIÃS PREVIDÃNCIA - GOIASPREV",
+            "value": 13769996283.02
+        },
+        {
+            "name": "SECRETARIA DE ESTADO DA EDUCAÃÃO",
+            "value": 6825780082.66
+        },
+        {
+            "name": "POLÃCIA MILITAR",
+            "value": 3534211965.26
+        },
+        {
+            "name": "SECRETARIA DE ESTADO DA ECONOMIA",
+            "value": 1431120657.12
+        },
+        {
+            "name": "DELEGACIA-GERAL DA POLÃCIA CIVIL",
+            "value": 1380908487.44
+        }
+    ],
+    "alertas_ia": [
+        {
+            "nome": "MARCOS IVAN CARDOSO MARTINS",
+            "orgao": "GOIÃS PREVIDÃNCIA - GOIASPREV",
+            "valor": 707874.52,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA"
+        },
+        {
+            "nome": "MARCOS IVAN CARDOSO MARTINS",
+            "orgao": "GOIÃS PREVIDÃNCIA - GOIASPREV",
+            "valor": 707874.52,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA"
+        },
+        {
+            "nome": "EDUARDO RODRIGUES DA COSTA",
+            "orgao": "POLÃCIA MILITAR",
+            "valor": 637043.13,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA"
+        },
+        {
+            "nome": "EDUARDO RODRIGUES DA COSTA",
+            "orgao": "POLÃCIA MILITAR",
+            "valor": 637043.13,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA"
+        },
+        {
+            "nome": "WILSON BENTO DOS ANJOS",
+            "orgao": "SECRETARIA DE ESTADO DA ECONOMIA",
+            "valor": 389760.0,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA"
+        }
+    ]
+}

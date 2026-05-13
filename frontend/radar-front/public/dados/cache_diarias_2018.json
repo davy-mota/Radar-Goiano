@@ -1,1 +1,83 @@
-{"kpis": {"total_gasto": 21869503.0, "qtd_viagens": 73133, "maior_diaria": 10340.0}, "top_viajantes": [{"nome": "francisco de assis peixoto", "valor": 45396.0}, {"nome": "silvio de faria arantes", "valor": 42970.0}, {"nome": "ronaldo abreu de lima", "valor": 41640.0}, {"nome": "jose ronaldo de araujo", "valor": 39780.0}, {"nome": "sizernando da costa flores", "valor": 39060.0}], "top_destinos": [{"name": "brasilia - df", "value": 1217696.0}, {"name": "goiania - go", "value": 1071334.0}, {"name": "aruana - go", "value": 805046.0}, {"name": "caldas novas - go", "value": 478154.0}, {"name": "goias - go", "value": 444774.0}]}
+{
+    "kpis": {
+        "total_gasto": 21869503.0,
+        "qtd_viagens": 73133,
+        "maior_diaria": 10340.0
+    },
+    "top_viajantes": [
+        {
+            "nome": "francisco de assis peixoto",
+            "valor": 45396.0
+        },
+        {
+            "nome": "silvio de faria arantes",
+            "valor": 42970.0
+        },
+        {
+            "nome": "ronaldo abreu de lima",
+            "valor": 41640.0
+        },
+        {
+            "nome": "jose ronaldo de araujo",
+            "valor": 39780.0
+        },
+        {
+            "nome": "sizernando da costa flores",
+            "valor": 39060.0
+        }
+    ],
+    "top_destinos": [
+        {
+            "name": "brasilia - df",
+            "value": 1217696.0
+        },
+        {
+            "name": "goiania - go",
+            "value": 1071334.0
+        },
+        {
+            "name": "aruana - go",
+            "value": 805046.0
+        },
+        {
+            "name": "caldas novas - go",
+            "value": 478154.0
+        },
+        {
+            "name": "goias - go",
+            "value": 444774.0
+        }
+    ],
+    "alertas_ia": [
+        {
+            "nome": "almir pinto viana",
+            "orgao": "recife - pe",
+            "valor": 10340.0,
+            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
+        },
+        {
+            "nome": "sancler ramos",
+            "orgao": "brasilia - df",
+            "valor": 9920.0,
+            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
+        },
+        {
+            "nome": "douglas castilho de queiroz",
+            "orgao": "brasilia - df",
+            "valor": 9920.0,
+            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
+        },
+        {
+            "nome": "maico cipriano de melo",
+            "orgao": "curitiba - pr",
+            "valor": 9920.0,
+            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
+        },
+        {
+            "nome": "douglas castilho de queiroz",
+            "orgao": "brasilia - df",
+            "valor": 9600.0,
+            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
+        }
+    ]
+}

@@ -1,1 +1,83 @@
-{"kpis": {"total_gasto": 4861806.0, "qtd_viagens": 19099, "maior_diaria": 21280.0}, "top_viajantes": [{"nome": "gabriel lins dos santos", "valor": 21440.0}, {"nome": "sebastiÃ£o carlos da costa", "valor": 21120.0}, {"nome": "jaime de souza avelar", "valor": 21120.0}, {"nome": "alessandro guilherme de oliveira", "valor": 12684.0}, {"nome": "adao victor borges da silva", "valor": 11920.0}], "top_destinos": [{"name": "brasilia - df", "value": 250157.0}, {"name": "goiania", "value": 201690.0}, {"name": "goiania - go", "value": 155433.0}, {"name": "brasilia", "value": 120890.0}, {"name": "cavalcante - go", "value": 109129.0}]}
+{
+    "kpis": {
+        "total_gasto": 4861806.0,
+        "qtd_viagens": 19099,
+        "maior_diaria": 21280.0
+    },
+    "top_viajantes": [
+        {
+            "nome": "gabriel lins dos santos",
+            "valor": 21440.0
+        },
+        {
+            "nome": "sebastiÃ£o carlos da costa",
+            "valor": 21120.0
+        },
+        {
+            "nome": "jaime de souza avelar",
+            "valor": 21120.0
+        },
+        {
+            "nome": "alessandro guilherme de oliveira",
+            "valor": 12684.0
+        },
+        {
+            "nome": "adao victor borges da silva",
+            "valor": 11920.0
+        }
+    ],
+    "top_destinos": [
+        {
+            "name": "brasilia - df",
+            "value": 250157.0
+        },
+        {
+            "name": "goiania",
+            "value": 201690.0
+        },
+        {
+            "name": "goiania - go",
+            "value": 155433.0
+        },
+        {
+            "name": "brasilia",
+            "value": 120890.0
+        },
+        {
+            "name": "cavalcante - go",
+            "value": 109129.0
+        }
+    ],
+    "alertas_ia": [
+        {
+            "nome": "gabriel lins dos santos",
+            "orgao": "brasilia - df",
+            "valor": 21280.0,
+            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
+        },
+        {
+            "nome": "jaime de souza avelar",
+            "orgao": "brasilia",
+            "valor": 21120.0,
+            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
+        },
+        {
+            "nome": "sebastiÃ£o carlos da costa",
+            "orgao": "brasilia",
+            "valor": 21120.0,
+            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
+        },
+        {
+            "nome": "wenderson josÃ© de franÃ§a",
+            "orgao": "apda goiania",
+            "valor": 11440.0,
+            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
+        },
+        {
+            "nome": "amilton de souza conceiÃ§Ã£o",
+            "orgao": "rio de janeiro - rj",
+            "valor": 9920.0,
+            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
+        }
+    ]
+}

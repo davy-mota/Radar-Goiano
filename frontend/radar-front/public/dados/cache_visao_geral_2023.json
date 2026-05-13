@@ -1,1 +1,77 @@
-{"kpis": {"custo_total": 40536036267.130005, "orgao_campeao": "GOIÃS PREVIDÃNCIA - GOIASPREV", "maior_despesa": 615298734.24, "alerta_teto": 50816}, "raio_x": [{"name": "Folha", "value": 36117078963.44}, {"name": "Contratos", "value": 4391681816.69}, {"name": "Diárias", "value": 27275487.0}], "top_orgaos": [{"nome": "GOIÃS PREVIDÃNCIA - GOIASPREV", "total": 14863761255.04}, {"nome": "SECRETARIA DE ESTADO DA EDUCAÃÃO", "total": 7225175213.22}, {"nome": "POLÃCIA MILITAR", "total": 3915180087.62}, {"nome": "SECRETARIA DE ESTADO DA ECONOMIA", "total": 1481297431.7}, {"nome": "DELEGACIA-GERAL DA POLÃCIA CIVIL", "total": 1431587949.06}], "anomalias": {"maior_viajante": {"nome": "mauricio barbosa de oliveira", "valor": 88795.0}, "empresa_favorita": {"nome": "NÃO INFORMADO", "qtd": 1160}}}
+{
+    "kpis": {
+        "custo_total": 40536036267.130005,
+        "orgao_campeao": "GOIÃS PREVIDÃNCIA - GOIASPREV",
+        "maior_despesa": 615298734.24,
+        "alerta_teto": 50816
+    },
+    "raio_x": [
+        {
+            "name": "Folha",
+            "value": 36117078963.44
+        },
+        {
+            "name": "Contratos",
+            "value": 4391681816.69
+        },
+        {
+            "name": "Diárias",
+            "value": 27275487.0
+        }
+    ],
+    "top_orgaos": [
+        {
+            "nome": "GOIÃS PREVIDÃNCIA - GOIASPREV",
+            "total": 14863761255.04
+        },
+        {
+            "nome": "SECRETARIA DE ESTADO DA EDUCAÃÃO",
+            "total": 7225175213.22
+        },
+        {
+            "nome": "POLÃCIA MILITAR",
+            "total": 3915180087.62
+        },
+        {
+            "nome": "SECRETARIA DE ESTADO DA ECONOMIA",
+            "total": 1481297431.7
+        },
+        {
+            "nome": "DELEGACIA-GERAL DA POLÃCIA CIVIL",
+            "total": 1431587949.06
+        }
+    ],
+    "anomalias": {
+        "maior_viajante": {
+            "nome": "mauricio barbosa de oliveira",
+            "valor": 88795.0
+        },
+        "empresa_favorita": {
+            "nome": "NÃO INFORMADO",
+            "qtd": 1160
+        }
+    },
+    "radar_ia_geral": [
+        {
+            "nome": "MARCOS IVAN CARDOSO MARTINS",
+            "orgao": "GOIÃS PREVIDÃNCIA - GOIASPREV",
+            "valor": 615264.17,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA",
+            "tipo": "Folha"
+        },
+        {
+            "nome": "ASSOCIACAO GOIANA DE INT E REABILITACAO",
+            "orgao": "Não especificado",
+            "valor": 615298734.24,
+            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA",
+            "tipo": "Contratos"
+        },
+        {
+            "nome": "andre alves souza",
+            "orgao": "porto alegre - rs",
+            "valor": 15525.0,
+            "motivo": "Gasto com diária estatisticamente acima do padrão estadual",
+            "tipo": "Diárias"
+        }
+    ]
+}

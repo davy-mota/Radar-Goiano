@@ -1,1 +1,83 @@
-{"kpis": {"total_gasto": 30580789.0, "qtd_viagens": 63240, "maior_diaria": 16650.0}, "top_viajantes": [{"nome": "aldenora rosalina da gama", "valor": 58650.0}, {"nome": "rodrigo teodoro do carmo", "valor": 53935.0}, {"nome": "pedro marinho de oliveira filho", "valor": 51685.0}, {"nome": "mauricio barbosa de oliveira", "valor": 51490.0}, {"nome": "mauro mendes da silva filho", "valor": 51245.0}], "top_destinos": [{"name": "brasilia - df", "value": 2217600.0}, {"name": "goiania - go", "value": 1663285.0}, {"name": "sao paulo - sp", "value": 1473525.0}, {"name": "goias - go", "value": 720690.0}, {"name": "anapolis - go", "value": 684480.0}]}
+{
+    "kpis": {
+        "total_gasto": 30580789.0,
+        "qtd_viagens": 63240,
+        "maior_diaria": 16650.0
+    },
+    "top_viajantes": [
+        {
+            "nome": "aldenora rosalina da gama",
+            "valor": 58650.0
+        },
+        {
+            "nome": "rodrigo teodoro do carmo",
+            "valor": 53935.0
+        },
+        {
+            "nome": "pedro marinho de oliveira filho",
+            "valor": 51685.0
+        },
+        {
+            "nome": "mauricio barbosa de oliveira",
+            "valor": 51490.0
+        },
+        {
+            "nome": "mauro mendes da silva filho",
+            "valor": 51245.0
+        }
+    ],
+    "top_destinos": [
+        {
+            "name": "brasilia - df",
+            "value": 2217600.0
+        },
+        {
+            "name": "goiania - go",
+            "value": 1663285.0
+        },
+        {
+            "name": "sao paulo - sp",
+            "value": 1473525.0
+        },
+        {
+            "name": "goias - go",
+            "value": 720690.0
+        },
+        {
+            "name": "anapolis - go",
+            "value": 684480.0
+        }
+    ],
+    "alertas_ia": [
+        {
+            "nome": "marcos henrique fernandes neves",
+            "orgao": "arapongas - pr",
+            "valor": 16650.0,
+            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
+        },
+        {
+            "nome": "juliana ribeiro fernandes",
+            "orgao": "arapongas - pr",
+            "valor": 13725.0,
+            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
+        },
+        {
+            "nome": "igor eduardo cordeiro de moura",
+            "orgao": "florianopolis - sc",
+            "valor": 13500.0,
+            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
+        },
+        {
+            "nome": "joao paulo do carmo cotrim",
+            "orgao": "florianopolis - sc",
+            "valor": 13275.0,
+            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
+        },
+        {
+            "nome": "everson jivago araujo roldao",
+            "orgao": "sao paulo - sp",
+            "valor": 11475.0,
+            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
+        }
+    ]
+}

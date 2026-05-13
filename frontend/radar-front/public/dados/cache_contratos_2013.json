@@ -1,1 +1,81 @@
-{"kpis": {"valor_total": 9684024685.64, "qtd_contratos": 5753, "ticket_medio": 1683299.9627394401}, "top_fornecedores": [{"nome": "CONSTRUTORA CENTRAL DO BRASIL S/A", "valor": 708208424.58}, {"nome": "PORTO BELO ENGENHARIA E COMERCIO LTDA", "valor": 568150198.5}, {"nome": "ORGANIZACAO DAS VOLUNTARIAS DE GOIAS", "valor": 566502444.0}, {"nome": "GOIAS CONSTRUTORA LTDA", "valor": 418153121.82}, {"nome": "TERRA FORTE CONSTRUTORA LTDA", "valor": 380177428.14}, {"nome": "NÃ£o se aplica", "valor": 340934894.67}, {"nome": "SCCV ENGENHARIA LTDA", "valor": 334421246.96}, {"nome": "FUNDACAO PRO CERRADO", "valor": 333883551.84}, {"nome": "EMPRESA NAO IDENTIFICADA", "valor": 309771209.13}, {"nome": "INSTITUTO DE DESENVOLVIMENTO TECNOLOGICO E HUMANO", "valor": 267360000.0}]}
+{
+    "kpis": {
+        "valor_total": 9684024685.64,
+        "qtd_contratos": 5753,
+        "ticket_medio": 1683299.9627394401
+    },
+    "top_fornecedores": [
+        {
+            "nome": "CONSTRUTORA CENTRAL DO BRASIL S/A",
+            "valor": 708208424.58
+        },
+        {
+            "nome": "PORTO BELO ENGENHARIA E COMERCIO LTDA",
+            "valor": 568150198.5
+        },
+        {
+            "nome": "ORGANIZACAO DAS VOLUNTARIAS DE GOIAS",
+            "valor": 566502444.0
+        },
+        {
+            "nome": "GOIAS CONSTRUTORA LTDA",
+            "valor": 418153121.82
+        },
+        {
+            "nome": "TERRA FORTE CONSTRUTORA LTDA",
+            "valor": 380177428.14
+        },
+        {
+            "nome": "NÃ£o se aplica",
+            "valor": 340934894.67
+        },
+        {
+            "nome": "SCCV ENGENHARIA LTDA",
+            "valor": 334421246.96
+        },
+        {
+            "nome": "FUNDACAO PRO CERRADO",
+            "valor": 333883551.84
+        },
+        {
+            "nome": "EMPRESA NAO IDENTIFICADA",
+            "valor": 309771209.13
+        },
+        {
+            "nome": "INSTITUTO DE DESENVOLVIMENTO TECNOLOGICO E HUMANO",
+            "valor": 267360000.0
+        }
+    ],
+    "alertas_ia": [
+        {
+            "nome": "CONSTRUTORA CENTRAL DO BRASIL S/A",
+            "orgao": "Não especificado",
+            "valor": 112278917.83,
+            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA"
+        },
+        {
+            "nome": "CONSTRUTORA CENTRAL DO BRASIL S/A",
+            "orgao": "Não especificado",
+            "valor": 112278917.83,
+            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA"
+        },
+        {
+            "nome": "CONSTRUTORA CENTRAL DO BRASIL S/A",
+            "orgao": "Não especificado",
+            "valor": 103730265.67,
+            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA"
+        },
+        {
+            "nome": "CONSTRUTORA CENTRAL DO BRASIL S/A",
+            "orgao": "Não especificado",
+            "valor": 103730265.67,
+            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA"
+        },
+        {
+            "nome": "ORGANIZACAO DAS VOLUNTARIAS DE GOIAS",
+            "orgao": "Não especificado",
+            "valor": 94417074.0,
+            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA"
+        }
+    ]
+}

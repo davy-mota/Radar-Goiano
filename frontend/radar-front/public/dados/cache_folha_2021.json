@@ -1,1 +1,83 @@
-{"kpis": {"total_folha": 25241948766.2, "qtd_servidores": 3503730, "media_salarial": 7204.307628213362}, "top_salarios": [{"nome": "LIA CANDIDA MIRANDA DE CASTRO", "valor": 310496.16}, {"nome": "LIA CANDIDA MIRANDA DE CASTRO", "valor": 310496.16}, {"nome": "LUIZ FERNANDO FAINA", "valor": 287345.93}, {"nome": "LUIZ FERNANDO FAINA", "valor": 287345.93}, {"nome": "JOSUEMAR VAZ DE OLIVEIRA", "valor": 279596.41}], "distribuicao": [{"name": "GOIÃS PREVIDÃNCIA - GOIASPREV", "value": 10509462115.32}, {"name": "SECRETARIA DE ESTADO DA EDUCAÃÃO", "value": 4592284280.2}, {"name": "POLÃCIA MILITAR", "value": 2892085539.58}, {"name": "SECRETARIA DE ESTADO DA ECONOMIA", "value": 1143876811.22}, {"name": "SECRETARIA DE ESTADO DA SAÃDE", "value": 1022420709.2}]}
+{
+    "kpis": {
+        "total_folha": 25241948766.2,
+        "qtd_servidores": 3503730,
+        "media_salarial": 7204.307628213362
+    },
+    "top_salarios": [
+        {
+            "nome": "LIA CANDIDA MIRANDA DE CASTRO",
+            "valor": 310496.16
+        },
+        {
+            "nome": "LIA CANDIDA MIRANDA DE CASTRO",
+            "valor": 310496.16
+        },
+        {
+            "nome": "LUIZ FERNANDO FAINA",
+            "valor": 287345.93
+        },
+        {
+            "nome": "LUIZ FERNANDO FAINA",
+            "valor": 287345.93
+        },
+        {
+            "nome": "JOSUEMAR VAZ DE OLIVEIRA",
+            "valor": 279596.41
+        }
+    ],
+    "distribuicao": [
+        {
+            "name": "GOIÃS PREVIDÃNCIA - GOIASPREV",
+            "value": 10509462115.32
+        },
+        {
+            "name": "SECRETARIA DE ESTADO DA EDUCAÃÃO",
+            "value": 4592284280.2
+        },
+        {
+            "name": "POLÃCIA MILITAR",
+            "value": 2892085539.58
+        },
+        {
+            "name": "SECRETARIA DE ESTADO DA ECONOMIA",
+            "value": 1143876811.22
+        },
+        {
+            "name": "SECRETARIA DE ESTADO DA SAÃDE",
+            "value": 1022420709.2
+        }
+    ],
+    "alertas_ia": [
+        {
+            "nome": "LIA CANDIDA MIRANDA DE CASTRO",
+            "orgao": "GOIÃS PREVIDÃNCIA - GOIASPREV",
+            "valor": 310496.16,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA"
+        },
+        {
+            "nome": "LIA CANDIDA MIRANDA DE CASTRO",
+            "orgao": "GOIÃS PREVIDÃNCIA - GOIASPREV",
+            "valor": 310496.16,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA"
+        },
+        {
+            "nome": "LUIZ FERNANDO FAINA",
+            "orgao": "SECRETARIA DE ESTADO DA ECONOMIA",
+            "valor": 287345.93,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA"
+        },
+        {
+            "nome": "LUIZ FERNANDO FAINA",
+            "orgao": "SECRETARIA DE ESTADO DA ECONOMIA",
+            "valor": 287345.93,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA"
+        },
+        {
+            "nome": "JOSUEMAR VAZ DE OLIVEIRA",
+            "orgao": "POLICIA CIVIL",
+            "valor": 279596.41,
+            "motivo": "Salário com desvio estatístico severo detectado pela IA"
+        }
+    ]
+}
