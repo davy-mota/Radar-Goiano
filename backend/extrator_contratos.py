@@ -1,7 +1,7 @@
 import requests
 import pandas as pd
-from sqlalchemy import create_engine, text
-from urllib.parse import quote_plus
+from sqlalchemy import text
+from database import engine
 import zipfile
 import os
 import re
@@ -10,19 +10,11 @@ import sys
 # =====================================================================
 # 1. CONFIGURAÇÕES E LIMPEZA INICIAL
 # =====================================================================
-senha_segura = quote_plus("gatodebotas") # <-- SUA SENHA
-engine = create_engine(f'postgresql://postgres:{senha_segura}@localhost:5432/gastos_governamentais') 
-
 colunas_banco = [
     "ano_exercicio", "nome_orgao", "numero_contrato", "cnpj_cpf_contratado", 
     "nome_contratado", "objeto_contrato", "modalidade_licitacao", 
     "valor_contrato", "data_assinatura"
 ]
-
-print("🧹 Limpando dados antigos do banco para a nova extração...")
-with engine.connect() as conexao:
-    conexao.execute(text("TRUNCATE TABLE contratos_licitacoes;"))
-    conexao.commit()
 
 # =====================================================================
 # 2. SELECIONANDO OS ALVOS (COM FILTRO ANTI-DUPLICAÇÃO)
@@ -64,6 +56,11 @@ if not arquivos_alvo:
     sys.exit()
 
 print(f"✅ Encontrados {len(arquivos_alvo)} ficheiros individuais para descarregar.")
+
+print("🧹 Fonte validada. Preparando a carga sem alterar a tabela oficial...")
+with engine.begin() as conexao:
+    conexao.execute(text("DROP TABLE IF EXISTS contratos_licitacoes_staging;"))
+    conexao.execute(text("CREATE TABLE contratos_licitacoes_staging (LIKE contratos_licitacoes INCLUDING DEFAULTS);"))
 
 # =====================================================================
 # 3. FUNÇÃO DE LIMPEZA E MAPEAMENTO (DIRETO PARA O BANCO)
@@ -147,7 +144,7 @@ def transformar_e_salvar(df_lote, ano_do_arquivo):
         if col not in df_lote.columns: df_lote[col] = None
     
     df_lote_db = df_lote[colunas_banco]
-    df_lote_db.to_sql('contratos_licitacoes', engine, if_exists='append', index=False)
+    df_lote_db.to_sql('contratos_licitacoes_staging', engine, if_exists='append', index=False)
     return len(df_lote_db)
 
     
@@ -156,6 +153,7 @@ def transformar_e_salvar(df_lote, ano_do_arquivo):
 # 4. MOTOR DE EXTRAÇÃO
 # =====================================================================
 total_geral = 0
+erros_extracao = 0
 tamanho_chunk = 100000
 
 def descobrir_ano_no_nome(texto):
@@ -196,17 +194,23 @@ for arq in arquivos_alvo:
             if os.path.exists("temp_contratos.zip"): os.remove("temp_contratos.zip")
 
     except Exception as e:
+        erros_extracao += 1
         print(f"  ❌ Erro no ficheiro {arq['nome']}: {e}")
+
+if erros_extracao or total_geral == 0:
+    with engine.begin() as conexao:
+        conexao.execute(text("DROP TABLE IF EXISTS contratos_licitacoes_staging;"))
+    sys.exit("❌ Carga cancelada; a tabela oficial de contratos foi preservada.")
 
 # =====================================================================
 # 5. A GUILHOTINA (DEDUPLICAÇÃO FINAL NO BANCO DE DADOS)
 # =====================================================================
 print("\n🧹 Executando a Guilhotina SQL (Eliminando clones absolutos do banco)...")
 query_dedup = text("""
-    DELETE FROM contratos_licitacoes
+    DELETE FROM contratos_licitacoes_staging
     WHERE ctid NOT IN (
         SELECT min(ctid)
-        FROM contratos_licitacoes
+        FROM contratos_licitacoes_staging
         GROUP BY numero_contrato, cnpj_cpf_contratado, valor_contrato, data_assinatura, nome_orgao
     );
 """)
@@ -215,6 +219,20 @@ with engine.connect() as conexao:
     resultado = conexao.execute(query_dedup)
     linhas_deletadas = resultado.rowcount
     conexao.commit()
+
+with engine.begin() as conexao:
+    conexao.execute(text("TRUNCATE TABLE contratos_licitacoes;"))
+    conexao.execute(text("""
+        INSERT INTO contratos_licitacoes
+            (ano_exercicio, nome_orgao, numero_contrato, cnpj_cpf_contratado,
+             nome_contratado, objeto_contrato, modalidade_licitacao,
+             valor_contrato, data_assinatura)
+        SELECT ano_exercicio, nome_orgao, numero_contrato, cnpj_cpf_contratado,
+               nome_contratado, objeto_contrato, modalidade_licitacao,
+               valor_contrato, data_assinatura
+        FROM contratos_licitacoes_staging;
+    """))
+    conexao.execute(text("DROP TABLE contratos_licitacoes_staging;"))
 
 if linhas_deletadas > 0:
     print(f"   -> 🗑️ Sucesso! Foram encontradas e deletadas {linhas_deletadas} linhas duplicadas enviadas pela API.")

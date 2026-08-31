@@ -1,83 +1,83 @@
 {
-    "kpis": {
-        "total_gasto": 209425710.93,
-        "qtd_viagens": 565941,
-        "maior_diaria": 21825.0
+  "kpis": {
+    "total_gasto": 209425710.93,
+    "qtd_viagens": 565941,
+    "maior_diaria": 21825.0
+  },
+  "top_viajantes": [
+    {
+      "nome": "mauricio barbosa de oliveira",
+      "valor": 440370.0
     },
-    "top_viajantes": [
-        {
-            "nome": "mauricio barbosa de oliveira",
-            "valor": 440370.0
-        },
-        {
-            "nome": "marlyane menezes da silva",
-            "valor": 413030.0
-        },
-        {
-            "nome": "sebastiao silvestre de souza",
-            "valor": 343555.0
-        },
-        {
-            "nome": "aldenora rosalina da gama",
-            "valor": 339410.0
-        },
-        {
-            "nome": "kenia menezes mesquita",
-            "valor": 311930.0
-        }
-    ],
-    "top_destinos": [
-        {
-            "name": "brasilia - df",
-            "value": 12074678.0
-        },
-        {
-            "name": "goiania - go",
-            "value": 9532799.0
-        },
-        {
-            "name": "sao paulo - sp",
-            "value": 6370135.0
-        },
-        {
-            "name": "goias - go",
-            "value": 4433565.0
-        },
-        {
-            "name": "rio verde - go",
-            "value": 3764243.0
-        }
-    ],
-    "alertas_ia": [
-        {
-            "nome": "tyago de paula ferreira",
-            "orgao": "florianopolis - sc",
-            "valor": 21825.0,
-            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
-        },
-        {
-            "nome": "gabriel lins dos santos",
-            "orgao": "brasilia - df",
-            "valor": 21280.0,
-            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
-        },
-        {
-            "nome": "jaime de souza avelar",
-            "orgao": "brasilia",
-            "valor": 21120.0,
-            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
-        },
-        {
-            "nome": "sebastiÃ£o carlos da costa",
-            "orgao": "brasilia",
-            "valor": 21120.0,
-            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
-        },
-        {
-            "nome": "marcos henrique fernandes neves",
-            "orgao": "arapongas - pr",
-            "valor": 16650.0,
-            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
-        }
-    ]
+    {
+      "nome": "marlyane menezes da silva",
+      "valor": 413030.0
+    },
+    {
+      "nome": "sebastiao silvestre de souza",
+      "valor": 343555.0
+    },
+    {
+      "nome": "aldenora rosalina da gama",
+      "valor": 339410.0
+    },
+    {
+      "nome": "kenia menezes mesquita",
+      "valor": 311930.0
+    }
+  ],
+  "top_destinos": [
+    {
+      "name": "brasilia - df",
+      "value": 12074678.0
+    },
+    {
+      "name": "goiania - go",
+      "value": 9532799.0
+    },
+    {
+      "name": "sao paulo - sp",
+      "value": 6370135.0
+    },
+    {
+      "name": "goias - go",
+      "value": 4433565.0
+    },
+    {
+      "name": "rio verde - go",
+      "value": 3764243.0
+    }
+  ],
+  "alertas_ia": [
+    {
+      "nome": "tyago de paula ferreira",
+      "orgao": "florianopolis - sc",
+      "valor": 21825.0,
+      "motivo": "Maior valor individual de diária do período; requer validação documental"
+    },
+    {
+      "nome": "gabriel lins dos santos",
+      "orgao": "brasilia - df",
+      "valor": 21280.0,
+      "motivo": "Maior valor individual de diária do período; requer validação documental"
+    },
+    {
+      "nome": "jaime de souza avelar",
+      "orgao": "brasilia",
+      "valor": 21120.0,
+      "motivo": "Maior valor individual de diária do período; requer validação documental"
+    },
+    {
+      "nome": "sebastiÃ£o carlos da costa",
+      "orgao": "brasilia",
+      "valor": 21120.0,
+      "motivo": "Maior valor individual de diária do período; requer validação documental"
+    },
+    {
+      "nome": "marcos henrique fernandes neves",
+      "orgao": "arapongas - pr",
+      "valor": 16650.0,
+      "motivo": "Maior valor individual de diária do período; requer validação documental"
+    }
+  ]
 }

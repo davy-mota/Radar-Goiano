@@ -1,1 +1,81 @@
-{"kpis": {"valor_total": 10939921419.01, "qtd_contratos": 8227, "ticket_medio": 1329758.2860106966}, "top_fornecedores": [{"nome": "CONSTRUTORA CENTRAL DO BRASIL S/A", "valor": 1615024343.32}, {"nome": "CAIXA ECONOMICA FEDERAL", "valor": 805741396.78}, {"nome": "PORTO BELO ENGENHARIA E COMERCIO LTDA", "valor": 569816792.0}, {"nome": "NÃ£o se aplica", "valor": 469352040.07}, {"nome": "EMPRESA NAO IDENTIFICADA", "valor": 468066751.08}, {"nome": "GOIAS CONSTRUTORA LTDA", "valor": 399214106.9}, {"nome": "CONSTRUTORA CAIAPO LTDA", "valor": 268705601.4}, {"nome": "LOCTEC ENGENHARIA LTDA", "valor": 262454822.92}, {"nome": "EMSA EMPRESA SUL AMERICANA MONTAGENS S A", "valor": 260709013.8}, {"nome": "FUNDACAO PRO CERRADO", "valor": 254883552.0}]}
+{
+  "kpis": {
+    "valor_total": 10939921419.01,
+    "qtd_contratos": 8227,
+    "ticket_medio": 1329758.2860106966
+  },
+  "top_fornecedores": [
+    {
+      "nome": "CONSTRUTORA CENTRAL DO BRASIL S/A",
+      "valor": 1615024343.32
+    },
+    {
+      "nome": "CAIXA ECONOMICA FEDERAL",
+      "valor": 805741396.78
+    },
+    {
+      "nome": "PORTO BELO ENGENHARIA E COMERCIO LTDA",
+      "valor": 569816792.0
+    },
+    {
+      "nome": "NÃ£o se aplica",
+      "valor": 469352040.07
+    },
+    {
+      "nome": "EMPRESA NAO IDENTIFICADA",
+      "valor": 468066751.08
+    },
+    {
+      "nome": "GOIAS CONSTRUTORA LTDA",
+      "valor": 399214106.9
+    },
+    {
+      "nome": "CONSTRUTORA CAIAPO LTDA",
+      "valor": 268705601.4
+    },
+    {
+      "nome": "LOCTEC ENGENHARIA LTDA",
+      "valor": 262454822.92
+    },
+    {
+      "nome": "EMSA EMPRESA SUL AMERICANA MONTAGENS S A",
+      "valor": 260709013.8
+    },
+    {
+      "nome": "FUNDACAO PRO CERRADO",
+      "valor": 254883552.0
+    }
+  ],
+  "alertas_ia": [
+    {
+      "nome": "CAIXA ECONOMICA FEDERAL",
+      "orgao": "SECRETARIA DE ESTADO DA FAZENDA",
+      "valor": 399709898.39,
+      "motivo": "Maior valor individual do período; requer validação documental"
+    },
+    {
+      "nome": "CAIXA ECONOMICA FEDERAL",
+      "orgao": "SECRETARIA DE ESTADO DA FAZENDA",
+      "valor": 399709898.39,
+      "motivo": "Maior valor individual do período; requer validação documental"
+    },
+    {
+      "nome": "GOIAS CONSTRUTORA LTDA",
+      "orgao": "AGÊNCIA GOIANA DE TRANSPORTES E OBRAS",
+      "valor": 199607053.45,
+      "motivo": "Maior valor individual do período; requer validação documental"
+    },
+    {
+      "nome": "GOIAS CONSTRUTORA LTDA",
+      "orgao": "AGÊNCIA GOIANA DE TRANSPORTES E OBRAS",
+      "valor": 199607053.45,
+      "motivo": "Maior valor individual do período; requer validação documental"
+    },
+    {
+      "nome": "EMSA EMPRESA SUL AMERICANA MONTAGENS S A",
+      "orgao": "AGÊNCIA GOIANA DE TRANSPORTES E OBRAS",
+      "valor": 129689042.05,
+      "motivo": "Maior valor individual do período; requer validação documental"
+    }
+  ]
+}

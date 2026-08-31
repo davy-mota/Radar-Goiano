@@ -1,1 +1,10 @@
-{"kpis": {"total_gasto": 0.0, "qtd_viagens": 0, "maior_diaria": 0.0}, "top_viajantes": [], "top_destinos": []}
+{
+  "kpis": {
+    "total_gasto": 0.0,
+    "qtd_viagens": 0,
+    "maior_diaria": 0.0
+  },
+  "top_viajantes": [],
+  "top_destinos": [],
+  "alertas_ia": []
+}

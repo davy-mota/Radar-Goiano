@@ -1,8 +1,7 @@
 import streamlit as st
 import pandas as pd
-from sqlalchemy import create_engine
 import plotly.express as px
-from urllib.parse import quote_plus
+from database import engine
 
 # =====================================================================
 # 1. CONFIGURAÇÃO DA PÁGINA (Deve ser a primeira linha do Streamlit)
@@ -12,9 +11,6 @@ st.set_page_config(page_title="Radar Goiano | TCC", page_icon="👁️", layout=
 # =====================================================================
 # 2. CONEXÃO COM O BANCO DE DADOS (Com Cache para velocidade)
 # =====================================================================
-senha_segura = quote_plus("gatodebotas") # <-- NÃO ESQUEÇA DE COLOCAR SUA SENHA
-engine = create_engine(f'postgresql://postgres:{senha_segura}@localhost:5432/gastos_governamentais') # <-- E O NOME DO SEU BANCO
-
 @st.cache_data(ttl=3600) # Mantém os dados na memória por 1 hora para não travar o banco
 def carregar_dados(query):
     return pd.read_sql(query, engine)

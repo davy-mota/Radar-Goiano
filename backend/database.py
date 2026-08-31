@@ -1,6 +1,16 @@
+import os
+
+from dotenv import load_dotenv
 from sqlalchemy import create_engine
 
-# URL limpa! Lembre-se de colocar a senha correta que você descobriu/alterou
-DATABASE_URL = "postgresql+psycopg2://postgres:gatodebotas@localhost:5433/radar_goiano"
 
-engine = create_engine(DATABASE_URL)
+load_dotenv()
+
+DATABASE_URL = os.getenv("DATABASE_URL")
+if not DATABASE_URL:
+    raise RuntimeError(
+        "A variável de ambiente DATABASE_URL não foi definida. "
+        "Copie .env.example para .env e informe a conexão do PostgreSQL."
+    )
+
+engine = create_engine(DATABASE_URL, pool_pre_ping=True)

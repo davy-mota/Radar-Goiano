@@ -1,1 +1,77 @@
-{"kpis": {"custo_total": 44361363638.58, "orgao_campeao": "GOIÃS PREVIDÃNCIA - GOIASPREV", "maior_despesa": 767607590.16, "alerta_teto": 68056}, "raio_x": [{"name": "Folha", "value": 38696350955.78}, {"name": "Contratos", "value": 5634431893.8}, {"name": "Diárias", "value": 30580789.0}], "top_orgaos": [{"nome": "GOIÃS PREVIDÃNCIA - GOIASPREV", "total": 15893925801.66}, {"nome": "SECRETARIA DE ESTADO DA EDUCAÃÃO", "total": 7457698470.88}, {"nome": "POLÃCIA MILITAR", "total": 4303597996.36}, {"nome": "DELEGACIA-GERAL DA POLÃCIA CIVIL", "total": 1616077187.46}, {"nome": "SECRETARIA DE ESTADO DA SAÃDE", "total": 1518023292.66}], "anomalias": {"maior_viajante": {"nome": "aldenora rosalina da gama", "valor": 58650.0}, "empresa_favorita": {"nome": "NÃO INFORMADO", "qtd": 653}}}
+{
+  "kpis": {
+    "custo_total": 44361363638.58,
+    "orgao_campeao": "GOIÁS PREVIDÊNCIA - GOIASPREV",
+    "maior_despesa": 767607590.16,
+    "alerta_teto": 68056
+  },
+  "raio_x": [
+    {
+      "name": "Folha",
+      "value": 38696350955.78
+    },
+    {
+      "name": "Contratos",
+      "value": 5634431893.8
+    },
+    {
+      "name": "Diárias",
+      "value": 30580789.0
+    }
+  ],
+  "top_orgaos": [
+    {
+      "nome": "GOIÁS PREVIDÊNCIA - GOIASPREV",
+      "total": 15893925801.66
+    },
+    {
+      "nome": "SECRETARIA DE ESTADO DA EDUCAÇÃO",
+      "total": 7457698470.88
+    },
+    {
+      "nome": "POLÍCIA MILITAR",
+      "total": 4303597996.36
+    },
+    {
+      "nome": "DELEGACIA-GERAL DA POLÍCIA CIVIL",
+      "total": 1616077187.46
+    },
+    {
+      "nome": "SECRETARIA DE ESTADO DA SAÚDE",
+      "total": 1518023292.66
+    }
+  ],
+  "anomalias": {
+    "maior_viajante": {
+      "nome": "aldenora rosalina da gama",
+      "valor": 58650.0
+    },
+    "empresa_favorita": {
+      "nome": "NÃO INFORMADO",
+      "qtd": 653
+    }
+  },
+  "radar_ia_geral": [
+    {
+      "nome": "SELMA MARIA SANTANA",
+      "orgao": "GOIÁS PREVIDÊNCIA - GOIASPREV",
+      "valor": 565382.38,
+      "motivo": "Maior remuneração bruta individual do período; requer contextualização",
+      "tipo": "Folha"
+    },
+    {
+      "nome": "SOCIEDADE BENF ISRAELITABRAS HOSPITAL ALBERT EISTEIN",
+      "orgao": "SECRETARIA DE ESTADO DA SAÚDE",
+      "valor": 767607590.16,
+      "motivo": "Maior valor individual do período; requer validação documental",
+      "tipo": "Contratos"
+    },
+    {
+      "nome": "marcos henrique fernandes neves",
+      "orgao": "arapongas - pr",
+      "valor": 16650.0,
+      "motivo": "Maior valor individual de diária do período; requer validação documental",
+      "tipo": "Diárias"
+    }
+  ]
+}

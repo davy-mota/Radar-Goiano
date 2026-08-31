@@ -1,7 +1,7 @@
 import requests
 import pandas as pd
-from sqlalchemy import create_engine, text
-from urllib.parse import quote_plus
+from sqlalchemy import text
+from database import engine
 import zipfile
 import os
 import re
@@ -10,19 +10,11 @@ import sys
 # =====================================================================
 # 1. CONFIGURAÇÕES
 # =====================================================================
-senha_segura = quote_plus("gatodebotas") # <-- COLOQUE SUA SENHA AQUI
-engine = create_engine(f'postgresql://postgres:{senha_segura}@localhost:5432/gastos_governamentais') # <-- SEU BANCO
-
 colunas_banco = [
     "ano_exercicio", "nome_orgao", "nome_servidor", "cargo", 
     "destino", "motivo_viagem", "valor_diarias", 
     "valor_passagens", "valor_total"
 ]
-
-print("🧹 Limpando dados antigos de Diárias para a nova extração (Full Refresh)...")
-with engine.connect() as conexao:
-    conexao.execute(text("TRUNCATE TABLE diarias_passagens;"))
-    conexao.commit()
 
 # =====================================================================
 # 2. SELECIONANDO OS ALVOS (BUSCA INTELIGENTE)
@@ -67,6 +59,11 @@ if not arquivos_alvo:
     sys.exit()
 
 print(f"✅ Sucesso! Encontrados {len(arquivos_alvo)} ficheiros de diárias para descarregar.")
+
+print("🧹 Fonte validada. Preparando a carga sem alterar a tabela oficial...")
+with engine.begin() as conexao:
+    conexao.execute(text("DROP TABLE IF EXISTS diarias_passagens_staging;"))
+    conexao.execute(text("CREATE TABLE diarias_passagens_staging (LIKE diarias_passagens INCLUDING DEFAULTS);"))
 
 # =====================================================================
 # 3. FUNÇÃO DE LIMPEZA E MAPEAMENTO (CAÇADOR ATUALIZADO)
@@ -140,13 +137,14 @@ def transformar_e_salvar(df_lote, ano_do_arquivo):
         if col not in df_lote.columns: df_lote[col] = None
     df_lote = df_lote[colunas_banco]
             
-    df_lote.to_sql('diarias_passagens', engine, if_exists='append', index=False)
+    df_lote.to_sql('diarias_passagens_staging', engine, if_exists='append', index=False)
     return len(df_lote)
 
 # =====================================================================
 # 4. MOTOR DE EXTRAÇÃO (DETETOR DE SEPARADORES AUTOMÁTICO)
 # =====================================================================
 total_geral = 0
+erros_extracao = 0
 tamanho_chunk = 100000
 
 def descobrir_ano_no_nome(texto):
@@ -201,7 +199,13 @@ for arq in arquivos_alvo:
             if os.path.exists("temp_viagens.zip"): os.remove("temp_viagens.zip")
 
     except Exception as e:
+        erros_extracao += 1
         print(f"  ❌ Erro no ficheiro {arq['nome']}: {e}")
+
+if erros_extracao or total_geral == 0:
+    with engine.begin() as conexao:
+        conexao.execute(text("DROP TABLE IF EXISTS diarias_passagens_staging;"))
+    sys.exit("❌ Carga cancelada; a tabela oficial de diárias foi preservada.")
 
 print(f"\n🎉 BASE DE DADOS PRONTA! Total de {total_geral} registos de viagens e diárias guardados.")
 
@@ -210,10 +214,10 @@ print(f"\n🎉 BASE DE DADOS PRONTA! Total de {total_geral} registos de viagens 
 # =====================================================================
 print("\n🧹 Executando a Guilhotina SQL (Eliminando clones absolutos de Diárias)...")
 query_dedup_diarias = text("""
-    DELETE FROM diarias_passagens
+    DELETE FROM diarias_passagens_staging
     WHERE ctid NOT IN (
         SELECT min(ctid)
-        FROM diarias_passagens
+        FROM diarias_passagens_staging
         -- Agrupa pelas colunas que identificam uma viagem única
         GROUP BY ano_exercicio, nome_servidor, destino, valor_total
     );
@@ -223,6 +227,18 @@ with engine.connect() as conexao:
     resultado = conexao.execute(query_dedup_diarias)
     linhas_deletadas = resultado.rowcount
     conexao.commit()
+
+with engine.begin() as conexao:
+    conexao.execute(text("TRUNCATE TABLE diarias_passagens;"))
+    conexao.execute(text("""
+        INSERT INTO diarias_passagens
+            (ano_exercicio, nome_orgao, nome_servidor, cargo, destino,
+             motivo_viagem, valor_diarias, valor_passagens, valor_total)
+        SELECT ano_exercicio, nome_orgao, nome_servidor, cargo, destino,
+               motivo_viagem, valor_diarias, valor_passagens, valor_total
+        FROM diarias_passagens_staging;
+    """))
+    conexao.execute(text("DROP TABLE diarias_passagens_staging;"))
 
 if linhas_deletadas > 0:
     print(f"   -> 🗑️ Sucesso! Foram deletadas {linhas_deletadas} viagens duplicadas enviadas pela API.")

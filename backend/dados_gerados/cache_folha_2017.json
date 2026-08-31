@@ -1,83 +1,83 @@
 {
-    "kpis": {
-        "total_folha": 21686174409.02,
-        "qtd_servidores": 3958842,
-        "media_salarial": 5477.908542199966
+  "kpis": {
+    "total_folha": 21686174409.02,
+    "qtd_servidores": 3958842,
+    "media_salarial": 5477.908542199966
+  },
+  "top_salarios": [
+    {
+      "nome": "CLEOMAR RIZZO ESSELIN FILHO",
+      "valor": 318832.16
     },
-    "top_salarios": [
-        {
-            "nome": "CLEOMAR RIZZO ESSELIN FILHO",
-            "valor": 318832.16
-        },
-        {
-            "nome": "CLEOMAR RIZZO ESSELIN FILHO",
-            "valor": 318832.16
-        },
-        {
-            "nome": "SONIA ALVES MATOS",
-            "valor": 294186.66
-        },
-        {
-            "nome": "SONIA ALVES MATOS",
-            "valor": 294186.66
-        },
-        {
-            "nome": "CARLOS LUCAS PENHA MATOS",
-            "valor": 294186.66
-        }
-    ],
-    "distribuicao": [
-        {
-            "name": "GOIÃS PREVIDÃNCIA - GOIASPREV",
-            "value": 8294336251.42
-        },
-        {
-            "name": "SECRETARIA DE EDUCAÃÃO, CULTURA E ESPORTE",
-            "value": 4233380207.72
-        },
-        {
-            "name": "POLÃCIA MILITAR",
-            "value": 2472572553.92
-        },
-        {
-            "name": "SECRETARIA DE ESTADO DA SAÃDE",
-            "value": 1118932263.5
-        },
-        {
-            "name": "SECRETARIA DE ESTADO DA FAZENDA",
-            "value": 1117061906.56
-        }
-    ],
-    "alertas_ia": [
-        {
-            "nome": "CLEOMAR RIZZO ESSELIN FILHO",
-            "orgao": "DEFENSORIA PÃBLICA DO ESTADO DE GOIÃS",
-            "valor": 318832.16,
-            "motivo": "Salário com desvio estatístico severo detectado pela IA"
-        },
-        {
-            "nome": "CLEOMAR RIZZO ESSELIN FILHO",
-            "orgao": "DEFENSORIA PÃBLICA DO ESTADO DE GOIÃS",
-            "valor": 318832.16,
-            "motivo": "Salário com desvio estatístico severo detectado pela IA"
-        },
-        {
-            "nome": "CARLOS LUCAS PENHA MATOS",
-            "orgao": "GOIÃS PREVIDÃNCIA - GOIASPREV",
-            "valor": 294186.66,
-            "motivo": "Salário com desvio estatístico severo detectado pela IA"
-        },
-        {
-            "nome": "SONIA ALVES MATOS",
-            "orgao": "GOIÃS PREVIDÃNCIA - GOIASPREV",
-            "valor": 294186.66,
-            "motivo": "Salário com desvio estatístico severo detectado pela IA"
-        },
-        {
-            "nome": "CARLOS LUCAS PENHA MATOS",
-            "orgao": "GOIÃS PREVIDÃNCIA - GOIASPREV",
-            "valor": 294186.66,
-            "motivo": "Salário com desvio estatístico severo detectado pela IA"
-        }
-    ]
+    {
+      "nome": "CLEOMAR RIZZO ESSELIN FILHO",
+      "valor": 318832.16
+    },
+    {
+      "nome": "SONIA ALVES MATOS",
+      "valor": 294186.66
+    },
+    {
+      "nome": "CARLOS LUCAS PENHA MATOS",
+      "valor": 294186.66
+    },
+    {
+      "nome": "SONIA ALVES MATOS",
+      "valor": 294186.66
+    }
+  ],
+  "distribuicao": [
+    {
+      "name": "GOIÁS PREVIDÊNCIA - GOIASPREV",
+      "value": 8294336251.42
+    },
+    {
+      "name": "SECRETARIA DE EDUCAÇÃO, CULTURA E ESPORTE",
+      "value": 4233380207.72
+    },
+    {
+      "name": "POLÍCIA MILITAR",
+      "value": 2472572553.92
+    },
+    {
+      "name": "SECRETARIA DE ESTADO DA SAÚDE",
+      "value": 1118932263.5
+    },
+    {
+      "name": "SECRETARIA DE ESTADO DA FAZENDA",
+      "value": 1117061906.56
+    }
+  ],
+  "alertas_ia": [
+    {
+      "nome": "CLEOMAR RIZZO ESSELIN FILHO",
+      "orgao": "DEFENSORIA PÚBLICA DO ESTADO DE GOIÁS",
+      "valor": 318832.16,
+      "motivo": "Maior remuneração bruta individual do período; requer contextualização"
+    },
+    {
+      "nome": "CLEOMAR RIZZO ESSELIN FILHO",
+      "orgao": "DEFENSORIA PÚBLICA DO ESTADO DE GOIÁS",
+      "valor": 318832.16,
+      "motivo": "Maior remuneração bruta individual do período; requer contextualização"
+    },
+    {
+      "nome": "SONIA ALVES MATOS",
+      "orgao": "GOIÁS PREVIDÊNCIA - GOIASPREV",
+      "valor": 294186.66,
+      "motivo": "Maior remuneração bruta individual do período; requer contextualização"
+    },
+    {
+      "nome": "CARLOS LUCAS PENHA MATOS",
+      "orgao": "GOIÁS PREVIDÊNCIA - GOIASPREV",
+      "valor": 294186.66,
+      "motivo": "Maior remuneração bruta individual do período; requer contextualização"
+    },
+    {
+      "nome": "SONIA ALVES MATOS",
+      "orgao": "GOIÁS PREVIDÊNCIA - GOIASPREV",
+      "valor": 294186.66,
+      "motivo": "Maior remuneração bruta individual do período; requer contextualização"
+    }
+  ]
 }

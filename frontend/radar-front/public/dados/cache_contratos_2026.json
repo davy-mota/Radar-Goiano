@@ -1,1 +1,9 @@
-{"kpis": {"valor_total": 0.0, "qtd_contratos": 0, "ticket_medio": 0}, "top_fornecedores": []}
+{
+  "kpis": {
+    "valor_total": 0.0,
+    "qtd_contratos": 0,
+    "ticket_medio": 0
+  },
+  "top_fornecedores": [],
+  "alertas_ia": []
+}

@@ -1,1 +1,81 @@
-{"kpis": {"valor_total": 6090108087.35, "qtd_contratos": 3255, "ticket_medio": 1871000.9484946239}, "top_fornecedores": [{"nome": "HOSPITAL E MATERNIDADE THEREZINHA DE JESUS", "valor": 1057600869.75}, {"nome": "CONSORCIO SONDA GOIAS DE FIBRA", "valor": 484476291.24}, {"nome": "FUNDACAO UNIVERSITARIA EVANGELICA", "valor": 223792282.38}, {"nome": "ASSOCIACAO DE GESTAO, INOVACAO E RESULTADOS EM SAUDE", "valor": 202624867.49}, {"nome": "IMED - INSTITUTO DE MEDICINA ESTUDOS E DESENVOLVIMENTO", "valor": 197107408.88}, {"nome": "FUNDAÃÃO UNIVERSITÃRIA EVANGÃLICA", "valor": 175962133.3}, {"nome": "FUNDACAO CULTURAL E DE FOMENTO A PESQUISA ENSINO EXTENSAO E INOVACAO FADEX", "valor": 162228889.6}, {"nome": "HELICOPTEROS DO BRASIL S A", "valor": 135232491.54}, {"nome": "INTERNATIONAL PUBLICITY - INTERPUB EVENTOS LTDA.", "valor": 108576217.43}, {"nome": "RENAULT DO BRASIL S/A", "valor": 102013740.0}]}
+{
+  "kpis": {
+    "valor_total": 6090108087.35,
+    "qtd_contratos": 3255,
+    "ticket_medio": 1871000.9484946239
+  },
+  "top_fornecedores": [
+    {
+      "nome": "HOSPITAL E MATERNIDADE THEREZINHA DE JESUS",
+      "valor": 1057600869.75
+    },
+    {
+      "nome": "CONSORCIO SONDA GOIAS DE FIBRA",
+      "valor": 484476291.24
+    },
+    {
+      "nome": "FUNDACAO UNIVERSITARIA EVANGELICA",
+      "valor": 223792282.38
+    },
+    {
+      "nome": "ASSOCIACAO DE GESTAO, INOVACAO E RESULTADOS EM SAUDE",
+      "valor": 202624867.49
+    },
+    {
+      "nome": "IMED - INSTITUTO DE MEDICINA ESTUDOS E DESENVOLVIMENTO",
+      "valor": 197107408.88
+    },
+    {
+      "nome": "FUNDAÇÃO UNIVERSITÁRIA EVANGÉLICA",
+      "valor": 175962133.3
+    },
+    {
+      "nome": "FUNDACAO CULTURAL E DE FOMENTO A PESQUISA ENSINO EXTENSAO E INOVACAO FADEX",
+      "valor": 162228889.6
+    },
+    {
+      "nome": "HELICOPTEROS DO BRASIL S A",
+      "valor": 135232491.54
+    },
+    {
+      "nome": "INTERNATIONAL PUBLICITY - INTERPUB EVENTOS LTDA.",
+      "valor": 108576217.43
+    },
+    {
+      "nome": "RENAULT DO BRASIL S/A",
+      "valor": 102013740.0
+    }
+  ],
+  "alertas_ia": [
+    {
+      "nome": "CONSORCIO SONDA GOIAS DE FIBRA",
+      "orgao": "SECRETARIA-GERAL DE GOVERNO",
+      "valor": 484476291.24,
+      "motivo": "Maior valor individual do período; requer validação documental"
+    },
+    {
+      "nome": "HOSPITAL E MATERNIDADE THEREZINHA DE JESUS",
+      "orgao": "SECRETARIA DE ESTADO DA SAÚDE",
+      "valor": 381710918.3,
+      "motivo": "Maior valor individual do período; requer validação documental"
+    },
+    {
+      "nome": "HOSPITAL E MATERNIDADE THEREZINHA DE JESUS",
+      "orgao": "SECRETARIA DE ESTADO DA SAÚDE",
+      "valor": 353519173.44,
+      "motivo": "Maior valor individual do período; requer validação documental"
+    },
+    {
+      "nome": "FUNDAÇÃO UNIVERSITÁRIA EVANGÉLICA",
+      "orgao": "SECRETARIA DE ESTADO DA SAÚDE",
+      "valor": 175962133.3,
+      "motivo": "Maior valor individual do período; requer validação documental"
+    },
+    {
+      "nome": "FUNDACAO CULTURAL E DE FOMENTO A PESQUISA ENSINO EXTENSAO E INOVACAO FADEX",
+      "orgao": "SECRETARIA DE ESTADO DA RETOMADA",
+      "valor": 162228889.6,
+      "motivo": "Maior valor individual do período; requer validação documental"
+    }
+  ]
+}

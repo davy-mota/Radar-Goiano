@@ -1,7 +1,7 @@
 import requests
 import pandas as pd
-from sqlalchemy import create_engine, text
-from urllib.parse import quote_plus
+from sqlalchemy import text
+from database import engine
 import zipfile
 import os
 import re
@@ -10,30 +10,11 @@ import sys
 # =====================================================================
 # 1. CONFIGURAÇÕES E CONEXÃO
 # =====================================================================
-senha_segura = quote_plus("gatodebotas") # <-- COLOQUE SUA SENHA AQUI
-engine = create_engine(f'postgresql://postgres:{senha_segura}@localhost:5432/gastos_governamentais') # <-- SEU BANCO
-
 colunas_banco = [
     "ano_exercicio", "mes_exercicio", "nome_orgao", "nome_servidor", 
     "cpf_mascarado", "cargo", "situacao_vinculo", 
     "valor_remuneracao_bruta", "valor_remuneracao_liquida"
 ]
-
-print("🧹 Limpando dados antigos da Folha para a nova extração (Full Refresh)...")
-with engine.connect() as conexao:
-    conexao.execute(text("TRUNCATE TABLE folha_pagamento;"))
-    conexao.commit()
-
-# 🔥 NOVO: LIMPEZA AUTOMÁTICA (CARGA FULL) PARA EVITAR DUPLICIDADE
-print("🧹 Limpando a tabela 'folha_pagamento' para evitar dados duplicados...")
-try:
-    with engine.begin() as conn:
-        conn.execute(text("TRUNCATE TABLE folha_pagamento RESTART IDENTITY CASCADE;"))
-    print("✨ Tabela limpa e pronta para receber os dados!")
-except Exception as e:
-    print(f"⚠️ Aviso ao tentar limpar a tabela: {e}")
-
-    
 
 # =====================================================================
 # 2. SELECIONANDO OS ALVOS (BUSCA INTELIGENTE)
@@ -80,6 +61,12 @@ if not arquivos_alvo:
     sys.exit()
 
 print(f"✅ Sucesso! Encontrados {len(arquivos_alvo)} ficheiros de folha de pagamento.")
+
+print("🧹 Fonte validada. Preparando a carga sem alterar a tabela oficial...")
+with engine.begin() as conn:
+    conn.execute(text("DROP TABLE IF EXISTS folha_pagamento_staging;"))
+    conn.execute(text("CREATE TABLE folha_pagamento_staging (LIKE folha_pagamento INCLUDING DEFAULTS);"))
+print("✨ Tabela de preparação pronta para receber os dados!")
 
 # =====================================================================
 # 3. FUNÇÃO DE LIMPEZA E MAPEAMENTO 
@@ -151,13 +138,14 @@ def transformar_e_salvar(df_lote, ano_do_arquivo):
         if col not in df_lote.columns: df_lote[col] = None
     df_lote = df_lote[colunas_banco]
             
-    df_lote.to_sql('folha_pagamento', engine, if_exists='append', index=False)
+    df_lote.to_sql('folha_pagamento_staging', engine, if_exists='append', index=False)
     return len(df_lote)
 
 # =====================================================================
 # 4. MOTOR DE EXTRAÇÃO 
 # =====================================================================
 total_geral = 0
+erros_extracao = 0
 tamanho_chunk = 150000
 
 def descobrir_ano_no_nome(texto):
@@ -216,7 +204,13 @@ for arq in arquivos_alvo:
             if os.path.exists("temp_folha.zip"): os.remove("temp_folha.zip")
 
     except Exception as e:
+        erros_extracao += 1
         print(f"  ❌ Erro no ficheiro {arq['nome']}: {e}")
+
+if erros_extracao or total_geral == 0:
+    with engine.begin() as conexao:
+        conexao.execute(text("DROP TABLE IF EXISTS folha_pagamento_staging;"))
+    sys.exit("❌ Carga cancelada; a tabela oficial da folha foi preservada.")
 
 print(f"\n🎉 DATA LAKE FINALIZADO! Total impressionante de {total_geral} contracheques guardados.")
 
@@ -225,10 +219,10 @@ print(f"\n🎉 DATA LAKE FINALIZADO! Total impressionante de {total_geral} contr
 # =====================================================================
 print("\n🧹 Executando a Guilhotina SQL (Eliminando clones absolutos da Folha)...")
 query_dedup_folha = text("""
-    DELETE FROM folha_pagamento
+    DELETE FROM folha_pagamento_staging
     WHERE ctid NOT IN (
         SELECT min(ctid)
-        FROM folha_pagamento
+        FROM folha_pagamento_staging
         -- Agrupa pelas colunas que, juntas, provam que é exatamente o mesmo salário
         GROUP BY ano_exercicio, nome_servidor, nome_orgao, valor_remuneracao_bruta
     );
@@ -238,6 +232,20 @@ with engine.connect() as conexao:
     resultado = conexao.execute(query_dedup_folha)
     linhas_deletadas = resultado.rowcount
     conexao.commit()
+
+with engine.begin() as conexao:
+    conexao.execute(text("TRUNCATE TABLE folha_pagamento RESTART IDENTITY CASCADE;"))
+    conexao.execute(text("""
+        INSERT INTO folha_pagamento
+            (ano_exercicio, mes_exercicio, nome_orgao, nome_servidor,
+             cpf_mascarado, cargo, situacao_vinculo,
+             valor_remuneracao_bruta, valor_remuneracao_liquida)
+        SELECT ano_exercicio, mes_exercicio, nome_orgao, nome_servidor,
+               cpf_mascarado, cargo, situacao_vinculo,
+               valor_remuneracao_bruta, valor_remuneracao_liquida
+        FROM folha_pagamento_staging;
+    """))
+    conexao.execute(text("DROP TABLE folha_pagamento_staging;"))
 
 if linhas_deletadas > 0:
     print(f"   -> 🗑️ Sucesso! Foram deletadas {linhas_deletadas} linhas duplicadas enviadas pela API.")

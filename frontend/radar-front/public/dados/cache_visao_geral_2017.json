@@ -1,1 +1,77 @@
-{"kpis": {"custo_total": 27272170398.6, "orgao_campeao": "GOIÃS PREVIDÃNCIA - GOIASPREV", "maior_despesa": 720999840.0, "alerta_teto": 10042}, "raio_x": [{"name": "Folha", "value": 21686174409.02}, {"name": "Contratos", "value": 5561450231.58}, {"name": "Diárias", "value": 24545758.0}], "top_orgaos": [{"nome": "GOIÃS PREVIDÃNCIA - GOIASPREV", "total": 8294336251.42}, {"nome": "SECRETARIA DE EDUCAÃÃO, CULTURA E ESPORTE", "total": 4233380207.72}, {"nome": "POLÃCIA MILITAR", "total": 2472572553.92}, {"nome": "SECRETARIA DE ESTADO DA SAÃDE", "total": 1118932263.5}, {"nome": "SECRETARIA DE ESTADO DA FAZENDA", "total": 1117061906.56}], "anomalias": {"maior_viajante": {"nome": "eberson holanda", "valor": 47992.0}, "empresa_favorita": {"nome": "NÃO INFORMADO", "qtd": 1754}}}
+{
+  "kpis": {
+    "custo_total": 27272170398.6,
+    "orgao_campeao": "GOIÁS PREVIDÊNCIA - GOIASPREV",
+    "maior_despesa": 720999840.0,
+    "alerta_teto": 10042
+  },
+  "raio_x": [
+    {
+      "name": "Folha",
+      "value": 21686174409.02
+    },
+    {
+      "name": "Contratos",
+      "value": 5561450231.58
+    },
+    {
+      "name": "Diárias",
+      "value": 24545758.0
+    }
+  ],
+  "top_orgaos": [
+    {
+      "nome": "GOIÁS PREVIDÊNCIA - GOIASPREV",
+      "total": 8294336251.42
+    },
+    {
+      "nome": "SECRETARIA DE EDUCAÇÃO, CULTURA E ESPORTE",
+      "total": 4233380207.72
+    },
+    {
+      "nome": "POLÍCIA MILITAR",
+      "total": 2472572553.92
+    },
+    {
+      "nome": "SECRETARIA DE ESTADO DA SAÚDE",
+      "total": 1118932263.5
+    },
+    {
+      "nome": "SECRETARIA DE ESTADO DA FAZENDA",
+      "total": 1117061906.56
+    }
+  ],
+  "anomalias": {
+    "maior_viajante": {
+      "nome": "eberson holanda",
+      "valor": 47992.0
+    },
+    "empresa_favorita": {
+      "nome": "NÃO INFORMADO",
+      "qtd": 1754
+    }
+  },
+  "radar_ia_geral": [
+    {
+      "nome": "CLEOMAR RIZZO ESSELIN FILHO",
+      "orgao": "DEFENSORIA PÚBLICA DO ESTADO DE GOIÁS",
+      "valor": 318832.16,
+      "motivo": "Maior remuneração bruta individual do período; requer contextualização",
+      "tipo": "Folha"
+    },
+    {
+      "nome": "ASSOCIACAO GOIANA DE INT E REABILITACAO",
+      "orgao": "SECRETARIA DE ESTADO DA SAÚDE",
+      "valor": 720999840.0,
+      "motivo": "Maior valor individual do período; requer validação documental",
+      "tipo": "Contratos"
+    },
+    {
+      "nome": "murilo mendonÃ§a barra",
+      "orgao": "porto e covilha portugal",
+      "valor": 11514.0,
+      "motivo": "Maior valor individual de diária do período; requer validação documental",
+      "tipo": "Diárias"
+    }
+  ]
+}

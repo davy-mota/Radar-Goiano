@@ -1,1 +1,83 @@
-{"kpis": {"total_gasto": 11170972.0, "qtd_viagens": 44038, "maior_diaria": 9920.0}, "top_viajantes": [{"nome": "sebastiao silvestre de souza", "valor": 40180.0}, {"nome": "vera lucia vieira", "valor": 29400.0}, {"nome": "mauricio barbosa de oliveira", "valor": 28670.0}, {"nome": "nereu azevedo dos santos", "valor": 28280.0}, {"nome": "leonel cabral", "valor": 28030.0}], "top_destinos": [{"name": "brasilia - df", "value": 757491.0}, {"name": "aruana - go", "value": 619644.0}, {"name": "goiania - go", "value": 592849.0}, {"name": "goias - go", "value": 258757.0}, {"name": "alto paraiso de goias - go", "value": 241586.0}]}
+{
+  "kpis": {
+    "total_gasto": 11170972.0,
+    "qtd_viagens": 44038,
+    "maior_diaria": 9920.0
+  },
+  "top_viajantes": [
+    {
+      "nome": "sebastiao silvestre de souza",
+      "valor": 40180.0
+    },
+    {
+      "nome": "vera lucia vieira",
+      "valor": 29400.0
+    },
+    {
+      "nome": "mauricio barbosa de oliveira",
+      "valor": 28670.0
+    },
+    {
+      "nome": "nereu azevedo dos santos",
+      "valor": 28280.0
+    },
+    {
+      "nome": "leonel cabral",
+      "valor": 28030.0
+    }
+  ],
+  "top_destinos": [
+    {
+      "name": "brasilia - df",
+      "value": 757491.0
+    },
+    {
+      "name": "aruana - go",
+      "value": 619644.0
+    },
+    {
+      "name": "goiania - go",
+      "value": 592849.0
+    },
+    {
+      "name": "goias - go",
+      "value": 258757.0
+    },
+    {
+      "name": "alto paraiso de goias - go",
+      "value": 241586.0
+    }
+  ],
+  "alertas_ia": [
+    {
+      "nome": "daniel goncalves vitorino campos de miranda",
+      "orgao": "fortaleza - ce",
+      "valor": 9920.0,
+      "motivo": "Maior valor individual de diária do período; requer validação documental"
+    },
+    {
+      "nome": "daniel goncalves vitorino campos de miranda",
+      "orgao": "fortaleza - ce",
+      "valor": 9600.0,
+      "motivo": "Maior valor individual de diária do período; requer validação documental"
+    },
+    {
+      "nome": "rafaello virgilli",
+      "orgao": "brasilia - df",
+      "valor": 6400.0,
+      "motivo": "Maior valor individual de diária do período; requer validação documental"
+    },
+    {
+      "nome": "pedro luiz dos santos",
+      "orgao": "recife - pe",
+      "valor": 6180.0,
+      "motivo": "Maior valor individual de diária do período; requer validação documental"
+    },
+    {
+      "nome": "pedro marinho de oliveira filho",
+      "orgao": "recife - pe",
+      "valor": 6180.0,
+      "motivo": "Maior valor individual de diária do período; requer validação documental"
+    }
+  ]
+}

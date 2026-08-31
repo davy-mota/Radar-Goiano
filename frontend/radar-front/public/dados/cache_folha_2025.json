@@ -1,1 +1,83 @@
-{"kpis": {"total_folha": 21414637062.87, "qtd_servidores": 1986635, "media_salarial": 10779.35154815555}, "top_salarios": [{"nome": "MARIETA CRUZ DIAS TEIXEIRA", "valor": 1288983.52}, {"nome": "MARIA RAIMUNDA DO VALE MODESTO", "valor": 1080022.8}, {"nome": "ZELIA DE MELO ALMEIDA", "valor": 551459.3}, {"nome": "FRANCISCO LEANDRO NETO", "valor": 512141.2}, {"nome": "OSVALDIR BERNARDES PEREIRA", "valor": 501113.93}], "distribuicao": [{"name": "GOIÃS PREVIDÃNCIA - GOIASPREV", "value": 8804214469.45}, {"name": "SECRETARIA DE ESTADO DA EDUCAÃÃO", "value": 4036201833.83}, {"name": "POLÃCIA MILITAR", "value": 2430901939.45}, {"name": "DELEGACIA-GERAL DA POLÃCIA CIVIL", "value": 908433562.08}, {"name": "SECRETARIA DE ESTADO DA SAÃDE", "value": 858025558.06}]}
+{
+  "kpis": {
+    "total_folha": 21414637062.87,
+    "qtd_servidores": 1986635,
+    "media_salarial": 10779.35154815555
+  },
+  "top_salarios": [
+    {
+      "nome": "MARIETA CRUZ DIAS TEIXEIRA",
+      "valor": 1288983.52
+    },
+    {
+      "nome": "MARIA RAIMUNDA DO VALE MODESTO",
+      "valor": 1080022.8
+    },
+    {
+      "nome": "ZELIA DE MELO ALMEIDA",
+      "valor": 551459.3
+    },
+    {
+      "nome": "FRANCISCO LEANDRO NETO",
+      "valor": 512141.2
+    },
+    {
+      "nome": "OSVALDIR BERNARDES PEREIRA",
+      "valor": 501113.93
+    }
+  ],
+  "distribuicao": [
+    {
+      "name": "GOIÁS PREVIDÊNCIA - GOIASPREV",
+      "value": 8804214469.45
+    },
+    {
+      "name": "SECRETARIA DE ESTADO DA EDUCAÇÃO",
+      "value": 4036201833.83
+    },
+    {
+      "name": "POLÍCIA MILITAR",
+      "value": 2430901939.45
+    },
+    {
+      "name": "DELEGACIA-GERAL DA POLÍCIA CIVIL",
+      "value": 908433562.08
+    },
+    {
+      "name": "SECRETARIA DE ESTADO DA SAÚDE",
+      "value": 858025558.06
+    }
+  ],
+  "alertas_ia": [
+    {
+      "nome": "MARIETA CRUZ DIAS TEIXEIRA",
+      "orgao": "GOIÁS PREVIDÊNCIA - GOIASPREV",
+      "valor": 1288983.52,
+      "motivo": "Maior remuneração bruta individual do período; requer contextualização"
+    },
+    {
+      "nome": "MARIA RAIMUNDA DO VALE MODESTO",
+      "orgao": "GOIÁS PREVIDÊNCIA - GOIASPREV",
+      "valor": 1080022.8,
+      "motivo": "Maior remuneração bruta individual do período; requer contextualização"
+    },
+    {
+      "nome": "ZELIA DE MELO ALMEIDA",
+      "orgao": "GOIÁS PREVIDÊNCIA - GOIASPREV",
+      "valor": 551459.3,
+      "motivo": "Maior remuneração bruta individual do período; requer contextualização"
+    },
+    {
+      "nome": "FRANCISCO LEANDRO NETO",
+      "orgao": "SECRETARIA DE ESTADO DA ECONOMIA",
+      "valor": 512141.2,
+      "motivo": "Maior remuneração bruta individual do período; requer contextualização"
+    },
+    {
+      "nome": "OSVALDIR BERNARDES PEREIRA",
+      "orgao": "SECRETARIA DE ESTADO DA ECONOMIA",
+      "valor": 501113.93,
+      "motivo": "Maior remuneração bruta individual do período; requer contextualização"
+    }
+  ]
+}

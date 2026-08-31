@@ -1,83 +1,83 @@
 {
-    "kpis": {
-        "total_folha": 19311224318.42,
-        "qtd_servidores": 3940812,
-        "media_salarial": 4900.316056289922
+  "kpis": {
+    "total_folha": 19311224318.42,
+    "qtd_servidores": 3940812,
+    "media_salarial": 4900.316056289922
+  },
+  "top_salarios": [
+    {
+      "nome": "ANTONIO ALBINO FERREIRA NETO",
+      "valor": 429811.58
     },
-    "top_salarios": [
-        {
-            "nome": "ANTONIO ALBINO FERREIRA NETO",
-            "valor": 429811.58
-        },
-        {
-            "nome": "ANTONIO ALBINO FERREIRA NETO",
-            "valor": 429811.58
-        },
-        {
-            "nome": "LOURENCA MOREIRA CAVALCANTE RODRIGUES DE OLIVEIRA",
-            "valor": 378617.22
-        },
-        {
-            "nome": "LOURENCA MOREIRA CAVALCANTE RODRIGUES DE OLIVEIRA",
-            "valor": 378617.22
-        },
-        {
-            "nome": "ANTONIO CAIXETA",
-            "valor": 243065.02
-        }
-    ],
-    "distribuicao": [
-        {
-            "name": "GOIÃS PREVIDÃNCIA - GOIASPREV",
-            "value": 7075185458.98
-        },
-        {
-            "name": "SECRETARIA DE EDUCAÃÃO, CULTURA E ESPORTE",
-            "value": 3779991166.04
-        },
-        {
-            "name": "POLÃCIA MILITAR",
-            "value": 2193984915.78
-        },
-        {
-            "name": "SECRETARIA DE ESTADO DA SAÃDE",
-            "value": 1202651459.64
-        },
-        {
-            "name": "SECRETARIA DE ESTADO DA FAZENDA",
-            "value": 992885053.76
-        }
-    ],
-    "alertas_ia": [
-        {
-            "nome": "ANTONIO ALBINO FERREIRA NETO",
-            "orgao": "GOIÃS PREVIDÃNCIA - GOIASPREV",
-            "valor": 429811.58,
-            "motivo": "Salário com desvio estatístico severo detectado pela IA"
-        },
-        {
-            "nome": "ANTONIO ALBINO FERREIRA NETO",
-            "orgao": "GOIÃS PREVIDÃNCIA - GOIASPREV",
-            "valor": 429811.58,
-            "motivo": "Salário com desvio estatístico severo detectado pela IA"
-        },
-        {
-            "nome": "LOURENCA MOREIRA CAVALCANTE RODRIGUES DE OLIVEIRA",
-            "orgao": "SECRETARIA DE ESTADO DA FAZENDA",
-            "valor": 378617.22,
-            "motivo": "Salário com desvio estatístico severo detectado pela IA"
-        },
-        {
-            "nome": "LOURENCA MOREIRA CAVALCANTE RODRIGUES DE OLIVEIRA",
-            "orgao": "SECRETARIA DE ESTADO DA FAZENDA",
-            "valor": 378617.22,
-            "motivo": "Salário com desvio estatístico severo detectado pela IA"
-        },
-        {
-            "nome": "ANTONIO CAIXETA",
-            "orgao": "GOIÃS PREVIDÃNCIA - GOIASPREV",
-            "valor": 243065.02,
-            "motivo": "Salário com desvio estatístico severo detectado pela IA"
-        }
-    ]
+    {
+      "nome": "ANTONIO ALBINO FERREIRA NETO",
+      "valor": 429811.58
+    },
+    {
+      "nome": "LOURENCA MOREIRA CAVALCANTE RODRIGUES DE OLIVEIRA",
+      "valor": 378617.22
+    },
+    {
+      "nome": "LOURENCA MOREIRA CAVALCANTE RODRIGUES DE OLIVEIRA",
+      "valor": 378617.22
+    },
+    {
+      "nome": "ANTONIO CAIXETA",
+      "valor": 243065.02
+    }
+  ],
+  "distribuicao": [
+    {
+      "name": "GOIÁS PREVIDÊNCIA - GOIASPREV",
+      "value": 7075185458.98
+    },
+    {
+      "name": "SECRETARIA DE EDUCAÇÃO, CULTURA E ESPORTE",
+      "value": 3779991166.04
+    },
+    {
+      "name": "POLÍCIA MILITAR",
+      "value": 2193984915.78
+    },
+    {
+      "name": "SECRETARIA DE ESTADO DA SAÚDE",
+      "value": 1202651459.64
+    },
+    {
+      "name": "SECRETARIA DE ESTADO DA FAZENDA",
+      "value": 992885053.76
+    }
+  ],
+  "alertas_ia": [
+    {
+      "nome": "ANTONIO ALBINO FERREIRA NETO",
+      "orgao": "GOIÁS PREVIDÊNCIA - GOIASPREV",
+      "valor": 429811.58,
+      "motivo": "Maior remuneração bruta individual do período; requer contextualização"
+    },
+    {
+      "nome": "ANTONIO ALBINO FERREIRA NETO",
+      "orgao": "GOIÁS PREVIDÊNCIA - GOIASPREV",
+      "valor": 429811.58,
+      "motivo": "Maior remuneração bruta individual do período; requer contextualização"
+    },
+    {
+      "nome": "LOURENCA MOREIRA CAVALCANTE RODRIGUES DE OLIVEIRA",
+      "orgao": "SECRETARIA DE ESTADO DA FAZENDA",
+      "valor": 378617.22,
+      "motivo": "Maior remuneração bruta individual do período; requer contextualização"
+    },
+    {
+      "nome": "LOURENCA MOREIRA CAVALCANTE RODRIGUES DE OLIVEIRA",
+      "orgao": "SECRETARIA DE ESTADO DA FAZENDA",
+      "valor": 378617.22,
+      "motivo": "Maior remuneração bruta individual do período; requer contextualização"
+    },
+    {
+      "nome": "ANTONIO CAIXETA",
+      "orgao": "GOIÁS PREVIDÊNCIA - GOIASPREV",
+      "valor": 243065.02,
+      "motivo": "Maior remuneração bruta individual do período; requer contextualização"
+    }
+  ]
 }

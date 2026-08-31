@@ -1,81 +1,81 @@
 {
-    "kpis": {
-        "valor_total": 6000042451.39,
-        "qtd_contratos": 2424,
-        "ticket_medio": 2475265.0377021455
+  "kpis": {
+    "valor_total": 6000042451.39,
+    "qtd_contratos": 2424,
+    "ticket_medio": 2475265.0377021455
+  },
+  "top_fornecedores": [
+    {
+      "nome": "FUNDACAO PIO XII",
+      "valor": 2391914945.21
     },
-    "top_fornecedores": [
-        {
-            "nome": "FUNDACAO PIO XII",
-            "valor": 2391914945.21
-        },
-        {
-            "nome": "NÃ£o se aplica",
-            "valor": 1645453483.17
-        },
-        {
-            "nome": "IMED-INSTITUTO DE MEDICINA, ESTUDOS E DESENVOLVIMENTO",
-            "valor": 248318154.24
-        },
-        {
-            "nome": "Secretaria da EducaÃ§Ã£o",
-            "valor": 233310000.0
-        },
-        {
-            "nome": "FUNDAÃÃO UNIVERSITÃRIA EVANGÃLICA",
-            "valor": 108612979.68
-        },
-        {
-            "nome": "EBN COMERCIO, IMPORTACAO E EXPORTACAO LTDA",
-            "valor": 97554082.48
-        },
-        {
-            "nome": "BOMSUCESSO TRANSPORTES EIRELI ME",
-            "valor": 76199991.84
-        },
-        {
-            "nome": "ASSOCIACAO GOIANA DE INT E REABILITACAO",
-            "valor": 68779368.44
-        },
-        {
-            "nome": "PAPELARIA TRIBUTARIA LTDA",
-            "valor": 41170064.37
-        },
-        {
-            "nome": "META SERVICOS E PROJETOS LTDA",
-            "valor": 39528686.08
-        }
-    ],
-    "alertas_ia": [
-        {
-            "nome": "FUNDACAO PIO XII",
-            "orgao": "Não especificado",
-            "valor": 2391914945.21,
-            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA"
-        },
-        {
-            "nome": "NÃ£o se aplica",
-            "orgao": "Não especificado",
-            "valor": 669240729.6,
-            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA"
-        },
-        {
-            "nome": "IMED-INSTITUTO DE MEDICINA, ESTUDOS E DESENVOLVIMENTO",
-            "orgao": "Não especificado",
-            "valor": 248318154.24,
-            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA"
-        },
-        {
-            "nome": "Secretaria da EducaÃ§Ã£o",
-            "orgao": "Não especificado",
-            "valor": 233310000.0,
-            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA"
-        },
-        {
-            "nome": "NÃ£o se aplica",
-            "orgao": "Não especificado",
-            "valor": 226838371.2,
-            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA"
-        }
-    ]
+    {
+      "nome": "NÃ£o se aplica",
+      "valor": 1645453483.17
+    },
+    {
+      "nome": "IMED-INSTITUTO DE MEDICINA, ESTUDOS E DESENVOLVIMENTO",
+      "valor": 248318154.24
+    },
+    {
+      "nome": "Secretaria da EducaÃ§Ã£o",
+      "valor": 233310000.0
+    },
+    {
+      "nome": "FUNDAÇÃO UNIVERSITÁRIA EVANGÉLICA",
+      "valor": 108612979.68
+    },
+    {
+      "nome": "EBN COMERCIO, IMPORTACAO E EXPORTACAO LTDA",
+      "valor": 97554082.48
+    },
+    {
+      "nome": "BOMSUCESSO TRANSPORTES EIRELI ME",
+      "valor": 76199991.84
+    },
+    {
+      "nome": "ASSOCIACAO GOIANA DE INT E REABILITACAO",
+      "valor": 68779368.44
+    },
+    {
+      "nome": "PAPELARIA TRIBUTARIA LTDA",
+      "valor": 41170064.37
+    },
+    {
+      "nome": "META SERVICOS E PROJETOS LTDA",
+      "valor": 39528686.08
+    }
+  ],
+  "alertas_ia": [
+    {
+      "nome": "FUNDACAO PIO XII",
+      "orgao": "SECRETARIA DE ESTADO DA SAÚDE",
+      "valor": 2391914945.21,
+      "motivo": "Maior valor individual do período; requer validação documental"
+    },
+    {
+      "nome": "NÃ£o se aplica",
+      "orgao": "SECRETARIA DE ESTADO DA SAÚDE",
+      "valor": 669240729.6,
+      "motivo": "Maior valor individual do período; requer validação documental"
+    },
+    {
+      "nome": "IMED-INSTITUTO DE MEDICINA, ESTUDOS E DESENVOLVIMENTO",
+      "orgao": "SECRETARIA DE ESTADO DA SAÚDE",
+      "valor": 248318154.24,
+      "motivo": "Maior valor individual do período; requer validação documental"
+    },
+    {
+      "nome": "Secretaria da EducaÃ§Ã£o",
+      "orgao": "SECRETARIA DE ESTADO DA EDUCAÇÃO",
+      "valor": 233310000.0,
+      "motivo": "Maior valor individual do período; requer validação documental"
+    },
+    {
+      "nome": "NÃ£o se aplica",
+      "orgao": "SECRETARIA DE ESTADO DA SAÚDE",
+      "valor": 226838371.2,
+      "motivo": "Maior valor individual do período; requer validação documental"
+    }
+  ]
 }

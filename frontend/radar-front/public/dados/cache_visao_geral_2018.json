@@ -1,1 +1,77 @@
-{"kpis": {"custo_total": 26556715781.949997, "orgao_campeao": "GOIÃS PREVIDÃNCIA - GOIASPREV", "maior_despesa": 420697007.61, "alerta_teto": 16786}, "raio_x": [{"name": "Folha", "value": 25003687716.62}, {"name": "Contratos", "value": 1531158562.33}, {"name": "Diárias", "value": 21869503.0}], "top_orgaos": [{"nome": "GOIÃS PREVIDÃNCIA - GOIASPREV", "total": 9433069962.1}, {"nome": "SECRETARIA DE EDUCAÃÃO, CULTURA E ESPORTE", "total": 4811163094.68}, {"nome": "POLÃCIA MILITAR", "total": 2928240221.18}, {"nome": "SECRETARIA DE ESTADO DA FAZENDA", "total": 1345854887.32}, {"nome": "SECRETARIA DE ESTADO DA SAÃDE", "total": 1186133391.5}], "anomalias": {"maior_viajante": {"nome": "francisco de assis peixoto", "valor": 45396.0}, "empresa_favorita": {"nome": "NÃO INFORMADO", "qtd": 2119}}}
+{
+  "kpis": {
+    "custo_total": 26556715781.949997,
+    "orgao_campeao": "GOIÁS PREVIDÊNCIA - GOIASPREV",
+    "maior_despesa": 420697007.61,
+    "alerta_teto": 16786
+  },
+  "raio_x": [
+    {
+      "name": "Folha",
+      "value": 25003687716.62
+    },
+    {
+      "name": "Contratos",
+      "value": 1531158562.33
+    },
+    {
+      "name": "Diárias",
+      "value": 21869503.0
+    }
+  ],
+  "top_orgaos": [
+    {
+      "nome": "GOIÁS PREVIDÊNCIA - GOIASPREV",
+      "total": 9433069962.1
+    },
+    {
+      "nome": "SECRETARIA DE EDUCAÇÃO, CULTURA E ESPORTE",
+      "total": 4811163094.68
+    },
+    {
+      "nome": "POLÍCIA MILITAR",
+      "total": 2928240221.18
+    },
+    {
+      "nome": "SECRETARIA DE ESTADO DA FAZENDA",
+      "total": 1345854887.32
+    },
+    {
+      "nome": "SECRETARIA DE ESTADO DA SAÚDE",
+      "total": 1186133391.5
+    }
+  ],
+  "anomalias": {
+    "maior_viajante": {
+      "nome": "francisco de assis peixoto",
+      "valor": 45396.0
+    },
+    "empresa_favorita": {
+      "nome": "NÃO INFORMADO",
+      "qtd": 2119
+    }
+  },
+  "radar_ia_geral": [
+    {
+      "nome": "CLAUDIA NUNES TRONCOSO RIBEIRO",
+      "orgao": "DEFENSORIA PÚBLICA DO ESTADO DE GOIÁS",
+      "valor": 474214.85,
+      "motivo": "Maior remuneração bruta individual do período; requer contextualização",
+      "tipo": "Folha"
+    },
+    {
+      "nome": "INSTITUTO DE DESENVOLVIMENTO TECNOLOGICO E HUMANO",
+      "orgao": "SECRETARIA DE ESTADO DA SAÚDE",
+      "valor": 420697007.61,
+      "motivo": "Maior valor individual do período; requer validação documental",
+      "tipo": "Contratos"
+    },
+    {
+      "nome": "almir pinto viana",
+      "orgao": "recife - pe",
+      "valor": 10340.0,
+      "motivo": "Maior valor individual de diária do período; requer validação documental",
+      "tipo": "Diárias"
+    }
+  ]
+}

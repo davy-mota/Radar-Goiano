@@ -1,7 +1,7 @@
 {
     "kpis": {
         "custo_total": 679029463114.6901,
-        "orgao_campeao": "GOIÃS PREVIDÃNCIA - GOIASPREV",
+        "orgao_campeao": "GOIÁS PREVIDÊNCIA - GOIASPREV",
         "maior_despesa": 189350036900.0,
         "alerta_teto": 301641
     },
@@ -21,33 +21,33 @@
     ],
     "top_orgaos": [
         {
-            "nome": "GOIÃS PREVIDÃNCIA - GOIASPREV",
+            "nome": "Goiás Previdência - GOIASPREV",
             "total": 108317149550.73
         },
         {
-            "nome": "SECRETARIA DE ESTADO DA EDUCAÃÃO",
+            "nome": "Secretaria de Estado da Educação",
             "total": 47440906507.33
         },
         {
-            "nome": "POLÃCIA MILITAR",
+            "nome": "Polícia Militar",
             "total": 37389483967.47
         },
         {
-            "nome": "FUNDO DE PREVIDENCIA ESTADUAL",
+            "nome": "Fundo de Previdencia Estadual",
             "total": 19678755215.7
         },
         {
-            "nome": "SECRETARIA DE EDUCAÃÃO, CULTURA E ESPORTE",
+            "nome": "Secretaria de Educação, Cultura e Esporte",
             "total": 16783881481.9
         }
     ],
     "anomalias": {
         "maior_viajante": {
-            "nome": "mauricio barbosa de oliveira",
+            "nome": "Mauricio Barbosa de Oliveira",
             "valor": 483220.0
         },
         "empresa_favorita": {
-            "nome": "NÃO INFORMADO",
+            "nome": "Não Informado",
             "qtd": 602316
         }
     }

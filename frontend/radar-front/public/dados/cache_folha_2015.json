@@ -1,1 +1,83 @@
-{"kpis": {"total_folha": 18241853104.56, "qtd_servidores": 3903498, "media_salarial": 4673.206724983592}, "top_salarios": [{"nome": "ADEMAR TORRES NASCENTE", "valor": 199108.53}, {"nome": "ADEMAR TORRES NASCENTE", "valor": 199108.53}, {"nome": "CARLOS ALBERTO BUENO", "valor": 197533.1}, {"nome": "CARLOS ALBERTO BUENO", "valor": 197533.1}, {"nome": "CELIA REIS DI REZENDE", "valor": 161887.63}], "distribuicao": [{"name": "FUNDO DE PREVIDENCIA ESTADUAL", "value": 5358850539.72}, {"name": "SECRETARIA DE EDUCAÃÃO, CULTURA E ESPORTE", "value": 3624044540.28}, {"name": "POLÃCIA MILITAR", "value": 2109633045.6}, {"name": "SECRETARIA DE ESTADO DA SAÃDE", "value": 1202182701.94}, {"name": "GOIÃS PREVIDÃNCIA - GOIASPREV", "value": 1139678608.18}]}
+{
+  "kpis": {
+    "total_folha": 18241853104.56,
+    "qtd_servidores": 3903498,
+    "media_salarial": 4673.206724983592
+  },
+  "top_salarios": [
+    {
+      "nome": "ADEMAR TORRES NASCENTE",
+      "valor": 199108.53
+    },
+    {
+      "nome": "ADEMAR TORRES NASCENTE",
+      "valor": 199108.53
+    },
+    {
+      "nome": "CARLOS ALBERTO BUENO",
+      "valor": 197533.1
+    },
+    {
+      "nome": "CARLOS ALBERTO BUENO",
+      "valor": 197533.1
+    },
+    {
+      "nome": "CELIA REIS DI REZENDE",
+      "valor": 161887.63
+    }
+  ],
+  "distribuicao": [
+    {
+      "name": "FUNDO DE PREVIDENCIA ESTADUAL",
+      "value": 5358850539.72
+    },
+    {
+      "name": "SECRETARIA DE EDUCAÇÃO, CULTURA E ESPORTE",
+      "value": 3624044540.28
+    },
+    {
+      "name": "POLÍCIA MILITAR",
+      "value": 2109633045.6
+    },
+    {
+      "name": "SECRETARIA DE ESTADO DA SAÚDE",
+      "value": 1202182701.94
+    },
+    {
+      "name": "GOIÁS PREVIDÊNCIA - GOIASPREV",
+      "value": 1139678608.18
+    }
+  ],
+  "alertas_ia": [
+    {
+      "nome": "ADEMAR TORRES NASCENTE",
+      "orgao": "SECRETARIA DE ESTADO DA FAZENDA",
+      "valor": 199108.53,
+      "motivo": "Maior remuneração bruta individual do período; requer contextualização"
+    },
+    {
+      "nome": "ADEMAR TORRES NASCENTE",
+      "orgao": "SECRETARIA DE ESTADO DA FAZENDA",
+      "valor": 199108.53,
+      "motivo": "Maior remuneração bruta individual do período; requer contextualização"
+    },
+    {
+      "nome": "CARLOS ALBERTO BUENO",
+      "orgao": "SECRETARIA DE ESTADO DA FAZENDA",
+      "valor": 197533.1,
+      "motivo": "Maior remuneração bruta individual do período; requer contextualização"
+    },
+    {
+      "nome": "CARLOS ALBERTO BUENO",
+      "orgao": "SECRETARIA DE ESTADO DA FAZENDA",
+      "valor": 197533.1,
+      "motivo": "Maior remuneração bruta individual do período; requer contextualização"
+    },
+    {
+      "nome": "CELIA REIS DI REZENDE",
+      "orgao": "SECRETARIA DE ESTADO DA FAZENDA",
+      "valor": 161887.63,
+      "motivo": "Maior remuneração bruta individual do período; requer contextualização"
+    }
+  ]
+}

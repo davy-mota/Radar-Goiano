@@ -1,81 +1,81 @@
 {
-    "kpis": {
-        "valor_total": 1508969274.94,
-        "qtd_contratos": 2066,
-        "ticket_medio": 730382.0304646661
+  "kpis": {
+    "valor_total": 1508969274.94,
+    "qtd_contratos": 2066,
+    "ticket_medio": 730382.0304646661
+  },
+  "top_fornecedores": [
+    {
+      "nome": "NÃ£o se aplica",
+      "valor": 856255627.92
     },
-    "top_fornecedores": [
-        {
-            "nome": "NÃ£o se aplica",
-            "valor": 856255627.92
-        },
-        {
-            "nome": "FUNDAÃÃO UNIVERSITÃRIA EVANGÃLICA",
-            "valor": 256599783.36
-        },
-        {
-            "nome": "TICKET SOLUCOES HDFGT S/A",
-            "valor": 44479170.04
-        },
-        {
-            "nome": "MAN LATIN AMERICA IND. E COM. DE VEICS LTDA",
-            "valor": 38970780.0
-        },
-        {
-            "nome": "ALFA EVENTOS LTDA",
-            "valor": 27112125.48
-        },
-        {
-            "nome": "STAFF LOCACOES E EVENTOS LTDA - EPP",
-            "valor": 24461527.2
-        },
-        {
-            "nome": "ADP TRANSPORTE E TURISMO EIRELI - ME",
-            "valor": 22493974.2
-        },
-        {
-            "nome": "CELG DISTRIBUICAO S.A. - CELG D",
-            "valor": 13985129.69
-        },
-        {
-            "nome": "EMBEV EMPRESA BRASILEIRA DE EVENTOS EIRELI ME",
-            "valor": 12389850.0
-        },
-        {
-            "nome": "MEMORA PROCESSOS INOVADORES LTDA",
-            "valor": 12287074.67
-        }
-    ],
-    "alertas_ia": [
-        {
-            "nome": "NÃ£o se aplica",
-            "orgao": "Não especificado",
-            "valor": 721745990.4,
-            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA"
-        },
-        {
-            "nome": "FUNDAÃÃO UNIVERSITÃRIA EVANGÃLICA",
-            "orgao": "Não especificado",
-            "valor": 256599783.36,
-            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA"
-        },
-        {
-            "nome": "NÃ£o se aplica",
-            "orgao": "Não especificado",
-            "valor": 124883744.64,
-            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA"
-        },
-        {
-            "nome": "MAN LATIN AMERICA IND. E COM. DE VEICS LTDA",
-            "orgao": "Não especificado",
-            "valor": 38970780.0,
-            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA"
-        },
-        {
-            "nome": "TICKET SOLUCOES HDFGT S/A",
-            "orgao": "Não especificado",
-            "valor": 33591979.2,
-            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA"
-        }
-    ]
+    {
+      "nome": "FUNDAÇÃO UNIVERSITÁRIA EVANGÉLICA",
+      "valor": 256599783.36
+    },
+    {
+      "nome": "TICKET SOLUCOES HDFGT S/A",
+      "valor": 44479170.04
+    },
+    {
+      "nome": "MAN LATIN AMERICA IND. E COM. DE VEICS LTDA",
+      "valor": 38970780.0
+    },
+    {
+      "nome": "ALFA EVENTOS LTDA",
+      "valor": 27112125.48
+    },
+    {
+      "nome": "STAFF LOCACOES E EVENTOS LTDA - EPP",
+      "valor": 24461527.2
+    },
+    {
+      "nome": "ADP TRANSPORTE E TURISMO EIRELI - ME",
+      "valor": 22493974.2
+    },
+    {
+      "nome": "CELG DISTRIBUICAO S.A. - CELG D",
+      "valor": 13985129.69
+    },
+    {
+      "nome": "EMBEV EMPRESA BRASILEIRA DE EVENTOS EIRELI ME",
+      "valor": 12389850.0
+    },
+    {
+      "nome": "MEMORA PROCESSOS INOVADORES LTDA",
+      "valor": 12287074.67
+    }
+  ],
+  "alertas_ia": [
+    {
+      "nome": "NÃ£o se aplica",
+      "orgao": "SECRETARIA DE ESTADO DA SAÚDE",
+      "valor": 721745990.4,
+      "motivo": "Maior valor individual do período; requer validação documental"
+    },
+    {
+      "nome": "FUNDAÇÃO UNIVERSITÁRIA EVANGÉLICA",
+      "orgao": "SECRETARIA DE ESTADO DA SAÚDE",
+      "valor": 256599783.36,
+      "motivo": "Maior valor individual do período; requer validação documental"
+    },
+    {
+      "nome": "NÃ£o se aplica",
+      "orgao": "SECRETARIA DE ESTADO DA SAÚDE",
+      "valor": 124883744.64,
+      "motivo": "Maior valor individual do período; requer validação documental"
+    },
+    {
+      "nome": "MAN LATIN AMERICA IND. E COM. DE VEICS LTDA",
+      "orgao": "SECRETARIA DE ESTADO DA EDUCAÇÃO",
+      "valor": 38970780.0,
+      "motivo": "Maior valor individual do período; requer validação documental"
+    },
+    {
+      "nome": "TICKET SOLUCOES HDFGT S/A",
+      "orgao": "SECRETARIA DE ESTADO DA SEGURANÇA PÚBLICA",
+      "valor": 33591979.2,
+      "motivo": "Maior valor individual do período; requer validação documental"
+    }
+  ]
 }

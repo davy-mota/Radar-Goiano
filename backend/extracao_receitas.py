@@ -1,7 +1,6 @@
 import requests
 import pandas as pd
-from sqlalchemy import create_engine
-from urllib.parse import quote_plus
+from database import engine
 import zipfile
 import os
 import re
@@ -9,9 +8,6 @@ import re
 # =====================================================================
 # 1. CONFIGURAÇÕES
 # =====================================================================
-senha_segura = quote_plus("gatodebotas") # <-- COLOQUE SUA SENHA AQUI
-engine = create_engine(f'postgresql://postgres:{senha_segura}@localhost:5432/gastos_governamentais') # <-- SEU BANCO
-
 colunas_banco = [
     "ano_exercicio", "mes_exercicio", "nome_orgao", "categoria_receita", 
     "origem_receita", "valor_previsto", "valor_arrecadado", "data_arrecadacao"

@@ -1,1 +1,83 @@
-{"kpis": {"total_gasto": 36012175.93, "qtd_viagens": 67425, "maior_diaria": 21825.0}, "top_viajantes": [{"nome": "maria oneide da silva veiga jardim", "valor": 68195.0}, {"nome": "pedro marinho de oliveira filho", "valor": 66110.0}, {"nome": "joao cairo silva bessa", "valor": 61525.0}, {"nome": "NÃO INFORMADO", "valor": 59121.93}, {"nome": "leandro ribeiro da silva", "valor": 58050.0}], "top_destinos": [{"name": "brasilia - df", "value": 2531250.0}, {"name": "sao paulo - sp", "value": 2098350.0}, {"name": "goiania - go", "value": 2054308.0}, {"name": "goias - go", "value": 874100.0}, {"name": "caldas novas - go", "value": 717830.0}]}
+{
+  "kpis": {
+    "total_gasto": 36012175.93,
+    "qtd_viagens": 67425,
+    "maior_diaria": 21825.0
+  },
+  "top_viajantes": [
+    {
+      "nome": "maria oneide da silva veiga jardim",
+      "valor": 68195.0
+    },
+    {
+      "nome": "pedro marinho de oliveira filho",
+      "valor": 66110.0
+    },
+    {
+      "nome": "joao cairo silva bessa",
+      "valor": 61525.0
+    },
+    {
+      "nome": "NÃO INFORMADO",
+      "valor": 59121.93
+    },
+    {
+      "nome": "leandro ribeiro da silva",
+      "valor": 58050.0
+    }
+  ],
+  "top_destinos": [
+    {
+      "name": "brasilia - df",
+      "value": 2531250.0
+    },
+    {
+      "name": "sao paulo - sp",
+      "value": 2098350.0
+    },
+    {
+      "name": "goiania - go",
+      "value": 2054308.0
+    },
+    {
+      "name": "goias - go",
+      "value": 874100.0
+    },
+    {
+      "name": "caldas novas - go",
+      "value": 717830.0
+    }
+  ],
+  "alertas_ia": [
+    {
+      "nome": "tyago de paula ferreira",
+      "orgao": "florianopolis - sc",
+      "valor": 21825.0,
+      "motivo": "Maior valor individual de diária do período; requer validação documental"
+    },
+    {
+      "nome": "fabio albernaz resende",
+      "orgao": "carapicuiba - sp",
+      "valor": 15975.0,
+      "motivo": "Maior valor individual de diária do período; requer validação documental"
+    },
+    {
+      "nome": "fabio albernaz resende",
+      "orgao": "carapicuiba - sp",
+      "valor": 15075.0,
+      "motivo": "Maior valor individual de diária do período; requer validação documental"
+    },
+    {
+      "nome": "pedro marinho de oliveira filho",
+      "orgao": "olinda - pe",
+      "valor": 11025.0,
+      "motivo": "Maior valor individual de diária do período; requer validação documental"
+    },
+    {
+      "nome": "pedro luiz dos santos",
+      "orgao": "olinda - pe",
+      "valor": 11025.0,
+      "motivo": "Maior valor individual de diária do período; requer validação documental"
+    }
+  ]
+}

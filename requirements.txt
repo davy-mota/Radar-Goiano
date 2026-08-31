@@ -52,6 +52,7 @@ requests==2.32.5
 rich
 rich-toolkit
 rpds-py==0.30.0
+scikit-learn
 shellingham
 six==1.17.0
 smmap==5.0.2

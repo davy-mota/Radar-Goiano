@@ -1,83 +1,83 @@
 {
-    "kpis": {
-        "total_gasto": 6920013.0,
-        "qtd_viagens": 28537,
-        "maior_diaria": 8960.0
+  "kpis": {
+    "total_gasto": 6920013.0,
+    "qtd_viagens": 28537,
+    "maior_diaria": 8960.0
+  },
+  "top_viajantes": [
+    {
+      "nome": "mauricio barbosa de oliveira",
+      "valor": 42660.0
     },
-    "top_viajantes": [
-        {
-            "nome": "mauricio barbosa de oliveira",
-            "valor": 42660.0
-        },
-        {
-            "nome": "marlyane menezes da silva",
-            "valor": 39200.0
-        },
-        {
-            "nome": "kenia menezes mesquita",
-            "valor": 35800.0
-        },
-        {
-            "nome": "ludmilla freitas peres",
-            "valor": 33880.0
-        },
-        {
-            "nome": "vera lucia vieira",
-            "valor": 30690.0
-        }
-    ],
-    "top_destinos": [
-        {
-            "name": "goiania - go",
-            "value": 265620.0
-        },
-        {
-            "name": "brasilia - df",
-            "value": 258140.0
-        },
-        {
-            "name": "sao miguel do araguaia - go",
-            "value": 230150.0
-        },
-        {
-            "name": "luziania - go",
-            "value": 191350.0
-        },
-        {
-            "name": "alto paraiso de goias - go",
-            "value": 157110.0
-        }
-    ],
-    "alertas_ia": [
-        {
-            "nome": "welington messias aires de araujo",
-            "orgao": "belo horizonte - mg",
-            "valor": 8960.0,
-            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
-        },
-        {
-            "nome": "luis carlos nery filho",
-            "orgao": "americano do brasil - go",
-            "valor": 8160.0,
-            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
-        },
-        {
-            "nome": "alex nery",
-            "orgao": "americano do brasil - go",
-            "valor": 7600.0,
-            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
-        },
-        {
-            "nome": "francisco de assis conrado acioli",
-            "orgao": "belo horizonte - mg",
-            "valor": 5920.0,
-            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
-        },
-        {
-            "nome": "winder de almeida perillo",
-            "orgao": "belo horizonte - mg",
-            "valor": 5920.0,
-            "motivo": "Gasto com diária estatisticamente acima do padrão estadual"
-        }
-    ]
+    {
+      "nome": "marlyane menezes da silva",
+      "valor": 39200.0
+    },
+    {
+      "nome": "kenia menezes mesquita",
+      "valor": 35800.0
+    },
+    {
+      "nome": "ludmilla freitas peres",
+      "valor": 33880.0
+    },
+    {
+      "nome": "vera lucia vieira",
+      "valor": 30690.0
+    }
+  ],
+  "top_destinos": [
+    {
+      "name": "goiania - go",
+      "value": 265620.0
+    },
+    {
+      "name": "brasilia - df",
+      "value": 258140.0
+    },
+    {
+      "name": "sao miguel do araguaia - go",
+      "value": 230150.0
+    },
+    {
+      "name": "luziania - go",
+      "value": 191350.0
+    },
+    {
+      "name": "alto paraiso de goias - go",
+      "value": 157110.0
+    }
+  ],
+  "alertas_ia": [
+    {
+      "nome": "welington messias aires de araujo",
+      "orgao": "belo horizonte - mg",
+      "valor": 8960.0,
+      "motivo": "Maior valor individual de diária do período; requer validação documental"
+    },
+    {
+      "nome": "luis carlos nery filho",
+      "orgao": "americano do brasil - go",
+      "valor": 8160.0,
+      "motivo": "Maior valor individual de diária do período; requer validação documental"
+    },
+    {
+      "nome": "alex nery",
+      "orgao": "americano do brasil - go",
+      "valor": 7600.0,
+      "motivo": "Maior valor individual de diária do período; requer validação documental"
+    },
+    {
+      "nome": "francisco de assis conrado acioli",
+      "orgao": "belo horizonte - mg",
+      "valor": 5920.0,
+      "motivo": "Maior valor individual de diária do período; requer validação documental"
+    },
+    {
+      "nome": "winder de almeida perillo",
+      "orgao": "belo horizonte - mg",
+      "valor": 5920.0,
+      "motivo": "Maior valor individual de diária do período; requer validação documental"
+    }
+  ]
 }

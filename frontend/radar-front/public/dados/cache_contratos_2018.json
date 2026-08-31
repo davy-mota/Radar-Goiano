@@ -1,1 +1,81 @@
-{"kpis": {"valor_total": 1531158562.33, "qtd_contratos": 3463, "ticket_medio": 442148.0110684378}, "top_fornecedores": [{"nome": "INSTITUTO DE DESENVOLVIMENTO TECNOLOGICO E HUMANO", "valor": 440172017.94}, {"nome": "NÃ£o se aplica", "valor": 124460140.9}, {"nome": "INSTITUTO HAVER", "valor": 124375278.96}, {"nome": "OLIVEIRA MELO ENGENHARIA E CONSTRUÃÃES LTDA", "valor": 54221407.75}, {"nome": "FORD MOTOR COMPANY BRASIL LTDA", "valor": 50346300.0}, {"nome": "FONSECA MARTINS COMERCIO DE GAS LTDA ME", "valor": 48438619.0}, {"nome": "MEMORA PROCESSOS INOVADORES LTDA", "valor": 32792177.11}, {"nome": "TOTAL - VIGILANCIA E SEGURANCA LTDA", "valor": 26699026.32}, {"nome": "TCAR SERVICOS LTDA EPP", "valor": 26125000.0}, {"nome": "HOMINUS GESTAO E TECNOLOGIA LTDA", "valor": 25064992.08}]}
+{
+  "kpis": {
+    "valor_total": 1531158562.33,
+    "qtd_contratos": 3463,
+    "ticket_medio": 442148.0110684378
+  },
+  "top_fornecedores": [
+    {
+      "nome": "INSTITUTO DE DESENVOLVIMENTO TECNOLOGICO E HUMANO",
+      "valor": 440172017.94
+    },
+    {
+      "nome": "NÃ£o se aplica",
+      "valor": 124460140.9
+    },
+    {
+      "nome": "INSTITUTO HAVER",
+      "valor": 124375278.96
+    },
+    {
+      "nome": "OLIVEIRA MELO ENGENHARIA E CONSTRUÇÕES LTDA",
+      "valor": 54221407.75
+    },
+    {
+      "nome": "FORD MOTOR COMPANY BRASIL LTDA",
+      "valor": 50346300.0
+    },
+    {
+      "nome": "FONSECA MARTINS COMERCIO DE GAS LTDA ME",
+      "valor": 48438619.0
+    },
+    {
+      "nome": "MEMORA PROCESSOS INOVADORES LTDA",
+      "valor": 32792177.11
+    },
+    {
+      "nome": "TOTAL - VIGILANCIA E SEGURANCA LTDA",
+      "valor": 26699026.32
+    },
+    {
+      "nome": "TCAR SERVICOS LTDA EPP",
+      "valor": 26125000.0
+    },
+    {
+      "nome": "HOMINUS GESTAO E TECNOLOGIA LTDA",
+      "valor": 25064992.08
+    }
+  ],
+  "alertas_ia": [
+    {
+      "nome": "INSTITUTO DE DESENVOLVIMENTO TECNOLOGICO E HUMANO",
+      "orgao": "SECRETARIA DE ESTADO DA SAÚDE",
+      "valor": 420697007.61,
+      "motivo": "Maior valor individual do período; requer validação documental"
+    },
+    {
+      "nome": "INSTITUTO HAVER",
+      "orgao": "SECRETARIA DE ESTADO DA SAÚDE",
+      "valor": 124375278.96,
+      "motivo": "Maior valor individual do período; requer validação documental"
+    },
+    {
+      "nome": "NÃ£o se aplica",
+      "orgao": "SECRETARIA DE ESTADO DA SAÚDE",
+      "valor": 84616335.0,
+      "motivo": "Maior valor individual do período; requer validação documental"
+    },
+    {
+      "nome": "OLIVEIRA MELO ENGENHARIA E CONSTRUÇÕES LTDA",
+      "orgao": "AGÊNCIA GOIANA DE TRANSPORTES E OBRAS",
+      "valor": 54221407.75,
+      "motivo": "Maior valor individual do período; requer validação documental"
+    },
+    {
+      "nome": "FORD MOTOR COMPANY BRASIL LTDA",
+      "orgao": "SECRETARIA DE DESENVOLVIMENTO ECONÔMICO, CIENTÍFICO E TECNOLÓGICO E DE AGRICULTURA, PECUÁRIA E IRRIGAÇÃO",
+      "valor": 50346300.0,
+      "motivo": "Maior valor individual do período; requer validação documental"
+    }
+  ]
+}

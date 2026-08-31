@@ -1,77 +1,77 @@
 {
-    "kpis": {
-        "custo_total": 39539126283.97,
-        "orgao_campeao": "GOIÃS PREVIDÃNCIA - GOIASPREV",
-        "maior_despesa": 2391914945.21,
-        "alerta_teto": 41734
+  "kpis": {
+    "custo_total": 39539126283.97,
+    "orgao_campeao": "GOIÁS PREVIDÊNCIA - GOIASPREV",
+    "maior_despesa": 2391914945.21,
+    "alerta_teto": 41734
+  },
+  "raio_x": [
+    {
+      "name": "Folha",
+      "value": 33510610827.58
     },
-    "raio_x": [
-        {
-            "name": "Folha",
-            "value": 33510610827.58
-        },
-        {
-            "name": "Contratos",
-            "value": 6000042451.39
-        },
-        {
-            "name": "Diárias",
-            "value": 28473005.0
-        }
-    ],
-    "top_orgaos": [
-        {
-            "nome": "GOIÃS PREVIDÃNCIA - GOIASPREV",
-            "total": 13769996283.02
-        },
-        {
-            "nome": "SECRETARIA DE ESTADO DA EDUCAÃÃO",
-            "total": 6825780082.66
-        },
-        {
-            "nome": "POLÃCIA MILITAR",
-            "total": 3534211965.26
-        },
-        {
-            "nome": "SECRETARIA DE ESTADO DA ECONOMIA",
-            "total": 1431120657.12
-        },
-        {
-            "nome": "DELEGACIA-GERAL DA POLÃCIA CIVIL",
-            "total": 1380908487.44
-        }
-    ],
-    "anomalias": {
-        "maior_viajante": {
-            "nome": "mauricio barbosa de oliveira",
-            "valor": 70090.0
-        },
-        "empresa_favorita": {
-            "nome": "NÃO INFORMADO",
-            "qtd": 987
-        }
+    {
+      "name": "Contratos",
+      "value": 6000042451.39
     },
-    "radar_ia_geral": [
-        {
-            "nome": "MARCOS IVAN CARDOSO MARTINS",
-            "orgao": "GOIÃS PREVIDÃNCIA - GOIASPREV",
-            "valor": 707874.52,
-            "motivo": "Salário com desvio estatístico severo detectado pela IA",
-            "tipo": "Folha"
-        },
-        {
-            "nome": "FUNDACAO PIO XII",
-            "orgao": "Não especificado",
-            "valor": 2391914945.21,
-            "motivo": "Valor de contrato atípico (Outlier) detectado pela IA",
-            "tipo": "Contratos"
-        },
-        {
-            "nome": "elcimar junio de sousa",
-            "orgao": "braganca paulista - sp",
-            "valor": 12825.0,
-            "motivo": "Gasto com diária estatisticamente acima do padrão estadual",
-            "tipo": "Diárias"
-        }
-    ]
+    {
+      "name": "Diárias",
+      "value": 28473005.0
+    }
+  ],
+  "top_orgaos": [
+    {
+      "nome": "GOIÁS PREVIDÊNCIA - GOIASPREV",
+      "total": 13769996283.02
+    },
+    {
+      "nome": "SECRETARIA DE ESTADO DA EDUCAÇÃO",
+      "total": 6825780082.66
+    },
+    {
+      "nome": "POLÍCIA MILITAR",
+      "total": 3534211965.26
+    },
+    {
+      "nome": "SECRETARIA DE ESTADO DA ECONOMIA",
+      "total": 1431120657.12
+    },
+    {
+      "nome": "DELEGACIA-GERAL DA POLÍCIA CIVIL",
+      "total": 1380908487.44
+    }
+  ],
+  "anomalias": {
+    "maior_viajante": {
+      "nome": "mauricio barbosa de oliveira",
+      "valor": 70090.0
+    },
+    "empresa_favorita": {
+      "nome": "NÃO INFORMADO",
+      "qtd": 987
+    }
+  },
+  "radar_ia_geral": [
+    {
+      "nome": "MARCOS IVAN CARDOSO MARTINS",
+      "orgao": "GOIÁS PREVIDÊNCIA - GOIASPREV",
+      "valor": 707874.52,
+      "motivo": "Maior remuneração bruta individual do período; requer contextualização",
+      "tipo": "Folha"
+    },
+    {
+      "nome": "FUNDACAO PIO XII",
+      "orgao": "SECRETARIA DE ESTADO DA SAÚDE",
+      "valor": 2391914945.21,
+      "motivo": "Maior valor individual do período; requer validação documental",
+      "tipo": "Contratos"
+    },
+    {
+      "nome": "elcimar junio de sousa",
+      "orgao": "braganca paulista - sp",
+      "valor": 12825.0,
+      "motivo": "Maior valor individual de diária do período; requer validação documental",
+      "tipo": "Diárias"
+    }
+  ]
 }
