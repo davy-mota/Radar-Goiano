@@ -1,0 +1,104 @@
+services:
+  banco:
+    image: postgres:18-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-radar_goiano}
+      POSTGRES_USER: ${POSTGRES_USER:-radar}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Defina POSTGRES_PASSWORD no arquivo .env.production}
+    volumes:
+      - postgres_data:/var/lib/postgresql
+      - ./backups:/backups
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+    networks: [radar]
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    restart: unless-stopped
+    environment:
+      DB_HOST: banco
+      DB_PORT: 5432
+      DB_NAME: ${POSTGRES_DB:-radar_goiano}
+      DB_USER: ${API_DB_USER:-radar_api}
+      DB_PASSWORD: ${API_DB_PASSWORD:?Defina API_DB_PASSWORD}
+      DB_STATEMENT_TIMEOUT_MS: ${DB_STATEMENT_TIMEOUT_MS:-30000}
+      DB_POOL_SIZE: ${DB_POOL_SIZE:-5}
+      DB_MAX_OVERFLOW: ${DB_MAX_OVERFLOW:-5}
+      ENVIRONMENT: production
+      CORS_ORIGINS: ${CORS_ORIGINS:?Defina CORS_ORIGINS}
+      ALLOWED_HOSTS: ${ALLOWED_HOSTS:?Defina ALLOWED_HOSTS}
+    depends_on:
+      banco:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=5)"]
+      interval: 20s
+      timeout: 8s
+      retries: 6
+    networks: [radar]
+
+  configurador:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    profiles: [maintenance]
+    command: ["python", "configurar_banco_producao.py"]
+    environment:
+      DB_HOST: banco
+      DB_PORT: 5432
+      DB_NAME: ${POSTGRES_DB:-radar_goiano}
+      DB_ADMIN_USER: ${POSTGRES_USER:-radar_admin}
+      DB_ADMIN_PASSWORD: ${POSTGRES_PASSWORD}
+      API_DB_USER: ${API_DB_USER:-radar_api}
+      API_DB_PASSWORD: ${API_DB_PASSWORD:?Defina API_DB_PASSWORD}
+    depends_on:
+      banco:
+        condition: service_healthy
+    networks: [radar]
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+      args:
+        VITE_API_URL: /backend
+    restart: unless-stopped
+    depends_on:
+      api:
+        condition: service_healthy
+    networks: [radar]
+
+  gateway:
+    image: caddy:2.10-alpine
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8080:80"
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on: [web]
+    networks: [radar]
+
+  tunnel:
+    image: cloudflare/cloudflared:2026.9.3
+    restart: unless-stopped
+    command: ["tunnel", "--no-autoupdate", "run"]
+    environment:
+      TUNNEL_TOKEN: ${CLOUDFLARE_TUNNEL_TOKEN:?Defina CLOUDFLARE_TUNNEL_TOKEN}
+    depends_on: [gateway]
+    networks: [radar]
+
+volumes:
+  postgres_data:
+  caddy_data:
+  caddy_config:
+
+networks:
+  radar:

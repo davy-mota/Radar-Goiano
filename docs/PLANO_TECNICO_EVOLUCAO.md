@@ -349,6 +349,26 @@ A granularidade estadual é mensal por gabinete. Consequentemente, a contagem mo
 - origens CORS explícitas para `localhost` e `127.0.0.1` no desenvolvimento;
 - política de retenção e minimização para identificadores pessoais.
 
+### Incremento 21 — implantação segura (implementado)
+
+- implantação conteinerizada em VPS DigitalOcean com frontend, API, banco, proxy e túnel isolados;
+- acesso público exclusivamente pela Cloudflare, sem exposição das portas do Nginx, FastAPI ou PostgreSQL;
+- mitigação de DDoS em camadas, Bot Fight Mode, rate limiting, limite de conexões e cache de respostas GET;
+- cabeçalhos de segurança, limite de corpo, hosts/CORS explícitos e documentação da API desabilitada em produção;
+- papel PostgreSQL exclusivo da API, somente leitura, separado do administrador usado em carga, migração e restauração;
+- timeouts e pools limitados para evitar esgotamento de conexões e consultas indefinidas;
+- configuração reproduzível em `compose.prod.yml`, `.env.production.example`, `deploy/` e `scripts/deploy_vps.sh`;
+- procedimento operacional, firewall, backup e limitações documentados em `docs/DEPLOY_DIGITALOCEAN.md`.
+
+#### Critérios de aceitação
+
+- somente SSH restrito ao IP administrativo permanece aberto no firewall da VPS;
+- o domínio público responde através do túnel e o IP da origem não serve a aplicação diretamente;
+- `/health` confirma API e banco, enquanto `/docs` e `/openapi.json` retornam 404 em produção;
+- a API conecta com usuário somente leitura e não recebe a senha administrativa do banco;
+- excesso de requisições recebe HTTP 429 antes de alcançar a aplicação;
+- restauração do backup e rotação dos segredos são testadas periodicamente no ambiente de produção.
+
 ## 7. Definição de pronto
 
 Uma feature está pronta quando possui contrato de API documentado, validação, estado de erro no frontend, teste automatizado, consulta indexada quando necessário e origem dos dados identificada.

@@ -742,3 +742,39 @@ Uma tentativa inicial de obter todas as notas por deputado/mês exigiria aproxim
 Em 2025, foram carregadas 492 prestações mensais pertencentes a 44 deputados estaduais que apareceram em pelo menos um mês. Esse total de pessoas não representa cadeiras simultâneas: pode incluir titulares, suplentes e substituições durante o ano. Os valores indenizados estaduais somaram R$ 19.306.029,46; somadas as três fontes parlamentares integradas, o lote alcançou R$ 27.255.136,10.
 
 A interface denomina esses registros de “prestações mensais”, nunca de documentos fiscais. Como o resumo não discrimina categoria nem fornecedor, o sistema não inventa essas dimensões; apresenta total, diferença entre valor apresentado e indenizado, média mensal, pico e comparação com a mediana da coorte estadual, mantendo link para o detalhamento oficial.
+
+## 20. Incremento 21 — implantação e segurança em camadas
+
+### Objetivo e modelo de ameaça
+
+A publicação do Radar Goiano exigiu tratar disponibilidade, abuso automatizado, exploração da API, exposição do banco e vazamento de credenciais como riscos distintos. A solução adota defesa em profundidade: cada camada reduz uma classe de risco e continua útil caso outra camada seja contornada. O desenho não afirma imunidade a ataques; ele reduz a superfície exposta, limita consumo abusivo e mantém o banco inacessível diretamente pela Internet.
+
+### Arquitetura de produção
+
+O ambiente é empacotado em contêineres para PostgreSQL, FastAPI, frontend estático, Nginx e Cloudflare Tunnel. Nenhuma porta da aplicação, API ou banco é publicada no endereço público do servidor. O Nginx escuta apenas em `127.0.0.1:8080` para diagnóstico local e o túnel estabelece uma conexão de saída até a borda da Cloudflare. No firewall da VPS, somente SSH é permitido e deve ser restrito ao endereço IP do administrador.
+
+A Cloudflare fornece mitigação de DDoS nas camadas de rede e aplicação, ocultação do IP de origem, TLS público e filtragem automatizada de bots. O provedor da VPS mantém sua proteção nativa de rede como camada adicional. Como a proteção nativa da VPS cobre principalmente as camadas 3 e 4, ela não substitui o controle HTTP da Cloudflare e do Nginx.
+
+### Controles implementados
+
+- limite de 10 requisições por segundo por cliente no Nginx, com rajada controlada de 30 e resposta HTTP 429;
+- máximo de 20 conexões simultâneas por endereço e corpo de requisição limitado a 1 MiB;
+- cache de respostas GET bem-sucedidas da API, com trava contra múltiplas consultas idênticas simultâneas;
+- timeouts no proxy, no PostgreSQL e nas transações ociosas para impedir ocupação indefinida de recursos;
+- cabeçalhos HSTS, CSP, `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy` e `Permissions-Policy`;
+- documentação OpenAPI desabilitada em produção e validação explícita dos hosts aceitos;
+- CORS restrito ao domínio configurado, sem curinga em produção;
+- banco sem porta publicada e usuário exclusivo da API com transações somente leitura e apenas `SELECT`;
+- credenciais administrativas usadas somente pelo serviço de manutenção, que não permanece em execução;
+- imagens com versões fixadas, health checks e reinicialização automática dos serviços;
+- segredos armazenados no arquivo `.env` do servidor, excluído do versionamento.
+
+### Operação e validação
+
+O script `scripts/deploy_vps.sh` constrói as imagens, inicia o banco, configura de forma idempotente o papel de leitura da API, sobe os serviços e verifica a saúde pelo endereço local. O guia `docs/DEPLOY_DIGITALOCEAN.md` registra a criação da VPS, regras de firewall, configuração do túnel, DNS, restauração do banco, backup e atualizações de segurança.
+
+Na validação local, o endpoint `/health` respondeu com HTTP 200, a documentação `/docs` respondeu com HTTP 404 no modo de produção e os cabeçalhos de segurança estavam presentes. Os testes de navegação das telas permaneceram aprovados. A composição dos contêineres foi validada sintaticamente; a execução integral precisa ocorrer na VPS porque o ambiente local utilizado na implementação não possui Docker.
+
+### Limitações e responsabilidade operacional
+
+Rate limiting não distingue sozinho usuários legítimos atrás de redes compartilhadas e seus valores devem ser observados após a publicação. A disponibilidade ainda depende da capacidade contratada da VPS, da Cloudflare e de backups restauráveis. Ataques com credenciais válidas, falhas desconhecidas e comprometimento do servidor exigem monitoramento, atualização contínua, rotação de segredos e resposta a incidentes. O token do túnel e as senhas de produção não devem ser reutilizados nem enviados ao repositório.

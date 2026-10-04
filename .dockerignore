@@ -1,0 +1,14 @@
+.git
+.env
+.env.production
+.run
+.venv
+venv
+**/__pycache__
+**/*.pyc
+**/node_modules
+**/dist
+**/test-results
+**/playwright-report
+backups
+frontend/radar-front/public/dados/cache_contratos_todos copy.json
