@@ -16,3 +16,10 @@ body {
   background-color: #0E1117;
   color: #e5e7eb;
 }
+
+/* Remove a borda preta de foco ao clicar nos gráficos do Recharts */
+.recharts-wrapper,
+.recharts-wrapper *:focus,
+.recharts-surface:focus {
+    outline: none !important;
+}
