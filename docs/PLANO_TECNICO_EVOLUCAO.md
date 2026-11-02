@@ -393,6 +393,29 @@ A navegação estrutural também foi aprimorada: link “Pular para o conteúdo 
 
 O teste end-to-end verifica o primeiro foco da página, o salto por teclado, o rótulo do exercício, a indicação da seção atual e a presença do script oficial. A integração amplia o acesso, mas não equivale por si só à conformidade integral com as WCAG nem substitui revisão humana da tradução em Libras, legendas, audiodescrição e testes com pessoas com deficiência.
 
+### Incremento 25 — diagramas de arquitetura e modelagem “as built” (implementado)
+
+Foi criado `docs/DIAGRAMAS_ARQUITETURA_MODELAGEM.md` com nove diagramas Mermaid
+derivados dos artefatos efetivamente implementados: composição Docker, gateway,
+proxy web, frontend, controllers, carregadores e migrações SQL. O conjunto cobre
+contexto, implantação, componentes, ingestão, ativação, modelo financeiro,
+domínios por lote, caches/tabelas legadas e controles operacionais.
+
+A modelagem identifica as chaves estrangeiras existentes e representa com linha
+pontilhada apenas os vínculos lógicos, como a conciliação de contratos e
+pagamentos por CNPJ normalizado. A ausência de uma relação direta entre empenho,
+liquidação e pagamento também é documentada, pois a granularidade e os
+identificadores publicados pela fonte não garantem correspondência linha a
+linha.
+
+#### Critérios de aceitação
+
+- cada figura pode ser rastreada até arquivos versionados do projeto;
+- componentes somente planejados não aparecem como implementados;
+- nomes de tabelas e fronteiras de rede correspondem ao ambiente de produção;
+- relações físicas e associações analíticas são visualmente distinguíveis;
+- os diagramas permanecem editáveis e renderizáveis pelo GitHub.
+
 ## 7. Definição de pronto
 
 Uma feature está pronta quando possui contrato de API documentado, validação, estado de erro no frontend, teste automatizado, consulta indexada quando necessário e origem dos dados identificada.

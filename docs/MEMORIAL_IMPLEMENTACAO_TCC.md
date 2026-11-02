@@ -982,3 +982,22 @@ Referências técnicas:
 - VLibras, “Integrando a uma Página Web”: `https://vlibras.gov.br/doc/widget/installation/webpageintegration.html`;
 - VLibras, “Content Security Policy”: `https://vlibras.gov.br/doc/widget/installation/content-security-policy.html`;
 - W3C WAI, “Skip Link — Easy Checks”: `https://www.w3.org/WAI/test-evaluate/easy-checks/skip-link/`.
+
+## 25. Documentação arquitetural e modelagem “as built”
+
+Para separar a descrição textual da representação estrutural, foi criado o
+documento `docs/DIAGRAMAS_ARQUITETURA_MODELAGEM.md`. As figuras foram derivadas
+dos artefatos efetivamente versionados, e não de uma arquitetura idealizada:
+composição Docker, regras de gateway, rotas FastAPI, componentes React,
+carregadores e migrações SQL.
+
+O conjunto contempla contexto do sistema, implantação em produção, componentes
+de software, pipeline de ingestão, sequência de ativação, modelo financeiro
+versionado, domínios por lote, tabelas legadas/caches e controles operacionais.
+A modelagem distingue relações físicas com chave estrangeira de associações
+lógicas, como o vínculo de contratos e pagamentos por CNPJ normalizado.
+
+Os diagramas são mantidos em Mermaid dentro do Markdown para que permaneçam
+versionáveis, revisáveis junto ao código e renderizados diretamente pelo GitHub.
+Para inclusão no texto acadêmico, cada figura deve usar a legenda “Fonte:
+elaborado pelo autor com base na implementação do Radar Goiano (2026)”.

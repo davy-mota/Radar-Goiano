@@ -251,6 +251,7 @@ publicação. As instruções de infraestrutura, backup e atualização estão e
 ## Documentação
 
 - [Plano Técnico de Evolução](docs/PLANO_TECNICO_EVOLUCAO.md)
+- [Diagramas de Arquitetura e Modelagem](docs/DIAGRAMAS_ARQUITETURA_MODELAGEM.md)
 - [Memorial de Implementação do TCC](docs/MEMORIAL_IMPLEMENTACAO_TCC.md)
 - [Auditoria e Qualidade dos Dados](docs/AUDITORIA_QUALIDADE_DADOS.md)
 - [Relato de Implantação em Produção](docs/RELATO_IMPLANTACAO_PRODUCAO_TCC.md)
