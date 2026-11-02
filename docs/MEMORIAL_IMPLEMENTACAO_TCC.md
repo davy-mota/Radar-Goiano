@@ -933,10 +933,10 @@ ao repositório.
 
 Como a aplicação usa uma Política de Segurança de Conteúdo restritiva, adicionar
 somente o script não seria suficiente. O cabeçalho CSP em `deploy/nginx.conf`
-passou a permitir o script e o `iframe` exclusivamente em `vlibras.gov.br`, bem
-como as fontes documentadas em `vlibras.gov.br` e `cdn.jsdelivr.net`. A política
-continua com `default-src 'self'`, `object-src 'none'` e bloqueio de enquadramento
-da própria aplicação por terceiros.
+passou a permitir o domínio oficial `vlibras.gov.br` e `cdn.jsdelivr.net`, destino
+atual do redirecionamento do script e das fontes do widget, além do `iframe`
+hospedado no domínio oficial. A política continua com `default-src 'self'`,
+`object-src 'none'` e bloqueio de enquadramento da própria aplicação por terceiros.
 
 ### Navegação por teclado e leitores de tela
 

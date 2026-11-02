@@ -387,7 +387,7 @@ A exceção é determinada pelo cargo registrado na fonte, não por uma lista ma
 
 ### Incremento 24 — acessibilidade e integração com VLibras (implementado)
 
-O frontend passou a carregar o VLibras Widget 7 pelo script oficial `https://vlibras.gov.br/app/vlibras-plugin.js`, oferecendo tradução automática do conteúdo em português para Libras. A política CSP de produção libera de forma restrita o script e o `iframe` do domínio oficial, além das fontes servidas por `vlibras.gov.br` e pelo redirecionamento documentado para `cdn.jsdelivr.net`; os demais domínios continuam bloqueados por padrão.
+O frontend passou a carregar o VLibras Widget 7 pelo script oficial `https://vlibras.gov.br/app/vlibras-plugin.js`, oferecendo tradução automática do conteúdo em português para Libras. A política CSP de produção libera de forma restrita o domínio oficial e `cdn.jsdelivr.net`, destino atual do redirecionamento do script e das fontes do widget, além do `iframe` hospedado em `vlibras.gov.br`; os demais domínios continuam bloqueados por padrão.
 
 A navegação estrutural também foi aprimorada: link “Pular para o conteúdo principal”, foco visível, rótulo associado ao seletor de exercício, identificação da seção ativa com `aria-current`, nomes acessíveis nos botões apenas visuais, anúncio de carregamento e mudança de tela, título dinâmico da página e semântica de `main`, `nav` e `aside`. A preferência `prefers-reduced-motion` reduz animações e transições, enquanto `forced-colors` preserva bordas em modos de alto contraste do sistema.
 
