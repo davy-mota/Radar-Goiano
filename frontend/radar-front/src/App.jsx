@@ -170,7 +170,7 @@ function App() {
 
           <div className={`border rounded-lg p-1 transition-colors ${t.seletorAno}`}>
             <select value={anoAtivo} onChange={(e) => handleMudarAno(e.target.value)} className="w-full bg-transparent text-sm p-2 outline-none cursor-pointer font-medium">
-              <option value="todos" className={temaClaro ? "bg-white" : "bg-darkCard text-goiasYellow"}>🌟 Todos os Anos</option>
+              <option value="todos" className={temaClaro ? "bg-white" : "bg-darkCard text-goiasYellow"}>Todos os Anos</option>
               {Array.from({ length: 2026 - 2013 + 1 }, (_, i) => 2026 - i).map(ano => (
                 <option key={ano} value={ano.toString()} className={temaClaro ? "bg-white" : "bg-darkCard"}>Exercício {ano}</option>
               ))}
