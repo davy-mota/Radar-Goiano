@@ -369,6 +369,16 @@ A granularidade estadual é mensal por gabinete. Consequentemente, a contagem mo
 - excesso de requisições recebe HTTP 429 antes de alcançar a aplicação;
 - restauração do backup e rotação dos segredos são testadas periodicamente no ambiente de produção.
 
+### Incremento 22 — desempenho do Explorador de Despesas (implementado)
+
+A abertura da tela com o recorte "todos os anos" executava agregações e uma contagem por janela sobre aproximadamente 2,8 milhões de pagamentos. Em produção, essas consultas ultrapassavam o `statement_timeout` de 30 segundos e apareciam para o usuário como "Failed to fetch".
+
+A migração `020_indices_explorador_despesas.sql` cria índices para ordenação, filtro por órgão e busca textual, além da visão materializada `mv_despesas_execucao_mensal`. Essa camada pré-agrega empenhos, liquidações e pagamentos por etapa, exercício, mês e órgão. KPIs, série mensal, ranking de órgãos e opções de filtro passam a consultar a agregação; somente a pesquisa textual acessa os fatos individuais.
+
+A paginação deixou de usar `COUNT(*) OVER()`, que obrigava o PostgreSQL a processar e ordenar todo o resultado antes de devolver 25 linhas. A contagem e a página agora são consultas independentes, permitindo que o índice atenda o `LIMIT`. A agregação é atualizada na mesma transação que ativa ou reverte uma versão de dados, evitando KPIs incompatíveis com a versão ativa.
+
+Com a base local completa, os tempos observados para todos os anos passaram de aproximadamente 7,3 s para 0,06 s nos filtros, de 38,7 s para 0,03 s no resumo e de 37,8 s para 2,3 s na primeira página. A busca textual usada na validação respondeu em cerca de 1,2 s. Os três endpoints retornaram HTTP 200 pelo `TestClient`.
+
 ## 7. Definição de pronto
 
 Uma feature está pronta quando possui contrato de API documentado, validação, estado de erro no frontend, teste automatizado, consulta indexada quando necessário e origem dos dados identificada.

@@ -14,6 +14,17 @@ CASE
 END
 """
 
+# Expressão única para a busca livre do Explorador de Despesas. Ela também é
+# usada pelo índice trigram da migration 020; alterações precisam permanecer
+# sincronizadas entre os dois locais.
+BUSCA_DESPESA_NORMALIZADA = """
+(
+    COALESCE(nome_credor, '') || ' ' ||
+    COALESCE(documento_credor, '') || ' ' ||
+    COALESCE(numero_empenho, '')
+)
+"""
+
 
 def por_mes(linhas) -> dict[int, dict]:
     """Indexa linhas de uma consulta agregada por mês, para combinar com outras fontes."""

@@ -11,6 +11,7 @@ from controllers.rotas_despesas import (  # noqa: E402
     _celula_csv,
     _documento_para_exportacao,
     _filtros_sql,
+    _filtros_resumo_sql,
     _validar_ano,
 )
 from controllers.rotas_fornecedores import validar_cnpj  # noqa: E402
@@ -42,6 +43,18 @@ class FiltrosDespesasTest(unittest.TestCase):
         self.assertIn(f"{ORGAO_NORMALIZADO} = :orgao", where)
         self.assertNotIn("Secretaria", where)
         self.assertEqual(parametros["busca"], "%empresa%")
+
+    def test_busca_livre_usa_expressao_indexada_unica(self):
+        where, parametros = _filtros_sql("todos", busca="empresa")
+        self.assertIn("COALESCE(nome_credor", where)
+        self.assertNotIn(" OR ", where)
+        self.assertEqual(parametros, {"busca": "%empresa%"})
+
+    def test_filtros_do_resumo_usam_colunas_pre_agregadas(self):
+        where, parametros = _filtros_resumo_sql("2025", mes=4, orgao="Secretaria")
+        self.assertIn("nome_orgao = :orgao", where)
+        self.assertNotIn("normalizar_texto_utf8", where)
+        self.assertEqual(parametros, {"ano": 2025, "mes": 4, "orgao": "Secretaria"})
 
     def test_csv_neutraliza_formula(self):
         self.assertEqual(_celula_csv("=1+1"), "'=1+1")

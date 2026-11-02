@@ -63,6 +63,16 @@ def _finalizar_registro(carga_id: int, status: str, registros: int | None = None
         """), {"id": carga_id, "status": status, "registros": registros, "erro": erro[:2000] if erro else None})
 
 
+def _atualizar_resumo_despesas(conexao) -> None:
+    """Atualiza a camada agregada na mesma transacao da troca de versao."""
+    existe = conexao.execute(
+        text("SELECT to_regclass('public.mv_despesas_execucao_mensal')")
+    ).scalar_one_or_none()
+    if existe:
+        conexao.execute(text("SET LOCAL statement_timeout = '10min'"))
+        conexao.execute(text("REFRESH MATERIALIZED VIEW mv_despesas_execucao_mensal"))
+
+
 def _trocar_versao_ativa(versao_id: int, status_exigido: str, metricas_extra: dict, descricao: str) -> int:
     with engine.connect() as conexao:
         versao = conexao.execute(text("SELECT status FROM versoes_dados WHERE id=:id"), {"id": versao_id}).mappings().first()
@@ -86,6 +96,7 @@ def _trocar_versao_ativa(versao_id: int, status_exigido: str, metricas_extra: di
                 WHERE id = :id
             """), {"id": versao_id, "descricao": descricao, "extra": json.dumps(metricas_extra, default=str)})
             conexao.execute(text("SELECT atualizar_metadados_qualidade()"))
+            _atualizar_resumo_despesas(conexao)
         _finalizar_registro(carga_id, "sucesso", registros=int(total))
         return int(total)
     except Exception as erro:
