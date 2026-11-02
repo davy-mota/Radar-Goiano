@@ -51,3 +51,18 @@ python carga_senadores.py --ano 2026
 ```
 
 Cada execução cria um lote `preparando`, valida (rejeita se não houver registros ou soma nula) e só então ativa, arquivando o lote anterior do mesmo exercício — outros exercícios não são afetados.
+
+## Cargas no ambiente de produção
+
+O serviço `carga` do perfil `maintenance` contém pandas e as dependências dos
+extratores, usa a conta administrativa somente durante a execução e é removido ao
+terminar. Ele não integra o conjunto de serviços permanentes:
+
+```sh
+docker compose --profile maintenance --env-file .env.production -f compose.prod.yml \
+  run --rm carga python carga_execucao_classificada.py --ano 2026
+```
+
+Sempre gerar e validar um backup antes da operação. Para a camada financeira,
+criar a nova versão sem ativá-la, revisar as métricas e somente então executar
+`ativar_versao.py --ativar ID`.

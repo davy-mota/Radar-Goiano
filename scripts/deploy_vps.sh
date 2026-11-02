@@ -9,7 +9,7 @@ if [ ! -f .env.production ]; then
 fi
 
 docker compose --env-file .env.production -f compose.prod.yml build api web
-docker compose --profile maintenance --env-file .env.production -f compose.prod.yml build configurador
+docker compose --profile maintenance --env-file .env.production -f compose.prod.yml build configurador carga
 docker compose --env-file .env.production -f compose.prod.yml up -d banco
 docker compose --env-file .env.production -f compose.prod.yml run --rm configurador
 docker compose --env-file .env.production -f compose.prod.yml up -d

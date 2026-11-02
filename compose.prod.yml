@@ -62,6 +62,22 @@ services:
         condition: service_healthy
     networks: [radar]
 
+  carga:
+    build:
+      context: .
+      dockerfile: Dockerfile.carga
+    profiles: [maintenance]
+    environment:
+      DB_HOST: banco
+      DB_PORT: 5432
+      DB_NAME: ${POSTGRES_DB:-radar_goiano}
+      DB_USER: ${POSTGRES_USER:-radar_admin}
+      DB_PASSWORD: ${POSTGRES_PASSWORD}
+    depends_on:
+      banco:
+        condition: service_healthy
+    networks: [radar]
+
   web:
     build:
       context: .
