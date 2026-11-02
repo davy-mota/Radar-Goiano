@@ -745,6 +745,10 @@ A interface denomina esses registros de “prestações mensais”, nunca de doc
 
 ## 20. Incremento 21 — implantação e segurança em camadas
 
+O relato acadêmico consolidado da implantação real, incluindo arquitetura,
+migração do banco, incidentes, validações e resultados, está disponível em
+`docs/RELATO_IMPLANTACAO_PRODUCAO_TCC.md`.
+
 ### Objetivo e modelo de ameaça
 
 A publicação do Radar Goiano exigiu tratar disponibilidade, abuso automatizado, exploração da API, exposição do banco e vazamento de credenciais como riscos distintos. A solução adota defesa em profundidade: cada camada reduz uma classe de risco e continua útil caso outra camada seja contornada. O desenho não afirma imunidade a ataques; ele reduz a superfície exposta, limita consumo abusivo e mantém o banco inacessível diretamente pela Internet.
@@ -778,3 +782,130 @@ Na validação local, o endpoint `/health` respondeu com HTTP 200, a documentaç
 ### Limitações e responsabilidade operacional
 
 Rate limiting não distingue sozinho usuários legítimos atrás de redes compartilhadas e seus valores devem ser observados após a publicação. A disponibilidade ainda depende da capacidade contratada da VPS, da Cloudflare e de backups restauráveis. Ataques com credenciais válidas, falhas desconhecidas e comprometimento do servidor exigem monitoramento, atualização contínua, rotação de segredos e resposta a incidentes. O token do túnel e as senhas de produção não devem ser reutilizados nem enviados ao repositório.
+
+## 21. Incremento 22 — desempenho do Explorador de Despesas
+
+### Problema identificado em produção
+
+A abertura do Explorador com o recorte de todos os exercícios exigia agregações e
+uma contagem por janela sobre aproximadamente 2,8 milhões de pagamentos. No
+ambiente de produção, algumas consultas ultrapassavam o `statement_timeout` de
+30 segundos e o navegador apresentava a mensagem genérica “Failed to fetch”. O
+problema não estava na conectividade do frontend, mas no custo das consultas
+executadas antes que a API pudesse responder.
+
+### Solução implementada
+
+A migração `020_indices_explorador_despesas.sql` criou índices destinados à
+ordenação, ao filtro por órgão e à pesquisa textual. Também foi criada a visão
+materializada `mv_despesas_execucao_mensal`, que pré-agrega empenhos,
+liquidações e pagamentos por etapa, exercício, mês e órgão. Indicadores, série
+mensal, ranking de órgãos e opções de filtro passaram a consultar essa camada;
+somente a pesquisa detalhada continua acessando os fatos individuais.
+
+A paginação deixou de utilizar `COUNT(*) OVER()`, operação que obrigava o banco
+a processar e ordenar todo o conjunto antes de devolver as primeiras 25 linhas.
+A contagem total e a recuperação da página tornaram-se consultas independentes,
+permitindo que o PostgreSQL utilize o índice para atender ao `LIMIT`. A visão
+materializada é atualizada na mesma transação que ativa ou reverte uma versão da
+base, impedindo que os indicadores sejam apresentados com dados de versões
+distintas.
+
+### Resultado medido
+
+Na base local completa, o tempo do endpoint de filtros caiu de aproximadamente
+7,3 segundos para 0,06 segundo; o resumo, de 38,7 segundos para 0,03 segundo; e
+a primeira página, de 37,8 segundos para 2,3 segundos. A pesquisa textual usada
+na validação respondeu em aproximadamente 1,2 segundo. Os três endpoints
+retornaram HTTP 200 nos testes de integração.
+
+## 22. Incremento 23 — minimização de nomes pessoais
+
+### Justificativa
+
+Embora remunerações e diárias sejam informações públicas, a reprodução integral
+de nomes de servidores em rankings amplia desnecessariamente a exposição de
+pessoas que não exercem mandato eletivo. Por recomendação acadêmica, foi adotada
+uma medida de minimização voltada à apresentação pública, sem alterar os dados
+brutos preservados no PostgreSQL.
+
+### Regra de exibição
+
+O primeiro nome é mantido para permitir a diferenciação dos registros, enquanto
+cada sobrenome é reduzido à inicial seguida de três asteriscos. Conectivos são
+preservados. Assim, `ALEXANDRE CRUVINEL FERREIRA` é publicado como
+`ALEXANDRE C*** F***`. A função é idempotente: executar novamente a transformação
+sobre um nome já protegido não acrescenta novos símbolos.
+
+A exceção é definida pelo cargo informado na fonte, e não por uma relação manual
+de nomes. Governadores, deputados e senadores permanecem identificados
+integralmente por serem agentes políticos de alta exposição. Empresas,
+fornecedores e órgãos públicos também não são alterados, pois a regra se destina
+somente a pessoas físicas exibidas nos conjuntos de Folha e Diárias.
+
+### Aplicação técnica e validação
+
+A lógica foi centralizada em `backend/privacidade.py` e incorporada à geração
+dos caches. Com isso, o nome completo não é apenas ocultado visualmente pelo
+React: ele deixa de ser entregue nos arquivos JSON públicos. O utilitário
+`backend/anonimizar_caches_pessoas.py` permitiu atualizar os caches históricos
+já existentes. A regra alcança gráficos, listas, alertas e destaques da Visão
+Geral e possui testes automatizados para conectivos, idempotência e preservação
+dos cargos políticos definidos como exceção.
+
+## 23. Correções pós-implantação — contraste e integridade textual
+
+### Compatibilidade dos temas claro e escuro
+
+A verificação visual em produção revelou que elementos nativos `select` e
+tooltips da biblioteca Recharts herdavam cores claras mesmo quando o restante da
+interface utilizava o tema escuro. Em determinadas combinações, fundo e texto
+ficavam brancos e as opções ou valores tornavam-se ilegíveis.
+
+O elemento raiz da aplicação passou a declarar explicitamente `data-theme` com
+os valores `light` ou `dark`. Para seletores nativos, a propriedade
+`color-scheme` e as cores de `option` e `optgroup` foram definidas para cada
+tema. Para os gráficos, regras globais passaram a controlar fundo, borda, texto
+e sombra dos tooltips, cursor de destaque, rótulos dos eixos e legendas. A
+centralização em `frontend/radar-front/src/index.css` evita correções isoladas em
+cada gráfico e mantém o mesmo padrão em todas as telas que utilizam Recharts.
+
+### Caracteres corrompidos nos contratos associados
+
+Na tela de Perfil do Fornecedor, a inspeção dos contratos associados encontrou
+textos como `AGÃŠNCIA`, `locaÃ§Ã£o` e `veÃ­culos`. A investigação mostrou duas
+formas de corrupção herdadas: sequências UTF-8 interpretadas como Windows-1252
+ou Latin-1 e sequências nas quais o primeiro byte `0xC3` havia sido substituído
+pelo caractere de reposição Unicode, embora o segundo byte ainda estivesse
+presente.
+
+O método `corrigir_mojibake`, em `backend/corrigir_nomes_json.py`, foi ampliado
+para reconstruir de forma restrita o prefixo UTF-8 perdido quando encontra esse
+padrão e, em seguida, aplicar a correção já existente para recodificação dupla.
+A rota `backend/controllers/rotas_fornecedores.py` aplica a normalização nos
+campos textuais de resumo, pagamentos e contratos — nome do órgão, contratado,
+descrição, objeto e modalidade — no limite de saída da API. O registro bruto
+permanece preservado para rastreabilidade.
+
+Foram acrescentados testes de regressão com `AG�\x8aNCIA` e `ve�\xadculos`, que
+devem resultar respectivamente em `AGÊNCIA` e `veículos`. A suíte completa
+executou 42 testes com sucesso. Após a implantação do commit `7bacc99`, os cinco
+serviços da composição permaneceram ativos, com banco e API saudáveis. A resposta
+pública de `/api/fornecedores/02155735000110/contratos` foi validada pelo
+contrato de identificador 1035 e passou a entregar corretamente “AGÊNCIA GOIANA
+DE INFRAESTRUTURA E TRANSPORTES” e o texto com “locação de máquinas e de
+veículos”, “manutenção e combustível” e “região dos Kalungas”.
+
+### Rastreabilidade das entregas
+
+| Commit | Alteração principal |
+| --- | --- |
+| `4053eb5` | otimização do Explorador de Despesas |
+| `6c95a16` | contraste dos seletores nativos no tema escuro |
+| `e85bbf3` | minimização seletiva dos nomes de servidores nos caches públicos |
+| `a4b6a7f` | padronização global do contraste dos gráficos |
+| `7bacc99` | correção da codificação dos textos de contratos e validação em produção |
+
+Essas intervenções foram tratadas como correções de apresentação, desempenho e
+qualidade de entrega. Nenhuma delas transforma um indício analítico em acusação,
+modifica valores financeiros ou substitui a consulta à fonte oficial.
