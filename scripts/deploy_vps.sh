@@ -8,7 +8,8 @@ if [ ! -f .env.production ]; then
   exit 1
 fi
 
-docker compose --env-file .env.production -f compose.prod.yml build
+docker compose --env-file .env.production -f compose.prod.yml build api web
+docker compose --profile maintenance --env-file .env.production -f compose.prod.yml build configurador
 docker compose --env-file .env.production -f compose.prod.yml up -d banco
 docker compose --env-file .env.production -f compose.prod.yml run --rm configurador
 docker compose --env-file .env.production -f compose.prod.yml up -d
