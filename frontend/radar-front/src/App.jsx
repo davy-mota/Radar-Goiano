@@ -121,6 +121,10 @@ function App() {
     };
   }, [abaAtiva, anoAtivo, dadosGerais, dadosContratos, dadosFolha, dadosDiarias]);
 
+  useEffect(() => {
+    document.title = `${abaAtiva} | Radar Goiano`;
+  }, [abaAtiva]);
+
   const tema = useTema(temaClaro);
   const t = {
     ...tema,
@@ -148,18 +152,22 @@ function App() {
       data-theme={temaClaro ? 'light' : 'dark'}
       className={`flex h-screen font-sans overflow-hidden transition-colors duration-300 ${t.fundoBase}`}
     >
+      <a href="#conteudo-principal" className="skip-link">Pular para o conteúdo principal</a>
+      <span className="sr-only" aria-live="polite">Exibindo: {abaAtiva}</span>
       
       {menuAberto && (
-        <div 
+        <button
+          type="button"
+          aria-label="Fechar menu de navegação"
           className="fixed inset-0 bg-black/60 z-40 md:hidden backdrop-blur-sm transition-opacity" 
           onClick={() => setMenuAberto(false)}
         />
       )}
 
-      <aside className={`fixed inset-y-0 left-0 z-50 w-72 transform transition-transform duration-300 flex flex-col border-r md:relative md:translate-x-0 md:w-64 ${menuAberto ? 'translate-x-0' : '-translate-x-full'} ${t.menuLateral}`}>
+      <aside id="menu-principal" aria-label="Navegação principal" className={`fixed inset-y-0 left-0 z-50 w-72 transform transition-transform duration-300 flex flex-col border-r md:relative md:translate-x-0 md:visible md:w-64 ${menuAberto ? 'translate-x-0 visible' : '-translate-x-full invisible'} ${t.menuLateral}`}>
         <div className="p-6 relative">
-          <button className={`absolute top-6 right-4 md:hidden ${t.titulo}`} onClick={() => setMenuAberto(false)}>
-            <X size={24} />
+          <button type="button" aria-label="Fechar menu" className={`absolute top-6 right-4 md:hidden ${t.titulo}`} onClick={() => setMenuAberto(false)}>
+            <X size={24} aria-hidden="true" />
           </button>
 
           <div className="flex items-center gap-3 mb-4 mt-2 md:mt-0">
@@ -169,7 +177,8 @@ function App() {
           <p className={`text-xs mb-4 ${t.subtitulo}`}>Auditoria de Contas Públicas</p>
 
           <div className={`border rounded-lg p-1 transition-colors ${t.seletorAno}`}>
-            <select value={anoAtivo} onChange={(e) => handleMudarAno(e.target.value)} className="w-full bg-transparent text-sm p-2 outline-none cursor-pointer font-medium">
+            <label htmlFor="seletor-exercicio" className="sr-only">Exercício dos dados</label>
+            <select id="seletor-exercicio" value={anoAtivo} onChange={(e) => handleMudarAno(e.target.value)} className="w-full bg-transparent text-sm p-2 outline-none cursor-pointer font-medium">
               <option value="todos" className={temaClaro ? "bg-white" : "bg-darkCard text-goiasYellow"}>Todos os Anos</option>
               {Array.from({ length: 2026 - 2013 + 1 }, (_, i) => 2026 - i).map(ano => (
                 <option key={ano} value={ano.toString()} className={temaClaro ? "bg-white" : "bg-darkCard"}>Exercício {ano}</option>
@@ -178,26 +187,26 @@ function App() {
           </div>
         </div>        
         
-        <nav className="flex-1 px-4 space-y-2 overflow-y-auto">
-          <button onClick={() => mudarAba('Visão Geral')} className={cssBotao('Visão Geral')}><LayoutDashboard size={20} /> Visão Geral</button>
-          <button onClick={() => mudarAba('Despesas')} className={cssBotao('Despesas')}><WalletCards size={20} /> Explorar Despesas</button>
-          <button onClick={() => mudarAba('Políticas')} className={cssBotao('Políticas')}><Landmark size={20} /> Políticas Públicas</button>
-          <button onClick={() => mudarAba('Repasses')} className={cssBotao('Repasses')}><Building2 size={20} /> Repasses Municipais</button>
-          <button onClick={() => mudarAba('Emendas')} className={cssBotao('Emendas')}><ScrollText size={20} /> Emendas Parlamentares</button>
-          <button onClick={() => mudarAba('Governador')} className={cssBotao('Governador')}><Crown size={20} /> Governador</button>
-          <button onClick={() => mudarAba('Parlamentares')} className={cssBotao('Parlamentares')}><Vote size={20} /> Deputados e Senadores</button>
-          <button onClick={() => mudarAba('Comparador')} className={cssBotao('Comparador')}><Scale size={20} /> Comparar Órgãos</button>
-          <button onClick={() => mudarAba('Fiscal')} className={cssBotao('Fiscal')}><Landmark size={20} /> Orçamento e Receita</button>
-          <button onClick={() => mudarAba('Alertas')} className={cssBotao('Alertas')}><ShieldAlert size={20} /> Central de Alertas</button>
-          <button onClick={() => mudarAba('Qualidade')} className={cssBotao('Qualidade')}><Database size={20} /> Qualidade dos Dados</button>
-          <button onClick={() => mudarAba('Contratos')} className={cssBotao('Contratos')}><FileText size={20} /> Contratos</button>
-          <button onClick={() => mudarAba('Diárias')} className={cssBotao('Diárias')}><Plane size={20} /> Diárias e Viagens</button>
-          <button onClick={() => mudarAba('Folha')} className={cssBotao('Folha')}><Users size={20} /> Folha de Pagamento</button>
+        <nav aria-label="Seções do Radar Goiano" className="flex-1 px-4 space-y-2 overflow-y-auto">
+          <button aria-current={abaAtiva === 'Visão Geral' ? 'page' : undefined} onClick={() => mudarAba('Visão Geral')} className={cssBotao('Visão Geral')}><LayoutDashboard size={20} /> Visão Geral</button>
+          <button aria-current={abaAtiva === 'Despesas' ? 'page' : undefined} onClick={() => mudarAba('Despesas')} className={cssBotao('Despesas')}><WalletCards size={20} /> Explorar Despesas</button>
+          <button aria-current={abaAtiva === 'Políticas' ? 'page' : undefined} onClick={() => mudarAba('Políticas')} className={cssBotao('Políticas')}><Landmark size={20} /> Políticas Públicas</button>
+          <button aria-current={abaAtiva === 'Repasses' ? 'page' : undefined} onClick={() => mudarAba('Repasses')} className={cssBotao('Repasses')}><Building2 size={20} /> Repasses Municipais</button>
+          <button aria-current={abaAtiva === 'Emendas' ? 'page' : undefined} onClick={() => mudarAba('Emendas')} className={cssBotao('Emendas')}><ScrollText size={20} /> Emendas Parlamentares</button>
+          <button aria-current={abaAtiva === 'Governador' ? 'page' : undefined} onClick={() => mudarAba('Governador')} className={cssBotao('Governador')}><Crown size={20} /> Governador</button>
+          <button aria-current={abaAtiva === 'Parlamentares' ? 'page' : undefined} onClick={() => mudarAba('Parlamentares')} className={cssBotao('Parlamentares')}><Vote size={20} /> Deputados e Senadores</button>
+          <button aria-current={abaAtiva === 'Comparador' ? 'page' : undefined} onClick={() => mudarAba('Comparador')} className={cssBotao('Comparador')}><Scale size={20} /> Comparar Órgãos</button>
+          <button aria-current={abaAtiva === 'Fiscal' ? 'page' : undefined} onClick={() => mudarAba('Fiscal')} className={cssBotao('Fiscal')}><Landmark size={20} /> Orçamento e Receita</button>
+          <button aria-current={abaAtiva === 'Alertas' ? 'page' : undefined} onClick={() => mudarAba('Alertas')} className={cssBotao('Alertas')}><ShieldAlert size={20} /> Central de Alertas</button>
+          <button aria-current={abaAtiva === 'Qualidade' ? 'page' : undefined} onClick={() => mudarAba('Qualidade')} className={cssBotao('Qualidade')}><Database size={20} /> Qualidade dos Dados</button>
+          <button aria-current={abaAtiva === 'Contratos' ? 'page' : undefined} onClick={() => mudarAba('Contratos')} className={cssBotao('Contratos')}><FileText size={20} /> Contratos</button>
+          <button aria-current={abaAtiva === 'Diárias' ? 'page' : undefined} onClick={() => mudarAba('Diárias')} className={cssBotao('Diárias')}><Plane size={20} /> Diárias e Viagens</button>
+          <button aria-current={abaAtiva === 'Folha' ? 'page' : undefined} onClick={() => mudarAba('Folha')} className={cssBotao('Folha')}><Users size={20} /> Folha de Pagamento</button>
         </nav>
 
         <div className="p-4 border-t border-gray-200 dark:border-darkBorder">
-          <button onClick={() => setTemaClaro(!temaClaro)} className={`flex items-center justify-center gap-2 w-full py-3 md:py-2 rounded-lg transition-colors border shadow-sm ${temaClaro ? "bg-gray-100 text-gray-700 hover:bg-gray-200 border-gray-300" : "bg-darkCard text-gray-400 hover:text-white border-darkBorder hover:bg-gray-800"}`}>
-            {temaClaro ? <Moon size={18} /> : <Sun size={18} />}
+          <button type="button" aria-label={temaClaro ? 'Ativar modo escuro' : 'Ativar modo claro'} onClick={() => setTemaClaro(!temaClaro)} className={`flex items-center justify-center gap-2 w-full py-3 md:py-2 rounded-lg transition-colors border shadow-sm ${temaClaro ? "bg-gray-100 text-gray-700 hover:bg-gray-200 border-gray-300" : "bg-darkCard text-gray-400 hover:text-white border-darkBorder hover:bg-gray-800"}`}>
+            {temaClaro ? <Moon size={18} aria-hidden="true" /> : <Sun size={18} aria-hidden="true" />}
             <span className="text-sm font-medium">{temaClaro ? "Modo Escuro" : "Modo Claro"}</span>
           </button>
         </div>
@@ -206,21 +215,24 @@ function App() {
       <div className="flex-1 flex flex-col w-full overflow-hidden">
         <header className={`md:hidden flex items-center justify-between p-4 border-b z-30 shadow-sm ${t.menuLateral}`}>
           <div className="flex items-center gap-3">
-            <button onClick={() => setMenuAberto(true)} className={`p-1 rounded-md ${temaClaro ? 'hover:bg-gray-100 text-gray-800' : 'hover:bg-gray-800 text-white'}`}>
-              <Menu size={26} />
+            <button type="button" aria-label="Abrir menu de navegação" aria-expanded={menuAberto} aria-controls="menu-principal" onClick={() => setMenuAberto(true)} className={`p-1 rounded-md ${temaClaro ? 'hover:bg-gray-100 text-gray-800' : 'hover:bg-gray-800 text-white'}`}>
+              <Menu size={26} aria-hidden="true" />
             </button>
             <h1 className={`text-xl font-bold ${t.titulo}`}>Radar Goiano</h1>
           </div>
         </header>
 
-        <main className="flex-1 overflow-y-auto p-4 md:p-8">
+        <main id="conteudo-principal" tabIndex="-1" aria-busy={carregando} className="flex-1 overflow-y-auto p-4 md:p-8">
           <div role="status" className={`mb-5 flex items-start gap-3 rounded-xl border p-4 text-sm ${temaClaro ? 'bg-emerald-50 border-emerald-300 text-emerald-900' : 'bg-emerald-500/10 border-emerald-500/40 text-emerald-200'}`}>
             <AlertTriangle size={20} className="shrink-0 mt-0.5" />
             <p><strong>Base auditada e versionada:</strong> pagamentos e receitas são servidos pela versão validada ativa. Os alertas apresentados são indícios analíticos e sempre exigem verificação na fonte oficial.</p>
           </div>
 
           {carregando && (
-            <div className="flex flex-col items-center justify-center h-64"><Loader2 className="w-12 h-12 text-goiasGreen animate-spin mb-4" /></div>
+            <div role="status" aria-live="polite" className="flex flex-col items-center justify-center h-64">
+              <Loader2 aria-hidden="true" className="w-12 h-12 text-goiasGreen animate-spin mb-4" />
+              <p className={t.subtitulo}>Carregando dados…</p>
+            </div>
           )}
 
           {!carregando && dadosDaAba?.erro && (

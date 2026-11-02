@@ -385,6 +385,14 @@ Os rankings de Folha e Diárias passaram a aplicar minimização de identidade: 
 
 A exceção é determinada pelo cargo registrado na fonte, não por uma lista manual: Governador, Deputado e Senador permanecem com o nome completo por serem agentes políticos de alta exposição. Empresas, fornecedores e órgãos também não são alterados. A transformação é idempotente, possui teste automatizado e um utilitário específico atualiza os caches históricos já existentes.
 
+### Incremento 24 — acessibilidade e integração com VLibras (implementado)
+
+O frontend passou a carregar o VLibras Widget 7 pelo script oficial `https://vlibras.gov.br/app/vlibras-plugin.js`, oferecendo tradução automática do conteúdo em português para Libras. A política CSP de produção libera de forma restrita o script e o `iframe` do domínio oficial, além das fontes servidas por `vlibras.gov.br` e pelo redirecionamento documentado para `cdn.jsdelivr.net`; os demais domínios continuam bloqueados por padrão.
+
+A navegação estrutural também foi aprimorada: link “Pular para o conteúdo principal”, foco visível, rótulo associado ao seletor de exercício, identificação da seção ativa com `aria-current`, nomes acessíveis nos botões apenas visuais, anúncio de carregamento e mudança de tela, título dinâmico da página e semântica de `main`, `nav` e `aside`. A preferência `prefers-reduced-motion` reduz animações e transições, enquanto `forced-colors` preserva bordas em modos de alto contraste do sistema.
+
+O teste end-to-end verifica o primeiro foco da página, o salto por teclado, o rótulo do exercício, a indicação da seção atual e a presença do script oficial. A integração amplia o acesso, mas não equivale por si só à conformidade integral com as WCAG nem substitui revisão humana da tradução em Libras, legendas, audiodescrição e testes com pessoas com deficiência.
+
 ## 7. Definição de pronto
 
 Uma feature está pronta quando possui contrato de API documentado, validação, estado de erro no frontend, teste automatizado, consulta indexada quando necessário e origem dos dados identificada.

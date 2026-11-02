@@ -224,6 +224,19 @@ identificados, assim como órgãos e pessoas jurídicas.
 Documentos pessoais não são publicados integralmente nas exportações. As telas
 também apresentam ressalvas de interpretação adequadas a cada conjunto de dados.
 
+## Acessibilidade
+
+O site integra o [VLibras Widget](https://vlibras.gov.br/app/) para tradução
+automática de português brasileiro para Libras. Também oferece link para pular a
+navegação, foco visível, identificação semântica das regiões, controles com nomes
+acessíveis, anúncios de carregamento, indicação da seção atual e suporte às
+preferências de movimento reduzido e alto contraste do sistema.
+
+Esses recursos ampliam o acesso, mas não representam uma declaração automática
+de conformidade integral com as WCAG. Traduções, textos alternativos e fluxos de
+uso devem continuar sendo avaliados com tecnologias assistivas e pessoas com
+deficiência.
+
 ## Segurança e produção
 
 Em produção, o banco não publica porta na Internet e a API utiliza um usuário

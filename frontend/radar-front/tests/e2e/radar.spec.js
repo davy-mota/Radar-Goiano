@@ -90,4 +90,18 @@ test.describe('Radar Goiano', () => {
     await page.reload();
     await expect(page.getByRole('heading', { name: 'Auditoria de Contratos (2025)' })).toBeVisible();
   });
+
+  test('oferece navegação básica acessível por teclado', async ({ page }) => {
+    await page.goto('/?aba=Vis%C3%A3o+Geral&ano=2025');
+
+    const salto = page.getByRole('link', { name: 'Pular para o conteúdo principal' });
+    await page.keyboard.press('Tab');
+    await expect(salto).toBeFocused();
+    await page.keyboard.press('Enter');
+    await expect(page.locator('#conteudo-principal')).toBeFocused();
+
+    await expect(page.getByRole('combobox', { name: 'Exercício dos dados' })).toHaveValue('2025');
+    await expect(page.getByRole('button', { name: 'Visão Geral' })).toHaveAttribute('aria-current', 'page');
+    await expect(page.locator('script[src="https://vlibras.gov.br/app/vlibras-plugin.js"]')).toHaveCount(1);
+  });
 });

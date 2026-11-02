@@ -17,6 +17,30 @@ body {
   color: #e5e7eb;
 }
 
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 10000;
+  padding: 0.75rem 1rem;
+  border: 2px solid #fff;
+  border-radius: 0.5rem;
+  background: #005a2b;
+  color: #fff;
+  font-weight: 700;
+  transform: translateY(-160%);
+  transition: transform 150ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+:focus-visible {
+  outline: 3px solid #ffcd00 !important;
+  outline-offset: 3px !important;
+}
+
 /* Native select menus are rendered by the browser/operating system. */
 [data-theme="dark"] select {
   color-scheme: dark;
@@ -91,9 +115,28 @@ body {
   color: #374151 !important;
 }
 
-/* Remove a borda preta de foco ao clicar nos gráficos do Recharts */
-.recharts-wrapper,
-.recharts-wrapper *:focus,
-.recharts-surface:focus {
-    outline: none !important;
+/* Cliques de ponteiro não deixam contorno, mas a navegação por teclado mantém o foco. */
+.recharts-wrapper:focus:not(:focus-visible),
+.recharts-wrapper *:focus:not(:focus-visible),
+.recharts-surface:focus:not(:focus-visible) {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (forced-colors: active) {
+  button,
+  select,
+  a {
+    border-color: ButtonText;
+  }
 }

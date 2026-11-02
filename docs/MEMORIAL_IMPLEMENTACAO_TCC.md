@@ -909,3 +909,76 @@ veículos”, “manutenção e combustível” e “região dos Kalungas”.
 Essas intervenções foram tratadas como correções de apresentação, desempenho e
 qualidade de entrega. Nenhuma delas transforma um indício analítico em acusação,
 modifica valores financeiros ou substitui a consulta à fonte oficial.
+
+## 24. Incremento 24 — acessibilidade e VLibras
+
+### Objetivo
+
+A evolução da comunicação cidadã exige que a informação não seja apenas
+didática, mas também operável por pessoas que utilizam diferentes tecnologias
+assistivas. A intervenção combinou tradução para Libras com melhorias de
+estrutura, teclado, percepção de foco e redução de movimento. A referência de
+integração foi o manual oficial do VLibras Widget 7.0.0; para navegação por
+teclado, foi adotado o padrão de link de salto descrito pela Web Accessibility
+Initiative do W3C.
+
+### Integração com o VLibras
+
+O arquivo `frontend/radar-front/index.html` carrega o script oficial
+`https://vlibras.gov.br/app/vlibras-plugin.js`. O widget disponibiliza um avatar
+que traduz automaticamente conteúdos em português brasileiro para a Língua
+Brasileira de Sinais. A integração utiliza a distribuição mantida pelo projeto
+VLibras, permitindo receber suas atualizações sem incorporar uma cópia obsoleta
+ao repositório.
+
+Como a aplicação usa uma Política de Segurança de Conteúdo restritiva, adicionar
+somente o script não seria suficiente. O cabeçalho CSP em `deploy/nginx.conf`
+passou a permitir o script e o `iframe` exclusivamente em `vlibras.gov.br`, bem
+como as fontes documentadas em `vlibras.gov.br` e `cdn.jsdelivr.net`. A política
+continua com `default-src 'self'`, `object-src 'none'` e bloqueio de enquadramento
+da própria aplicação por terceiros.
+
+### Navegação por teclado e leitores de tela
+
+O primeiro elemento focalizável da página tornou-se o link “Pular para o conteúdo
+principal”. Ele permanece fora da área visual até receber foco e então aparece
+com alto contraste, permitindo ignorar o menu repetitivo. O destino é o elemento
+`main`, que recebeu identificador e `tabIndex="-1"` para aceitar o foco
+programático.
+
+O seletor de exercício recebeu um `label` associado; menu lateral, navegação e
+conteúdo principal passaram a declarar seus papéis e nomes; botões compostos
+somente por ícones receberam nomes acessíveis; e a seção selecionada informa
+`aria-current="page"`. Mudanças de tela são anunciadas em uma região
+`aria-live`, o título do documento acompanha a aba ativa e o estado de
+carregamento usa `role="status"`, texto legível e `aria-busy` no conteúdo.
+
+### Percepção visual e movimento
+
+Uma regra global de `:focus-visible` cria contorno amarelo de três pixels com
+espaçamento externo. A regra anterior dos gráficos, que removia qualquer
+contorno, foi limitada a interações de ponteiro e não suprime mais o foco do
+teclado. Usuários que ativam “reduzir movimento” no sistema operacional recebem
+animações e transições praticamente instantâneas por meio de
+`prefers-reduced-motion`. Em `forced-colors`, botões, seletores e links preservam
+bordas definidas pelas cores do sistema.
+
+### Validação e limitações
+
+O lint e o build de produção foram executados com sucesso. Um cenário Playwright
+verifica que a primeira tecla Tab focaliza o link de salto, Enter move o foco
+para o conteúdo, o seletor é encontrado pelo nome “Exercício dos dados”, a seção
+atual é identificada e o script oficial está presente.
+
+O VLibras realiza tradução automática e pode produzir sinais que demandem revisão
+humana. Sua presença não comprova conformidade integral com WCAG 2.2 e não
+substitui legendas, transcrições, audiodescrição, texto alternativo de qualidade
+nem testes com pessoas com deficiência. O widget também depende da
+disponibilidade do serviço externo; se ele estiver indisponível, a aplicação e
+os demais recursos de acessibilidade continuam funcionais.
+
+Referências técnicas:
+
+- VLibras, “Integrando a uma Página Web”: `https://vlibras.gov.br/doc/widget/installation/webpageintegration.html`;
+- VLibras, “Content Security Policy”: `https://vlibras.gov.br/doc/widget/installation/content-security-policy.html`;
+- W3C WAI, “Skip Link — Easy Checks”: `https://www.w3.org/WAI/test-evaluate/easy-checks/skip-link/`.
