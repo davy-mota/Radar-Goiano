@@ -2,6 +2,7 @@ from fastapi import APIRouter, HTTPException, Query
 from sqlalchemy import text
 
 from database import engine
+from corrigir_nomes_json import corrigir_mojibake
 from .sql_utils import DOCUMENTO_CREDOR_NORMALIZADO, ORGAO_NORMALIZADO
 
 
@@ -38,6 +39,14 @@ def _somar(conexao, tabela: str, coluna_valor: str, parametros: dict):
         text(f"SELECT COALESCE(SUM({coluna_valor}), 0) FROM {tabela} WHERE {DOCUMENTO_CREDOR_NORMALIZADO} = :cnpj"),
         parametros,
     ).scalar_one()
+
+
+def _corrigir_campos_textuais(linha, *campos: str) -> dict:
+    item = dict(linha)
+    for campo in campos:
+        if isinstance(item.get(campo), str):
+            item[campo] = corrigir_mojibake(item[campo])
+    return item
 
 
 @router.get("/{documento}/resumo")
@@ -110,12 +119,12 @@ def resumo_fornecedor(documento: str):
 
     return {
         "cnpj": cnpj,
-        "nome_principal": nomes[0]["nome"] if nomes else "Fornecedor sem nome informado",
-        "nomes_encontrados": [dict(item) for item in nomes],
+        "nome_principal": corrigir_mojibake(nomes[0]["nome"]) if nomes else "Fornecedor sem nome informado",
+        "nomes_encontrados": [_corrigir_campos_textuais(item, "nome") for item in nomes],
         "kpis": kpis,
         "contratos": dict(contratos),
         "evolucao_anual": evolucao,
-        "top_orgaos": [dict(item) for item in orgaos],
+        "top_orgaos": [_corrigir_campos_textuais(item, "nome") for item in orgaos],
         "metodologia": "Associação por CNPJ normalizado e validado; nomes não são usados como chave.",
     }
 
@@ -131,7 +140,7 @@ def pagamentos_fornecedor(
     with engine.connect() as conexao:
         linhas = conexao.execute(text(f"""
             SELECT id AS id_registro, numero_empenho, ano_exercicio, mes AS mes_exercicio,
-                   {ORGAO_NORMALIZADO} AS nome_orgao, nome_credor, data_pagamento AS data_emissao,
+                   nome_orgao, nome_credor, data_pagamento AS data_emissao,
                    descricao, valor_pago,
                    COUNT(*) OVER() AS total_registros
             FROM vw_pagamentos_ativos
@@ -143,7 +152,7 @@ def pagamentos_fornecedor(
     total = linhas[0]["total_registros"] if linhas else 0
     itens = []
     for linha in linhas:
-        item = dict(linha)
+        item = _corrigir_campos_textuais(linha, "nome_orgao", "nome_credor", "descricao")
         item.pop("total_registros")
         itens.append(item)
     return {
@@ -170,4 +179,10 @@ def contratos_fornecedor(documento: str):
             ORDER BY data_assinatura DESC NULLS LAST, valor_contrato DESC
             LIMIT 100
         """), {"cnpj": cnpj}).mappings().all()
-    return {"itens": [dict(item) for item in linhas], "limite": 100}
+    campos_textuais = (
+        "nome_orgao", "nome_contratado", "objeto_contrato", "modalidade_licitacao",
+    )
+    return {
+        "itens": [_corrigir_campos_textuais(item, *campos_textuais) for item in linhas],
+        "limite": 100,
+    }

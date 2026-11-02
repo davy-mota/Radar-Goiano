@@ -1,5 +1,6 @@
 import json
 import os
+import re
 from pathlib import Path
 
 
@@ -14,8 +15,24 @@ SUFIXOS = {"ltda", "me", "epp", "eireli", "sa", "s/a", "s.a", "s.a."}
 CHAVES_NOME = {"name", "nome", "orgao", "nome_orgao", "nome_servidor", "nome_contratado", "nome_credor"}
 
 
+def _repor_prefixo_utf8_perdido(texto: str) -> str:
+    """Recupera caracteres cujo byte C3 foi substituído por U+FFFD.
+
+    Algumas cargas antigas preservaram o segundo byte UTF-8 como controle ou
+    caractere Latin-1 (ex.: ``�\x8a`` para ``Ê`` e ``�\xad`` para ``í``).
+    """
+    def substituir(casamento: re.Match) -> str:
+        segundo_byte = ord(casamento.group(1))
+        try:
+            return bytes((0xC3, segundo_byte)).decode("utf-8")
+        except UnicodeDecodeError:
+            return casamento.group(0)
+
+    return re.sub("\ufffd([\x80-\xbf])", substituir, texto)
+
+
 def corrigir_mojibake(texto: str) -> str:
-    corrigido = texto
+    corrigido = _repor_prefixo_utf8_perdido(texto)
     for _ in range(2):
         if not any(marcador in corrigido for marcador in MARCADORES):
             break

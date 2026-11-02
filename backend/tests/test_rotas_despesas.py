@@ -103,6 +103,10 @@ class CargaVersionadaTest(unittest.TestCase):
         self.assertEqual(corrigir_mojibake("Secretaria da Educação"), "Secretaria da Educação")
         self.assertEqual(corrigir_mojibake("Secretaria da EducaÃ§Ã£o"), "Secretaria da Educação")
 
+    def test_corrige_prefixo_utf8_substituido_em_carga_antiga(self):
+        self.assertEqual(corrigir_mojibake("AG�\x8aNCIA"), "AGÊNCIA")
+        self.assertEqual(corrigir_mojibake("ve�\xadculos"), "veículos")
+
     def test_formata_nome_preservando_conectivos_e_sigla(self):
         self.assertEqual(formatar_nome_proprio("SECRETARIA DE ESTADO - SEAD"), "Secretaria de Estado - SEAD")
         self.assertEqual(formatar_nome_proprio("SANEAMENTO DE GOIAS S/A"), "Saneamento de Goias S/A")
