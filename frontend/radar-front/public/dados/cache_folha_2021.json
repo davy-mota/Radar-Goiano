@@ -6,23 +6,23 @@
   },
   "top_salarios": [
     {
-      "nome": "LIA CANDIDA MIRANDA DE CASTRO",
+      "nome": "LIA C*** M*** de C***",
       "valor": 310496.16
     },
     {
-      "nome": "LIA CANDIDA MIRANDA DE CASTRO",
+      "nome": "LIA C*** M*** de C***",
       "valor": 310496.16
     },
     {
-      "nome": "LUIZ FERNANDO FAINA",
+      "nome": "LUIZ F*** F***",
       "valor": 287345.93
     },
     {
-      "nome": "LUIZ FERNANDO FAINA",
+      "nome": "LUIZ F*** F***",
       "valor": 287345.93
     },
     {
-      "nome": "JOSUEMAR VAZ DE OLIVEIRA",
+      "nome": "JOSUEMAR V*** de O***",
       "valor": 279596.41
     }
   ],
@@ -50,31 +50,31 @@
   ],
   "alertas_ia": [
     {
-      "nome": "LIA CANDIDA MIRANDA DE CASTRO",
+      "nome": "LIA C*** M*** de C***",
       "orgao": "GOIÁS PREVIDÊNCIA - GOIASPREV",
       "valor": 310496.16,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "LIA CANDIDA MIRANDA DE CASTRO",
+      "nome": "LIA C*** M*** de C***",
       "orgao": "GOIÁS PREVIDÊNCIA - GOIASPREV",
       "valor": 310496.16,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "LUIZ FERNANDO FAINA",
+      "nome": "LUIZ F*** F***",
       "orgao": "SECRETARIA DE ESTADO DA ECONOMIA",
       "valor": 287345.93,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "LUIZ FERNANDO FAINA",
+      "nome": "LUIZ F*** F***",
       "orgao": "SECRETARIA DE ESTADO DA ECONOMIA",
       "valor": 287345.93,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "JOSUEMAR VAZ DE OLIVEIRA",
+      "nome": "JOSUEMAR V*** de O***",
       "orgao": "POLICIA CIVIL",
       "valor": 279596.41,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"

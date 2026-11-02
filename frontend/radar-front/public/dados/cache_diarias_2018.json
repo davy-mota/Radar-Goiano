@@ -6,23 +6,23 @@
   },
   "top_viajantes": [
     {
-      "nome": "francisco de assis peixoto",
+      "nome": "francisco de a*** p***",
       "valor": 45396.0
     },
     {
-      "nome": "silvio de faria arantes",
+      "nome": "silvio de f*** a***",
       "valor": 42970.0
     },
     {
-      "nome": "ronaldo abreu de lima",
+      "nome": "ronaldo a*** de l***",
       "valor": 41640.0
     },
     {
-      "nome": "jose ronaldo de araujo",
+      "nome": "jose r*** de a***",
       "valor": 39780.0
     },
     {
-      "nome": "sizernando da costa flores",
+      "nome": "sizernando da c*** f***",
       "valor": 39060.0
     }
   ],
@@ -50,31 +50,31 @@
   ],
   "alertas_ia": [
     {
-      "nome": "almir pinto viana",
+      "nome": "almir p*** v***",
       "orgao": "recife - pe",
       "valor": 10340.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "maico cipriano de melo",
+      "nome": "maico c*** de m***",
       "orgao": "curitiba - pr",
       "valor": 9920.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "douglas castilho de queiroz",
+      "nome": "douglas c*** de q***",
       "orgao": "brasilia - df",
       "valor": 9920.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "sancler ramos",
+      "nome": "sancler r***",
       "orgao": "brasilia - df",
       "valor": 9920.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "douglas castilho de queiroz",
+      "nome": "douglas c*** de q***",
       "orgao": "brasilia - df",
       "valor": 9600.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"

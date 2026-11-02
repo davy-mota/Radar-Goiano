@@ -6,23 +6,23 @@
   },
   "top_viajantes": [
     {
-      "nome": "mauricio barbosa de oliveira",
+      "nome": "mauricio b*** de o***",
       "valor": 440370.0
     },
     {
-      "nome": "marlyane menezes da silva",
+      "nome": "marlyane m*** da s***",
       "valor": 413030.0
     },
     {
-      "nome": "sebastiao silvestre de souza",
+      "nome": "sebastiao s*** de s***",
       "valor": 343555.0
     },
     {
-      "nome": "aldenora rosalina da gama",
+      "nome": "aldenora r*** da g***",
       "valor": 339410.0
     },
     {
-      "nome": "kenia menezes mesquita",
+      "nome": "kenia m*** m***",
       "valor": 311930.0
     }
   ],
@@ -50,31 +50,31 @@
   ],
   "alertas_ia": [
     {
-      "nome": "tyago de paula ferreira",
+      "nome": "tyago de p*** f***",
       "orgao": "florianopolis - sc",
       "valor": 21825.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "gabriel lins dos santos",
+      "nome": "gabriel l*** dos s***",
       "orgao": "brasilia - df",
       "valor": 21280.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "jaime de souza avelar",
+      "nome": "jaime de s*** a***",
       "orgao": "brasilia",
       "valor": 21120.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "sebastiÃ£o carlos da costa",
+      "nome": "sebastiÃ£o c*** da c***",
       "orgao": "brasilia",
       "valor": 21120.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "marcos henrique fernandes neves",
+      "nome": "marcos h*** f*** n***",
       "orgao": "arapongas - pr",
       "valor": 16650.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"

@@ -379,6 +379,12 @@ A paginação deixou de usar `COUNT(*) OVER()`, que obrigava o PostgreSQL a proc
 
 Com a base local completa, os tempos observados para todos os anos passaram de aproximadamente 7,3 s para 0,06 s nos filtros, de 38,7 s para 0,03 s no resumo e de 37,8 s para 2,3 s na primeira página. A busca textual usada na validação respondeu em cerca de 1,2 s. Os três endpoints retornaram HTTP 200 pelo `TestClient`.
 
+### Incremento 23 — minimização de nomes pessoais (implementado)
+
+Os rankings de Folha e Diárias passaram a aplicar minimização de identidade: o primeiro nome é preservado para diferenciar registros e os sobrenomes são reduzidos à inicial seguida de asteriscos, por exemplo `Alexandre C*** F***`. A regra alcança gráficos, listas, alertas e destaques da Visão Geral, e é aplicada durante a geração dos caches para que o nome completo não seja entregue no JSON público.
+
+A exceção é determinada pelo cargo registrado na fonte, não por uma lista manual: Governador, Deputado e Senador permanecem com o nome completo por serem agentes políticos de alta exposição. Empresas, fornecedores e órgãos também não são alterados. A transformação é idempotente, possui teste automatizado e um utilitário específico atualiza os caches históricos já existentes.
+
 ## 7. Definição de pronto
 
 Uma feature está pronta quando possui contrato de API documentado, validação, estado de erro no frontend, teste automatizado, consulta indexada quando necessário e origem dos dados identificada.

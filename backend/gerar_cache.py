@@ -14,6 +14,7 @@ from typing import Any
 from sqlalchemy import text
 
 from database import engine
+from privacidade import nome_pessoa_para_exibicao
 
 BASE = Path(__file__).resolve().parent
 DESTINOS = (BASE / "dados_gerados", BASE.parent / "frontend/radar-front/public/dados")
@@ -73,9 +74,21 @@ def _publicar(nome: str, dados: dict) -> None:
         _gravar_atomico(destino / nome, dados)
 
 
-def _alertas(linhas: list[dict], motivo: str) -> list[dict]:
+def _alertas(
+    linhas: list[dict],
+    motivo: str,
+    anonimizar_pessoas: bool = False,
+) -> list[dict]:
     return [{
-        "nome": linha.get("nome") or "Não informado",
+        "nome": (
+            nome_pessoa_para_exibicao(
+                linha.get("nome"),
+                linha.get("cargo"),
+                bool(linha.get("figura_publica")),
+            )
+            if anonimizar_pessoas
+            else linha.get("nome") or "Não informado"
+        ),
         "orgao": linha.get("orgao") or "Não informado",
         "valor": float(linha.get("valor") or 0),
         "motivo": motivo,
@@ -102,23 +115,23 @@ def gerar_periodo(ano: int | None, timeout_minutos: int = 15) -> list[str]:
 
     print(f"[2/4] Folha — {sufixo}", flush=True)
     fk = banco.um(f"SELECT COALESCE(SUM(valor_remuneracao_bruta),0) total, COUNT(id) qtd, COALESCE(AVG(valor_remuneracao_bruta),0) media, COUNT(*) FILTER (WHERE valor_remuneracao_bruta > 41650.92) acima_teto FROM folha_pagamento WHERE valor_remuneracao_bruta > 0{and_ano}", params)
-    ft = banco.listar(f"SELECT normalizar_texto_utf8(nome_servidor) nome, normalizar_texto_utf8(nome_orgao) orgao, valor_remuneracao_bruta valor FROM folha_pagamento{filtro} ORDER BY valor_remuneracao_bruta DESC NULLS LAST LIMIT 5", params)
+    ft = banco.listar(f"SELECT normalizar_texto_utf8(nome_servidor) nome, normalizar_texto_utf8(nome_orgao) orgao, cargo, valor_remuneracao_bruta valor FROM folha_pagamento{filtro} ORDER BY valor_remuneracao_bruta DESC NULLS LAST LIMIT 5", params)
     fo = banco.listar(f"SELECT normalizar_texto_utf8(nome_orgao) name, SUM(valor_remuneracao_bruta) value FROM folha_pagamento{filtro} GROUP BY normalizar_texto_utf8(nome_orgao) ORDER BY value DESC NULLS LAST LIMIT 5", params)
     ftotal = float(fk.get("total") or 0)
-    fa = _alertas(ft, "Maior remuneração bruta individual do período; requer contextualização")
+    fa = _alertas(ft, "Maior remuneração bruta individual do período; requer contextualização", anonimizar_pessoas=True)
     nome = f"cache_folha_{sufixo}.json"
-    _publicar(nome, {"kpis": {"total_folha": ftotal, "qtd_servidores": int(fk.get("qtd") or 0), "media_salarial": float(fk.get("media") or 0)}, "top_salarios": [{"nome": x["nome"], "valor": x["valor"]} for x in ft], "distribuicao": fo, "alertas_ia": fa})
+    _publicar(nome, {"kpis": {"total_folha": ftotal, "qtd_servidores": int(fk.get("qtd") or 0), "media_salarial": float(fk.get("media") or 0)}, "top_salarios": [{"nome": nome_pessoa_para_exibicao(x["nome"], x.get("cargo")), "valor": x["valor"]} for x in ft], "distribuicao": fo, "alertas_ia": fa})
     gerados.append(nome)
 
     print(f"[3/4] Diárias — {sufixo}", flush=True)
     dk = banco.um(f"SELECT COALESCE(SUM(valor_total),0) total, COUNT(id) qtd, COALESCE(MAX(valor_total),0) maior FROM diarias_passagens{filtro}", params)
-    dv = banco.listar(f"SELECT normalizar_texto_utf8(nome_servidor) nome, SUM(valor_total) valor FROM diarias_passagens{filtro} GROUP BY normalizar_texto_utf8(nome_servidor) ORDER BY valor DESC NULLS LAST LIMIT 5", params)
+    dv = banco.listar(f"SELECT normalizar_texto_utf8(nome_servidor) nome, SUM(valor_total) valor, BOOL_OR(UPPER(COALESCE(cargo, '')) ~ '(GOVERNADOR|DEPUTADO|SENADOR)') figura_publica FROM diarias_passagens{filtro} GROUP BY normalizar_texto_utf8(nome_servidor) ORDER BY valor DESC NULLS LAST LIMIT 5", params)
     dd = banco.listar(f"SELECT normalizar_texto_utf8(destino) name, SUM(valor_total) value FROM diarias_passagens{filtro} GROUP BY normalizar_texto_utf8(destino) ORDER BY value DESC NULLS LAST LIMIT 5", params)
-    dm = banco.listar(f"SELECT normalizar_texto_utf8(nome_servidor) nome, normalizar_texto_utf8(destino) orgao, valor_total valor FROM diarias_passagens{filtro} ORDER BY valor_total DESC NULLS LAST LIMIT 5", params)
+    dm = banco.listar(f"SELECT normalizar_texto_utf8(nome_servidor) nome, normalizar_texto_utf8(destino) orgao, cargo, valor_total valor FROM diarias_passagens{filtro} ORDER BY valor_total DESC NULLS LAST LIMIT 5", params)
     dtotal = float(dk.get("total") or 0)
-    da = _alertas(dm, "Maior valor individual de diária do período; requer validação documental")
+    da = _alertas(dm, "Maior valor individual de diária do período; requer validação documental", anonimizar_pessoas=True)
     nome = f"cache_diarias_{sufixo}.json"
-    _publicar(nome, {"kpis": {"total_gasto": dtotal, "qtd_viagens": int(dk.get("qtd") or 0), "maior_diaria": float(dk.get("maior") or 0)}, "top_viajantes": dv, "top_destinos": dd, "alertas_ia": da})
+    _publicar(nome, {"kpis": {"total_gasto": dtotal, "qtd_viagens": int(dk.get("qtd") or 0), "maior_diaria": float(dk.get("maior") or 0)}, "top_viajantes": [{"nome": nome_pessoa_para_exibicao(item.get("nome"), figura_publica=bool(item.get("figura_publica"))), "valor": item["valor"]} for item in dv], "top_destinos": dd, "alertas_ia": da})
     gerados.append(nome)
 
     print(f"[4/4] Visão geral — {sufixo}", flush=True)
@@ -130,7 +143,8 @@ def gerar_periodo(ano: int | None, timeout_minutos: int = 15) -> list[str]:
     if ca: radar.append({**ca[0], "tipo": "Contratos"})
     if da: radar.append({**da[0], "tipo": "Diárias"})
     nome = f"cache_visao_geral_{sufixo}.json"
-    _publicar(nome, {"kpis": {"custo_total": ctotal + ftotal + dtotal, "orgao_campeao": orgaos[0]["nome"] if orgaos else "N/A", "maior_despesa": float(ck.get("maior") or 0), "alerta_teto": int(fk.get("acima_teto") or 0)}, "raio_x": [{"name": "Folha", "value": ftotal}, {"name": "Contratos", "value": ctotal}, {"name": "Diárias", "value": dtotal}], "top_orgaos": orgaos, "anomalias": {"maior_viajante": dv[0] if dv else {"nome": "N/A", "valor": 0}, "empresa_favorita": ef if ef else {"nome": "N/A", "qtd": 0}}, "radar_ia_geral": radar})
+    maior_viajante = ({"nome": nome_pessoa_para_exibicao(dv[0].get("nome"), figura_publica=bool(dv[0].get("figura_publica"))), "valor": dv[0]["valor"]} if dv else {"nome": "N/A", "valor": 0})
+    _publicar(nome, {"kpis": {"custo_total": ctotal + ftotal + dtotal, "orgao_campeao": orgaos[0]["nome"] if orgaos else "N/A", "maior_despesa": float(ck.get("maior") or 0), "alerta_teto": int(fk.get("acima_teto") or 0)}, "raio_x": [{"name": "Folha", "value": ftotal}, {"name": "Contratos", "value": ctotal}, {"name": "Diárias", "value": dtotal}], "top_orgaos": orgaos, "anomalias": {"maior_viajante": maior_viajante, "empresa_favorita": ef if ef else {"nome": "N/A", "qtd": 0}}, "radar_ia_geral": radar})
     gerados.append(nome)
     return gerados
 

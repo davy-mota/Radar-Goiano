@@ -6,23 +6,23 @@
   },
   "top_salarios": [
     {
-      "nome": "MARCOS IVAN CARDOSO MARTINS",
+      "nome": "MARCOS I*** C*** M***",
       "valor": 707874.52
     },
     {
-      "nome": "MARCOS IVAN CARDOSO MARTINS",
+      "nome": "MARCOS I*** C*** M***",
       "valor": 707874.52
     },
     {
-      "nome": "EDUARDO RODRIGUES DA COSTA",
+      "nome": "EDUARDO R*** da C***",
       "valor": 637043.13
     },
     {
-      "nome": "EDUARDO RODRIGUES DA COSTA",
+      "nome": "EDUARDO R*** da C***",
       "valor": 637043.13
     },
     {
-      "nome": "WILSON BENTO DOS ANJOS",
+      "nome": "WILSON B*** dos A***",
       "valor": 389760.0
     }
   ],
@@ -50,31 +50,31 @@
   ],
   "alertas_ia": [
     {
-      "nome": "MARCOS IVAN CARDOSO MARTINS",
+      "nome": "MARCOS I*** C*** M***",
       "orgao": "GOIÁS PREVIDÊNCIA - GOIASPREV",
       "valor": 707874.52,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "MARCOS IVAN CARDOSO MARTINS",
+      "nome": "MARCOS I*** C*** M***",
       "orgao": "GOIÁS PREVIDÊNCIA - GOIASPREV",
       "valor": 707874.52,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "EDUARDO RODRIGUES DA COSTA",
+      "nome": "EDUARDO R*** da C***",
       "orgao": "POLÍCIA MILITAR",
       "valor": 637043.13,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "EDUARDO RODRIGUES DA COSTA",
+      "nome": "EDUARDO R*** da C***",
       "orgao": "POLÍCIA MILITAR",
       "valor": 637043.13,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "WILSON BENTO DOS ANJOS",
+      "nome": "WILSON B*** dos A***",
       "orgao": "SECRETARIA DE ESTADO DA ECONOMIA",
       "valor": 389760.0,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"

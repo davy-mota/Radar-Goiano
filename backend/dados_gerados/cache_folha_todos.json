@@ -6,23 +6,23 @@
   },
   "top_salarios": [
     {
-      "nome": "MARIETA CRUZ DIAS TEIXEIRA",
+      "nome": "MARIETA C*** D*** T***",
       "valor": 1288983.52
     },
     {
-      "nome": "MARIA RAIMUNDA DO VALE MODESTO",
+      "nome": "MARIA R*** do V*** M***",
       "valor": 1080022.8
     },
     {
-      "nome": "MARCOS IVAN CARDOSO MARTINS",
+      "nome": "MARCOS I*** C*** M***",
       "valor": 707874.52
     },
     {
-      "nome": "MARCOS IVAN CARDOSO MARTINS",
+      "nome": "MARCOS I*** C*** M***",
       "valor": 707874.52
     },
     {
-      "nome": "EDUARDO RODRIGUES DA COSTA",
+      "nome": "EDUARDO R*** da C***",
       "valor": 637043.13
     }
   ],
@@ -50,31 +50,31 @@
   ],
   "alertas_ia": [
     {
-      "nome": "MARIETA CRUZ DIAS TEIXEIRA",
+      "nome": "MARIETA C*** D*** T***",
       "orgao": "GOIÁS PREVIDÊNCIA - GOIASPREV",
       "valor": 1288983.52,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "MARIA RAIMUNDA DO VALE MODESTO",
+      "nome": "MARIA R*** do V*** M***",
       "orgao": "GOIÁS PREVIDÊNCIA - GOIASPREV",
       "valor": 1080022.8,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "MARCOS IVAN CARDOSO MARTINS",
+      "nome": "MARCOS I*** C*** M***",
       "orgao": "GOIÁS PREVIDÊNCIA - GOIASPREV",
       "valor": 707874.52,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "MARCOS IVAN CARDOSO MARTINS",
+      "nome": "MARCOS I*** C*** M***",
       "orgao": "GOIÁS PREVIDÊNCIA - GOIASPREV",
       "valor": 707874.52,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "EDUARDO RODRIGUES DA COSTA",
+      "nome": "EDUARDO R*** da C***",
       "orgao": "POLÍCIA MILITAR",
       "valor": 637043.13,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"

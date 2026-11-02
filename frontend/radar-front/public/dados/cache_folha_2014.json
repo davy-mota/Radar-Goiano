@@ -6,23 +6,23 @@
   },
   "top_salarios": [
     {
-      "nome": "LUZIA IGNEZ CURADO",
+      "nome": "LUZIA I*** C***",
       "valor": 526479.65
     },
     {
-      "nome": "LUZIA IGNEZ CURADO",
+      "nome": "LUZIA I*** C***",
       "valor": 526479.65
     },
     {
-      "nome": "JAIR RODRIGUES DOS SANTOS",
+      "nome": "JAIR R*** dos S***",
       "valor": 330620.62
     },
     {
-      "nome": "JAIR RODRIGUES DOS SANTOS",
+      "nome": "JAIR R*** dos S***",
       "valor": 330620.62
     },
     {
-      "nome": "SELMA JANE BATISTA RODRIGUES",
+      "nome": "SELMA J*** B*** R***",
       "valor": 231789.34
     }
   ],
@@ -50,31 +50,31 @@
   ],
   "alertas_ia": [
     {
-      "nome": "LUZIA IGNEZ CURADO",
+      "nome": "LUZIA I*** C***",
       "orgao": "FUNDO DE PREVIDENCIA ESTADUAL",
       "valor": 526479.65,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "LUZIA IGNEZ CURADO",
+      "nome": "LUZIA I*** C***",
       "orgao": "FUNDO DE PREVIDENCIA ESTADUAL",
       "valor": 526479.65,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "JAIR RODRIGUES DOS SANTOS",
+      "nome": "JAIR R*** dos S***",
       "orgao": "FUNDO DE PREVIDENCIA ESTADUAL",
       "valor": 330620.62,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "JAIR RODRIGUES DOS SANTOS",
+      "nome": "JAIR R*** dos S***",
       "orgao": "FUNDO DE PREVIDENCIA ESTADUAL",
       "valor": 330620.62,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "SELMA JANE BATISTA RODRIGUES",
+      "nome": "SELMA J*** B*** R***",
       "orgao": "POLICIA CIVIL",
       "valor": 231789.34,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"

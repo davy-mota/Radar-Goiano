@@ -6,23 +6,23 @@
   },
   "top_salarios": [
     {
-      "nome": "DANIEL MATHIAS RIBEIRO",
+      "nome": "DANIEL M*** R***",
       "valor": 324566.91
     },
     {
-      "nome": "DANIEL MATHIAS RIBEIRO",
+      "nome": "DANIEL M*** R***",
       "valor": 324566.91
     },
     {
-      "nome": "EUDESIO PAULINO DA CUNHA",
+      "nome": "EUDESIO P*** da C***",
       "valor": 299384.5
     },
     {
-      "nome": "EUDESIO PAULINO DA CUNHA",
+      "nome": "EUDESIO P*** da C***",
       "valor": 299384.5
     },
     {
-      "nome": "ANTONIO MARTINS DA SILVA",
+      "nome": "ANTONIO M*** da S***",
       "valor": 295218.42
     }
   ],
@@ -50,31 +50,31 @@
   ],
   "alertas_ia": [
     {
-      "nome": "DANIEL MATHIAS RIBEIRO",
+      "nome": "DANIEL M*** R***",
       "orgao": "SECRETARIA DE ESTADO DA ECONOMIA",
       "valor": 324566.91,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "DANIEL MATHIAS RIBEIRO",
+      "nome": "DANIEL M*** R***",
       "orgao": "SECRETARIA DE ESTADO DA ECONOMIA",
       "valor": 324566.91,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "EUDESIO PAULINO DA CUNHA",
+      "nome": "EUDESIO P*** da C***",
       "orgao": "SECRETARIA DE ESTADO DA ECONOMIA",
       "valor": 299384.5,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "EUDESIO PAULINO DA CUNHA",
+      "nome": "EUDESIO P*** da C***",
       "orgao": "SECRETARIA DE ESTADO DA ECONOMIA",
       "valor": 299384.5,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "ANTONIO MARTINS DA SILVA",
+      "nome": "ANTONIO M*** da S***",
       "orgao": "SECRETARIA DE ESTADO DA ECONOMIA",
       "valor": 295218.42,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"

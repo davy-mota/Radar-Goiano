@@ -43,7 +43,7 @@
   ],
   "anomalias": {
     "maior_viajante": {
-      "nome": "gabriel lins dos santos",
+      "nome": "gabriel l*** dos s***",
       "valor": 21440.0
     },
     "empresa_favorita": {
@@ -53,7 +53,7 @@
   },
   "radar_ia_geral": [
     {
-      "nome": "ANTONIO ALBINO FERREIRA NETO",
+      "nome": "ANTONIO A*** F*** N***",
       "orgao": "GOIÁS PREVIDÊNCIA - GOIASPREV",
       "valor": 429811.58,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização",
@@ -67,7 +67,7 @@
       "tipo": "Contratos"
     },
     {
-      "nome": "gabriel lins dos santos",
+      "nome": "gabriel l*** dos s***",
       "orgao": "brasilia - df",
       "valor": 21280.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental",

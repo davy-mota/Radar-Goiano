@@ -22,6 +22,7 @@ from controllers.rotas_alertas import percentual_variacao  # noqa: E402
 from executar_carga import validar_conjunto  # noqa: E402
 from carga_financeira_versionada import data_oficial, mes_numerico, nome_normalizado, selecionar_recursos  # noqa: E402
 from corrigir_nomes_json import corrigir_mojibake, formatar_nome_proprio  # noqa: E402
+from privacidade import anonimizar_nome_pessoa, nome_pessoa_para_exibicao  # noqa: E402
 import pandas as pd  # noqa: E402
 from fastapi import HTTPException  # noqa: E402
 
@@ -105,6 +106,33 @@ class CargaVersionadaTest(unittest.TestCase):
     def test_formata_nome_preservando_conectivos_e_sigla(self):
         self.assertEqual(formatar_nome_proprio("SECRETARIA DE ESTADO - SEAD"), "Secretaria de Estado - SEAD")
         self.assertEqual(formatar_nome_proprio("SANEAMENTO DE GOIAS S/A"), "Saneamento de Goias S/A")
+
+    def test_anonimiza_pessoa_preservando_primeiro_nome_e_conectivos(self):
+        self.assertEqual(
+            anonimizar_nome_pessoa("ALEXANDRE CRUVINEL FERREIRA"),
+            "ALEXANDRE C*** F***",
+        )
+        self.assertEqual(
+            anonimizar_nome_pessoa("ERSON DE SOUSA BASTOS"),
+            "ERSON de S*** B***",
+        )
+
+    def test_anonimizacao_e_idempotente(self):
+        self.assertEqual(anonimizar_nome_pessoa("ALEXANDRE C*** F***"), "ALEXANDRE C*** F***")
+
+    def test_preserva_nome_de_cargo_politico_de_alta_exposicao(self):
+        self.assertEqual(
+            nome_pessoa_para_exibicao("NOME COMPLETO", "Governador do Estado"),
+            "NOME COMPLETO",
+        )
+        self.assertEqual(
+            nome_pessoa_para_exibicao("NOME COMPLETO", "Senador"),
+            "NOME COMPLETO",
+        )
+        self.assertEqual(
+            nome_pessoa_para_exibicao("NOME COMPLETO", "Deputado Estadual"),
+            "NOME COMPLETO",
+        )
 
 
 class FornecedorTest(unittest.TestCase):

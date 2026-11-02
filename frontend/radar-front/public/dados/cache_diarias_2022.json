@@ -6,23 +6,23 @@
   },
   "top_viajantes": [
     {
-      "nome": "mauricio barbosa de oliveira",
+      "nome": "mauricio b*** de o***",
       "valor": 70090.0
     },
     {
-      "nome": "marlyane menezes da silva",
+      "nome": "marlyane m*** da s***",
       "valor": 67390.0
     },
     {
-      "nome": "sebastiao silvestre de souza",
+      "nome": "sebastiao s*** de s***",
       "valor": 60065.0
     },
     {
-      "nome": "julio cesar pereira da silva",
+      "nome": "julio c*** p*** da s***",
       "valor": 57750.0
     },
     {
-      "nome": "vagner braulio cunha pietrobon",
+      "nome": "vagner b*** c*** p***",
       "valor": 56475.0
     }
   ],
@@ -50,31 +50,31 @@
   ],
   "alertas_ia": [
     {
-      "nome": "elcimar junio de sousa",
+      "nome": "elcimar j*** de s***",
       "orgao": "braganca paulista - sp",
       "valor": 12825.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "teofilo roberto decrosse da silva zardine rocha",
+      "nome": "teofilo r*** d*** da s*** z*** r***",
       "orgao": "sao paulo - sp",
       "valor": 11025.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "everson jivago araujo roldao",
+      "nome": "everson j*** a*** r***",
       "orgao": "jaguarao - rs",
       "valor": 11025.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "vagner braulio cunha pietrobon",
+      "nome": "vagner b*** c*** p***",
       "orgao": "sao paulo - sp",
       "valor": 10575.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "pedro luiz dos santos",
+      "nome": "pedro l*** dos s***",
       "orgao": "fortaleza - ce",
       "valor": 9225.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"

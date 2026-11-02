@@ -6,23 +6,23 @@
   },
   "top_viajantes": [
     {
-      "nome": "sebastiao silvestre de souza",
+      "nome": "sebastiao s*** de s***",
       "valor": 40180.0
     },
     {
-      "nome": "vera lucia vieira",
+      "nome": "vera l*** v***",
       "valor": 29400.0
     },
     {
-      "nome": "mauricio barbosa de oliveira",
+      "nome": "mauricio b*** de o***",
       "valor": 28670.0
     },
     {
-      "nome": "nereu azevedo dos santos",
+      "nome": "nereu a*** dos s***",
       "valor": 28280.0
     },
     {
-      "nome": "leonel cabral",
+      "nome": "leonel c***",
       "valor": 28030.0
     }
   ],
@@ -50,31 +50,31 @@
   ],
   "alertas_ia": [
     {
-      "nome": "daniel goncalves vitorino campos de miranda",
+      "nome": "daniel g*** v*** c*** de m***",
       "orgao": "fortaleza - ce",
       "valor": 9920.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "daniel goncalves vitorino campos de miranda",
+      "nome": "daniel g*** v*** c*** de m***",
       "orgao": "fortaleza - ce",
       "valor": 9600.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "rafaello virgilli",
+      "nome": "rafaello v***",
       "orgao": "brasilia - df",
       "valor": 6400.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "pedro luiz dos santos",
+      "nome": "pedro l*** dos s***",
       "orgao": "recife - pe",
       "valor": 6180.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "pedro marinho de oliveira filho",
+      "nome": "pedro m*** de o*** f***",
       "orgao": "recife - pe",
       "valor": 6180.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"

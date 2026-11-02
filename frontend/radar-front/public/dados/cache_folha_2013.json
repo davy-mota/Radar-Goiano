@@ -6,23 +6,23 @@
   },
   "top_salarios": [
     {
-      "nome": "ALEXANDRE CRUVINEL FERREIRA",
+      "nome": "ALEXANDRE C*** F***",
       "valor": 405983.49
     },
     {
-      "nome": "ALEXANDRE CRUVINEL FERREIRA",
+      "nome": "ALEXANDRE C*** F***",
       "valor": 405983.49
     },
     {
-      "nome": "BARTOLOMEU MUNIZ GRANJA",
+      "nome": "BARTOLOMEU M*** G***",
       "valor": 359875.93
     },
     {
-      "nome": "BARTOLOMEU MUNIZ GRANJA",
+      "nome": "BARTOLOMEU M*** G***",
       "valor": 359875.93
     },
     {
-      "nome": "ERSON DE SOUSA BASTOS",
+      "nome": "ERSON de S*** B***",
       "valor": 280441.64
     }
   ],
@@ -50,31 +50,31 @@
   ],
   "alertas_ia": [
     {
-      "nome": "ALEXANDRE CRUVINEL FERREIRA",
+      "nome": "ALEXANDRE C*** F***",
       "orgao": "FUNDO DE PREVIDENCIA ESTADUAL",
       "valor": 405983.49,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "ALEXANDRE CRUVINEL FERREIRA",
+      "nome": "ALEXANDRE C*** F***",
       "orgao": "FUNDO DE PREVIDENCIA ESTADUAL",
       "valor": 405983.49,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "BARTOLOMEU MUNIZ GRANJA",
+      "nome": "BARTOLOMEU M*** G***",
       "orgao": "FUNDO DE PREVIDENCIA ESTADUAL",
       "valor": 359875.93,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "BARTOLOMEU MUNIZ GRANJA",
+      "nome": "BARTOLOMEU M*** G***",
       "orgao": "FUNDO DE PREVIDENCIA ESTADUAL",
       "valor": 359875.93,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "ERSON DE SOUSA BASTOS",
+      "nome": "ERSON de S*** B***",
       "orgao": "FUNDO DE PREVIDENCIA ESTADUAL",
       "valor": 280441.64,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"

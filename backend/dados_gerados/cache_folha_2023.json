@@ -6,23 +6,23 @@
   },
   "top_salarios": [
     {
-      "nome": "MARCOS IVAN CARDOSO MARTINS",
+      "nome": "MARCOS I*** C*** M***",
       "valor": 615264.17
     },
     {
-      "nome": "MARCOS IVAN CARDOSO MARTINS",
+      "nome": "MARCOS I*** C*** M***",
       "valor": 615264.17
     },
     {
-      "nome": "HAZIMU TAKASHIMA",
+      "nome": "HAZIMU T***",
       "valor": 358654.71
     },
     {
-      "nome": "HAZIMU TAKASHIMA",
+      "nome": "HAZIMU T***",
       "valor": 358654.71
     },
     {
-      "nome": "ELIZEU PINTO NETO",
+      "nome": "ELIZEU P*** N***",
       "valor": 358354.71
     }
   ],
@@ -50,31 +50,31 @@
   ],
   "alertas_ia": [
     {
-      "nome": "MARCOS IVAN CARDOSO MARTINS",
+      "nome": "MARCOS I*** C*** M***",
       "orgao": "GOIÁS PREVIDÊNCIA - GOIASPREV",
       "valor": 615264.17,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "MARCOS IVAN CARDOSO MARTINS",
+      "nome": "MARCOS I*** C*** M***",
       "orgao": "GOIÁS PREVIDÊNCIA - GOIASPREV",
       "valor": 615264.17,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "HAZIMU TAKASHIMA",
+      "nome": "HAZIMU T***",
       "orgao": "SECRETARIA DE ESTADO DA ECONOMIA",
       "valor": 358654.71,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "HAZIMU TAKASHIMA",
+      "nome": "HAZIMU T***",
       "orgao": "SECRETARIA DE ESTADO DA ECONOMIA",
       "valor": 358654.71,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "ELIZEU PINTO NETO",
+      "nome": "ELIZEU P*** N***",
       "orgao": "SECRETARIA DE ESTADO DA ECONOMIA",
       "valor": 358354.71,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"

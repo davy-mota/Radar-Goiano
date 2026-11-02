@@ -6,23 +6,23 @@
   },
   "top_salarios": [
     {
-      "nome": "ANTONIO ALBINO FERREIRA NETO",
+      "nome": "ANTONIO A*** F*** N***",
       "valor": 429811.58
     },
     {
-      "nome": "ANTONIO ALBINO FERREIRA NETO",
+      "nome": "ANTONIO A*** F*** N***",
       "valor": 429811.58
     },
     {
-      "nome": "LOURENCA MOREIRA CAVALCANTE RODRIGUES DE OLIVEIRA",
+      "nome": "LOURENCA M*** C*** R*** de O***",
       "valor": 378617.22
     },
     {
-      "nome": "LOURENCA MOREIRA CAVALCANTE RODRIGUES DE OLIVEIRA",
+      "nome": "LOURENCA M*** C*** R*** de O***",
       "valor": 378617.22
     },
     {
-      "nome": "ANTONIO CAIXETA",
+      "nome": "ANTONIO C***",
       "valor": 243065.02
     }
   ],
@@ -50,31 +50,31 @@
   ],
   "alertas_ia": [
     {
-      "nome": "ANTONIO ALBINO FERREIRA NETO",
+      "nome": "ANTONIO A*** F*** N***",
       "orgao": "GOIÁS PREVIDÊNCIA - GOIASPREV",
       "valor": 429811.58,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "ANTONIO ALBINO FERREIRA NETO",
+      "nome": "ANTONIO A*** F*** N***",
       "orgao": "GOIÁS PREVIDÊNCIA - GOIASPREV",
       "valor": 429811.58,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "LOURENCA MOREIRA CAVALCANTE RODRIGUES DE OLIVEIRA",
+      "nome": "LOURENCA M*** C*** R*** de O***",
       "orgao": "SECRETARIA DE ESTADO DA FAZENDA",
       "valor": 378617.22,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "LOURENCA MOREIRA CAVALCANTE RODRIGUES DE OLIVEIRA",
+      "nome": "LOURENCA M*** C*** R*** de O***",
       "orgao": "SECRETARIA DE ESTADO DA FAZENDA",
       "valor": 378617.22,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "ANTONIO CAIXETA",
+      "nome": "ANTONIO C***",
       "orgao": "GOIÁS PREVIDÊNCIA - GOIASPREV",
       "valor": 243065.02,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"

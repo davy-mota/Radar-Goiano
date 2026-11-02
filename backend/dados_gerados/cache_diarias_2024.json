@@ -6,23 +6,23 @@
   },
   "top_viajantes": [
     {
-      "nome": "aldenora rosalina da gama",
+      "nome": "aldenora r*** da g***",
       "valor": 58650.0
     },
     {
-      "nome": "rodrigo teodoro do carmo",
+      "nome": "rodrigo t*** do c***",
       "valor": 53935.0
     },
     {
-      "nome": "pedro marinho de oliveira filho",
+      "nome": "pedro m*** de o*** f***",
       "valor": 51685.0
     },
     {
-      "nome": "mauricio barbosa de oliveira",
+      "nome": "mauricio b*** de o***",
       "valor": 51490.0
     },
     {
-      "nome": "mauro mendes da silva filho",
+      "nome": "mauro m*** da s*** f***",
       "valor": 51245.0
     }
   ],
@@ -50,31 +50,31 @@
   ],
   "alertas_ia": [
     {
-      "nome": "marcos henrique fernandes neves",
+      "nome": "marcos h*** f*** n***",
       "orgao": "arapongas - pr",
       "valor": 16650.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "juliana ribeiro fernandes",
+      "nome": "juliana r*** f***",
       "orgao": "arapongas - pr",
       "valor": 13725.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "igor eduardo cordeiro de moura",
+      "nome": "igor e*** c*** de m***",
       "orgao": "florianopolis - sc",
       "valor": 13500.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "joao paulo do carmo cotrim",
+      "nome": "joao p*** do c*** c***",
       "orgao": "florianopolis - sc",
       "valor": 13275.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "everson jivago araujo roldao",
+      "nome": "everson j*** a*** r***",
       "orgao": "sao paulo - sp",
       "valor": 11475.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"

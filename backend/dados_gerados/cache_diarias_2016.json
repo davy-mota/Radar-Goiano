@@ -6,23 +6,23 @@
   },
   "top_viajantes": [
     {
-      "nome": "gabriel lins dos santos",
+      "nome": "gabriel l*** dos s***",
       "valor": 21440.0
     },
     {
-      "nome": "sebastiÃ£o carlos da costa",
+      "nome": "sebastiÃ£o c*** da c***",
       "valor": 21120.0
     },
     {
-      "nome": "jaime de souza avelar",
+      "nome": "jaime de s*** a***",
       "valor": 21120.0
     },
     {
-      "nome": "alessandro guilherme de oliveira",
+      "nome": "alessandro g*** de o***",
       "valor": 12684.0
     },
     {
-      "nome": "adao victor borges da silva",
+      "nome": "adao v*** b*** da s***",
       "valor": 11920.0
     }
   ],
@@ -50,31 +50,31 @@
   ],
   "alertas_ia": [
     {
-      "nome": "gabriel lins dos santos",
+      "nome": "gabriel l*** dos s***",
       "orgao": "brasilia - df",
       "valor": 21280.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "sebastiÃ£o carlos da costa",
+      "nome": "sebastiÃ£o c*** da c***",
       "orgao": "brasilia",
       "valor": 21120.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "jaime de souza avelar",
+      "nome": "jaime de s*** a***",
       "orgao": "brasilia",
       "valor": 21120.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "wenderson josÃ© de franÃ§a",
+      "nome": "wenderson j*** de f***",
       "orgao": "apda goiania",
       "valor": 11440.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "amilton de souza conceiÃ§Ã£o",
+      "nome": "amilton de s*** c***",
       "orgao": "rio de janeiro - rj",
       "valor": 9920.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"

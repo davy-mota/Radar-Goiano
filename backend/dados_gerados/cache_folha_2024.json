@@ -6,23 +6,23 @@
   },
   "top_salarios": [
     {
-      "nome": "SELMA MARIA SANTANA",
+      "nome": "SELMA M*** S***",
       "valor": 565382.38
     },
     {
-      "nome": "SELMA MARIA SANTANA",
+      "nome": "SELMA M*** S***",
       "valor": 565382.38
     },
     {
-      "nome": "CARMENCITA PEREIRA DE CASTRO",
+      "nome": "CARMENCITA P*** de C***",
       "valor": 465298.55
     },
     {
-      "nome": "CARMENCITA PEREIRA DE CASTRO",
+      "nome": "CARMENCITA P*** de C***",
       "valor": 465298.55
     },
     {
-      "nome": "LAZARA JANUARIA DA COSTA VIEIRA",
+      "nome": "LAZARA J*** da C*** V***",
       "valor": 459227.84
     }
   ],
@@ -50,31 +50,31 @@
   ],
   "alertas_ia": [
     {
-      "nome": "SELMA MARIA SANTANA",
+      "nome": "SELMA M*** S***",
       "orgao": "GOIÁS PREVIDÊNCIA - GOIASPREV",
       "valor": 565382.38,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "SELMA MARIA SANTANA",
+      "nome": "SELMA M*** S***",
       "orgao": "GOIÁS PREVIDÊNCIA - GOIASPREV",
       "valor": 565382.38,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "CARMENCITA PEREIRA DE CASTRO",
+      "nome": "CARMENCITA P*** de C***",
       "orgao": "GOIÁS PREVIDÊNCIA - GOIASPREV",
       "valor": 465298.55,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "CARMENCITA PEREIRA DE CASTRO",
+      "nome": "CARMENCITA P*** de C***",
       "orgao": "GOIÁS PREVIDÊNCIA - GOIASPREV",
       "valor": 465298.55,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "LAZARA JANUARIA DA COSTA VIEIRA",
+      "nome": "LAZARA J*** da C*** V***",
       "orgao": "GOIÁS PREVIDÊNCIA - GOIASPREV",
       "valor": 459227.84,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"

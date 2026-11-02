@@ -6,23 +6,23 @@
   },
   "top_viajantes": [
     {
-      "nome": "mauricio barbosa de oliveira",
+      "nome": "mauricio b*** de o***",
       "valor": 50080.0
     },
     {
-      "nome": "marlyane menezes da silva",
+      "nome": "marlyane m*** da s***",
       "valor": 49440.0
     },
     {
-      "nome": "aldenora rosalina da gama",
+      "nome": "aldenora r*** da g***",
       "valor": 46160.0
     },
     {
-      "nome": "vagner braulio cunha pietrobon",
+      "nome": "vagner b*** c*** p***",
       "valor": 44000.0
     },
     {
-      "nome": "rodrigo teodoro do carmo",
+      "nome": "rodrigo t*** do c***",
       "valor": 41040.0
     }
   ],
@@ -50,31 +50,31 @@
   ],
   "alertas_ia": [
     {
-      "nome": "tyago de paula ferreira",
+      "nome": "tyago de p*** f***",
       "orgao": "belem - pa",
       "valor": 15520.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "pedro marinho de oliveira filho",
+      "nome": "pedro m*** de o*** f***",
       "orgao": "olinda - pe",
       "valor": 7520.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "winder de almeida perillo",
+      "nome": "winder de a*** p***",
       "orgao": "barueri - sp",
       "valor": 7520.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "elcimar junio de sousa",
+      "nome": "elcimar j*** de s***",
       "orgao": "braganca paulista - sp",
       "valor": 7520.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "pedro luiz dos santos",
+      "nome": "pedro l*** dos s***",
       "orgao": "olinda - pe",
       "valor": 7520.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"

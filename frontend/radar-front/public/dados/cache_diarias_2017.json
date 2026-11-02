@@ -6,23 +6,23 @@
   },
   "top_viajantes": [
     {
-      "nome": "eberson holanda",
+      "nome": "eberson h***",
       "valor": 47992.0
     },
     {
-      "nome": "esmeraldino jacinto de lemos",
+      "nome": "esmeraldino j*** de l***",
       "valor": 47980.0
     },
     {
-      "nome": "alessandro guilherme de oliveira",
+      "nome": "alessandro g*** de o***",
       "valor": 36861.0
     },
     {
-      "nome": "carlos borges dos santos",
+      "nome": "carlos b*** dos s***",
       "valor": 36680.0
     },
     {
-      "nome": "rogerio barbosa mendonca",
+      "nome": "rogerio b*** m***",
       "valor": 35140.0
     }
   ],
@@ -50,31 +50,31 @@
   ],
   "alertas_ia": [
     {
-      "nome": "murilo mendonÃ§a barra",
+      "nome": "murilo m*** b***",
       "orgao": "porto e covilha portugal",
       "valor": 11514.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "eberson holanda",
+      "nome": "eberson h***",
       "orgao": "rio de janeiro - rj",
       "valor": 9920.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "esmeraldino jacinto de lemos",
+      "nome": "esmeraldino j*** de l***",
       "orgao": "rio de janeiro - rj",
       "valor": 9920.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "carlos borges dos santos",
+      "nome": "carlos b*** dos s***",
       "orgao": "brasilia - df",
       "valor": 9920.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "esmeraldino jacinto de lemos",
+      "nome": "esmeraldino j*** de l***",
       "orgao": "rio de janeiro - rj",
       "valor": 9700.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"

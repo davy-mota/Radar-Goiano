@@ -6,23 +6,23 @@
   },
   "top_salarios": [
     {
-      "nome": "ADEMAR TORRES NASCENTE",
+      "nome": "ADEMAR T*** N***",
       "valor": 199108.53
     },
     {
-      "nome": "ADEMAR TORRES NASCENTE",
+      "nome": "ADEMAR T*** N***",
       "valor": 199108.53
     },
     {
-      "nome": "CARLOS ALBERTO BUENO",
+      "nome": "CARLOS A*** B***",
       "valor": 197533.1
     },
     {
-      "nome": "CARLOS ALBERTO BUENO",
+      "nome": "CARLOS A*** B***",
       "valor": 197533.1
     },
     {
-      "nome": "CELIA REIS DI REZENDE",
+      "nome": "CELIA R*** D*** R***",
       "valor": 161887.63
     }
   ],
@@ -50,31 +50,31 @@
   ],
   "alertas_ia": [
     {
-      "nome": "ADEMAR TORRES NASCENTE",
+      "nome": "ADEMAR T*** N***",
       "orgao": "SECRETARIA DE ESTADO DA FAZENDA",
       "valor": 199108.53,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "ADEMAR TORRES NASCENTE",
+      "nome": "ADEMAR T*** N***",
       "orgao": "SECRETARIA DE ESTADO DA FAZENDA",
       "valor": 199108.53,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "CARLOS ALBERTO BUENO",
+      "nome": "CARLOS A*** B***",
       "orgao": "SECRETARIA DE ESTADO DA FAZENDA",
       "valor": 197533.1,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "CARLOS ALBERTO BUENO",
+      "nome": "CARLOS A*** B***",
       "orgao": "SECRETARIA DE ESTADO DA FAZENDA",
       "valor": 197533.1,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"
     },
     {
-      "nome": "CELIA REIS DI REZENDE",
+      "nome": "CELIA R*** D*** R***",
       "orgao": "SECRETARIA DE ESTADO DA FAZENDA",
       "valor": 161887.63,
       "motivo": "Maior remuneração bruta individual do período; requer contextualização"

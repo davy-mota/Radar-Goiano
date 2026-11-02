@@ -6,23 +6,23 @@
   },
   "top_viajantes": [
     {
-      "nome": "mauricio barbosa de oliveira",
+      "nome": "mauricio b*** de o***",
       "valor": 88795.0
     },
     {
-      "nome": "marlyane menezes da silva",
+      "nome": "marlyane m*** da s***",
       "valor": 82050.0
     },
     {
-      "nome": "kenia menezes mesquita",
+      "nome": "kenia m*** m***",
       "valor": 59530.0
     },
     {
-      "nome": "maria oneide da silva veiga jardim",
+      "nome": "maria o*** da s*** v*** j***",
       "valor": 54970.0
     },
     {
-      "nome": "sebastiao silvestre de souza",
+      "nome": "sebastiao s*** de s***",
       "valor": 52785.0
     }
   ],
@@ -50,31 +50,31 @@
   ],
   "alertas_ia": [
     {
-      "nome": "andre alves souza",
+      "nome": "andre a*** s***",
       "orgao": "porto alegre - rs",
       "valor": 15525.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "pedro luiz dos santos",
+      "nome": "pedro l*** dos s***",
       "orgao": "recife - pe",
       "valor": 11025.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "pedro marinho de oliveira filho",
+      "nome": "pedro m*** de o*** f***",
       "orgao": "recife - pe",
       "valor": 11025.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "marcelo de sousa moreira",
+      "nome": "marcelo de s*** m***",
       "orgao": "sao paulo - sp",
       "valor": 10125.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
     },
     {
-      "nome": "kennedy martins bastos",
+      "nome": "kennedy m*** b***",
       "orgao": "sao paulo - sp",
       "valor": 10125.0,
       "motivo": "Maior valor individual de diária do período; requer validação documental"
