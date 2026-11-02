@@ -38,6 +38,59 @@ body {
   color: #1F2937;
 }
 
+/* Recharts usa estilos padrao claros em tooltips e cinza de baixo contraste nos eixos. */
+[data-theme="dark"] .recharts-default-tooltip {
+  background-color: #161B22 !important;
+  border: 1px solid #3B4252 !important;
+  border-radius: 0.5rem !important;
+  color: #F3F4F6 !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+[data-theme="dark"] .recharts-tooltip-label {
+  color: #F3F4F6 !important;
+  font-weight: 700;
+}
+
+[data-theme="dark"] .recharts-tooltip-cursor {
+  fill: rgba(255, 255, 255, 0.06) !important;
+  stroke: rgba(255, 255, 255, 0.2) !important;
+}
+
+[data-theme="dark"] .recharts-cartesian-axis-tick-value {
+  fill: #AEB7C6;
+}
+
+[data-theme="dark"] .recharts-legend-item-text {
+  color: #D7DEE9 !important;
+}
+
+[data-theme="light"] .recharts-default-tooltip {
+  background-color: #FFFFFF !important;
+  border: 1px solid #D1D5DB !important;
+  border-radius: 0.5rem !important;
+  color: #1F2937 !important;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+}
+
+[data-theme="light"] .recharts-tooltip-label {
+  color: #111827 !important;
+  font-weight: 700;
+}
+
+[data-theme="light"] .recharts-tooltip-cursor {
+  fill: rgba(15, 23, 42, 0.06) !important;
+  stroke: rgba(15, 23, 42, 0.16) !important;
+}
+
+[data-theme="light"] .recharts-cartesian-axis-tick-value {
+  fill: #4B5563;
+}
+
+[data-theme="light"] .recharts-legend-item-text {
+  color: #374151 !important;
+}
+
 /* Remove a borda preta de foco ao clicar nos gráficos do Recharts */
 .recharts-wrapper,
 .recharts-wrapper *:focus,
