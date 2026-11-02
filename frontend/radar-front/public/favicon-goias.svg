@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 48" role="img" aria-label="Bandeira de Goiás">
+  <defs>
+    <clipPath id="cantos">
+      <rect width="70" height="48" rx="5" />
+    </clipPath>
+  </defs>
+  <g clip-path="url(#cantos)">
+    <path fill="#078930" d="M0 0h70v48H0z" />
+    <path fill="#fcd116" d="M0 6h70v6H0zm0 12h70v6H0zm0 12h70v6H0zm0 12h70v6H0z" />
+    <path fill="#0057a8" d="M0 0h28v24H0z" />
+    <g fill="#fff">
+      <circle cx="14" cy="4.5" r="1.8" />
+      <circle cx="9" cy="10" r="1.8" />
+      <circle cx="14" cy="12.5" r="1.8" />
+      <circle cx="19" cy="10" r="1.8" />
+      <circle cx="14" cy="19" r="1.8" />
+    </g>
+  </g>
+  <rect width="70" height="48" rx="5" fill="none" stroke="#0b5d2a" stroke-width="1.5" />
+</svg>
