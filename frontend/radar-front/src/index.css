@@ -17,6 +17,27 @@ body {
   color: #e5e7eb;
 }
 
+/* Native select menus are rendered by the browser/operating system. */
+[data-theme="dark"] select {
+  color-scheme: dark;
+}
+
+[data-theme="dark"] select option,
+[data-theme="dark"] select optgroup {
+  background-color: #1A1C23;
+  color: #F3F4F6;
+}
+
+[data-theme="light"] select {
+  color-scheme: light;
+}
+
+[data-theme="light"] select option,
+[data-theme="light"] select optgroup {
+  background-color: #FFFFFF;
+  color: #1F2937;
+}
+
 /* Remove a borda preta de foco ao clicar nos gráficos do Recharts */
 .recharts-wrapper,
 .recharts-wrapper *:focus,

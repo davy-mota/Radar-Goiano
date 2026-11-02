@@ -144,7 +144,10 @@ function App() {
   }`;
 
   return (
-    <div className={`flex h-screen font-sans overflow-hidden transition-colors duration-300 ${t.fundoBase}`}>
+    <div
+      data-theme={temaClaro ? 'light' : 'dark'}
+      className={`flex h-screen font-sans overflow-hidden transition-colors duration-300 ${t.fundoBase}`}
+    >
       
       {menuAberto && (
         <div 
