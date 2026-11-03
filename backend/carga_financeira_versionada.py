@@ -271,6 +271,10 @@ def carregar_recurso(versao_id: int, conjunto: str, recurso: dict) -> int:
 def validar_versao(versao_id: int, conjuntos: list[str], ano_esperado: int | None = None) -> dict:
     metricas = {}
     with engine.connect() as conexao:
+        # A verificação de milhões de hashes pode exceder o limite de 30 s da
+        # API. A carga é um processo administrativo isolado e recebe uma janela
+        # própria, sem alterar o timeout das consultas públicas.
+        conexao.execute(text("SET LOCAL statement_timeout = '10min'"))
         for conjunto in conjuntos:
             tabela = TABELAS[conjunto]
             coluna_valor = {"empenhos": "valor_empenhado", "liquidacoes": "valor_liquidado", "pagamentos": "valor_pago", "receitas": "valor_realizado"}[conjunto]
