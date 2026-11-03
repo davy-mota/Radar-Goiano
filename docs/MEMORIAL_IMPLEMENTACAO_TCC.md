@@ -1001,3 +1001,60 @@ Os diagramas são mantidos em Mermaid dentro do Markdown para que permaneçam
 versionáveis, revisáveis junto ao código e renderizados diretamente pelo GitHub.
 Para inclusão no texto acadêmico, cada figura deve usar a legenda “Fonte:
 elaborado pelo autor com base na implementação do Radar Goiano (2026)”.
+
+## 26. Atualização financeira versionada até agosto de 2026
+
+Em 2 e 3 de novembro de 2026 foi executada uma nova reconstrução integral da
+camada financeira de produção. Antes da operação, foi criado o backup lógico
+`pre_carga_meses_20261102.dump`, no formato customizado do PostgreSQL, com 3,5
+GB e SHA-256
+`0ea92f08ecd6cd3b689af9d1354164ecbb01d2034e63cb423813835a39fad3bf`.
+A versão 11 permaneceu ativa durante toda a preparação, de modo que as tentativas
+intermediárias não afetaram as consultas públicas.
+
+### Mudança de esquema identificada na fonte
+
+A auditoria da primeira versão candidata mostrou que os arquivos mensais de
+receitas de 2026 continham registros, mas todos os valores haviam sido
+transformados em zero. A fonte oficial mudou o esquema sem mudar o conjunto de
+dados: os arquivos anteriores usavam `NOME_ORGAO`, `CATEGORIA_ECONOMICA`,
+`CODG_NATUREZA_RECEITA` e `RECEITA_REALIZADA`; os novos passaram a publicar
+`ORGAO`, `CATEGIA_ECONOMICA`, `COD_NAT_RECEITA` e `VALR_RECEITA_LOA`.
+
+Embora o nome da última coluna mencione LOA, a descrição oficial do conjunto no
+catálogo CKAN informa que o dado representa receita realizada. O carregador
+passou a aceitar aliases explícitos para os dois esquemas, preservando previsão
+como zero quando ela não é publicada e mapeando `VALR_RECEITA_LOA` para receita
+realizada. Um teste de regressão reproduz o cabeçalho oficial de agosto de 2026.
+Na imagem de produção corrigida, esse arquivo resultou em 861 registros, R$
+5.842.904.314,43 realizados e 100% de preenchimento de órgão e natureza.
+
+### Validações e ativação
+
+A validação bloqueante passou a registrar `periodos_correntes_sem_valor` e rejeita
+qualquer mês do ano corrente cuja soma absoluta inteira seja zero. Carga e
+ativação receberam `statement_timeout` administrativo de dez minutos, restrito à
+transação de manutenção; o limite de 30 segundos da API pública não foi
+ampliado. Essa separação foi necessária porque a comparação de hashes, o cálculo
+de qualidade e a atualização da visão materializada percorrem milhões de fatos.
+
+As versões incompletas ou reprovadas foram mantidas com status `rejeitada` para
+rastreabilidade. A versão 15 passou por esquema, período, soma, sobreposição,
+codificação e estabilidade dos recursos, sendo ativada transacionalmente. A
+versão 11 foi arquivada e continua disponível para reversão.
+
+O estado publicado após a ativação contém:
+
+| Conjunto | Registros | Cobertura de 2026 |
+|---|---:|---|
+| Empenhos | 1.293.923 | janeiro a agosto |
+| Liquidações | 2.967.337 | janeiro a agosto |
+| Pagamentos | 2.834.913 | janeiro a agosto |
+| Receitas | 168.558 | janeiro a agosto |
+
+Os oito meses de receitas de 2026 somam R$ 45.800.486.779,67 realizados. O
+arquivo mensal não oferece previsão da LOA; por isso a API informa cobertura de
+previsão igual a 0%, não calcula o percentual arrecadado sobre a previsão e evita
+apresentar uma razão sem denominador confiável. O endpoint público confirmou
+HTTP 200, API e banco online, pagamentos até 31 de agosto de 2026 e presença de
+2026 no painel fiscal.

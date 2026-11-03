@@ -416,6 +416,33 @@ linha.
 - relações físicas e associações analíticas são visualmente distinguíveis;
 - os diagramas permanecem editáveis e renderizáveis pelo GitHub.
 
+### Incremento 26 — atualização financeira e compatibilidade de esquema (implementado)
+
+A camada financeira versionada foi reconstruída e atualizada até agosto de 2026.
+Durante a auditoria da versão candidata, detectou-se uma mudança de esquema nos
+CSVs mensais de receitas: `RECEITA_REALIZADA` foi substituída por
+`VALR_RECEITA_LOA`, e campos de órgão, categoria e natureza também foram
+renomeados. O carregador agora aceita aliases fechados para os dois contratos de
+fonte, sem inferência por similaridade.
+
+A validação passou a bloquear meses do ano corrente cuja soma absoluta seja
+zero. Carga e ativação usam timeout administrativo de dez minutos somente nas
+transações de manutenção, preservando o limite menor das consultas públicas. A
+versão 15 foi ativada com 1.293.923 empenhos, 2.967.337 liquidações, 2.834.913
+pagamentos e 168.558 receitas. Empenhos, liquidações, pagamentos e receitas
+possuem cobertura de janeiro a agosto de 2026.
+
+#### Critérios de aceitação
+
+- a versão anterior continua ativa até a aprovação integral da candidata;
+- meses correntes com registros e soma monetária integralmente zerada bloqueiam
+  a validação;
+- os dois esquemas oficiais de receitas possuem teste de transformação;
+- metadados de qualidade e resumo mensal são atualizados na mesma transação da
+  ativação;
+- a API pública apresenta 2026 e os oito meses após a troca;
+- a versão anterior permanece arquivada e reversível.
+
 ## 7. Definição de pronto
 
 Uma feature está pronta quando possui contrato de API documentado, validação, estado de erro no frontend, teste automatizado, consulta indexada quando necessário e origem dos dados identificada.

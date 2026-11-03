@@ -80,3 +80,28 @@ As cargas legadas de pagamentos e receitas foram bloqueadas no executor auditáv
 - valores negativos devem ser preservados e classificados como possíveis estornos;
 - a aplicação deve distinguir valor empenhado, liquidado e pago por origem;
 - a restauração da versão anterior deve ser testável antes da remoção definitiva.
+
+## 7. Resultado da atualização de novembro de 2026
+
+Em 3 de novembro de 2026, a versão financeira 15 foi ativada após reconstrução
+integral, validação bloqueante e auditoria dos recursos oficiais. A troca
+arquivou a versão 11 sem apagá-la. A camada ativa passou a conter 1.293.923
+empenhos, 2.967.337 liquidações, 2.834.913 pagamentos e 168.558 receitas.
+
+Os quatro fatos possuem dados de janeiro a agosto de 2026. Os pagamentos têm
+data máxima de 31 de agosto de 2026. As receitas dos oito meses somam R$
+45.800.486.779,67, com órgão e natureza preenchidos em 100% das 7.285 linhas de
+2026. Não foram encontradas sequências típicas de mojibake nem caracteres de
+substituição na versão aprovada.
+
+A auditoria detectou e impediu a ativação de uma candidata em que receitas de
+2026 haviam sido transformadas em zero devido à mudança de cabeçalho da fonte.
+O catálogo oficial descreve o conjunto como receita realizada; por isso o novo
+campo `VALR_RECEITA_LOA` é mapeado para `valor_realizado`. Como os arquivos de
+2026 não publicam uma coluna de previsão, `valor_previsto` permanece zero e a
+API marca a cobertura como insuficiente para calcular percentual de arrecadação
+sobre previsão.
+
+O backup anterior à operação foi preservado em
+`/opt/radar-goiano/backups/pre_carga_meses_20261102.dump`, com SHA-256
+`0ea92f08ecd6cd3b689af9d1354164ecbb01d2034e63cb423813835a39fad3bf`.
