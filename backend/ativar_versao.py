@@ -84,6 +84,10 @@ def _trocar_versao_ativa(versao_id: int, status_exigido: str, metricas_extra: di
     carga_id = _iniciar_registro(descricao)
     try:
         with engine.begin() as conexao:
+            # Ativação, métricas de qualidade e refresh da agregação percorrem
+            # milhões de fatos. Usam uma janela administrativa própria sem
+            # ampliar o timeout das consultas públicas da API.
+            conexao.execute(text("SET LOCAL statement_timeout = '10min'"))
             total = conexao.execute(text("""
                 SELECT COALESCE(SUM(registros), 0) FROM recursos_ingestao WHERE versao_id = :versao
             """), {"versao": versao_id}).scalar_one()
