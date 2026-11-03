@@ -20,7 +20,13 @@ from controllers.sql_utils import ORGAO_NORMALIZADO  # noqa: E402
 from controllers.rotas_fiscal import avaliar_previsao  # noqa: E402
 from controllers.rotas_alertas import percentual_variacao  # noqa: E402
 from executar_carga import validar_conjunto  # noqa: E402
-from carga_financeira_versionada import data_oficial, mes_numerico, nome_normalizado, selecionar_recursos  # noqa: E402
+from carga_financeira_versionada import (  # noqa: E402
+    data_oficial,
+    mes_numerico,
+    nome_normalizado,
+    selecionar_recursos,
+    transformar,
+)
 from corrigir_nomes_json import corrigir_mojibake, formatar_nome_proprio  # noqa: E402
 from privacidade import anonimizar_nome_pessoa, nome_pessoa_para_exibicao  # noqa: E402
 import pandas as pd  # noqa: E402
@@ -98,6 +104,28 @@ class CargaVersionadaTest(unittest.TestCase):
     def test_datas_iso_e_brasileira(self):
         datas = data_oficial(pd.Series(["2024-03-12", "12/03/2024"]))
         self.assertEqual([(d.year, d.month, d.day) for d in datas], [(2024, 3, 12), (2024, 3, 12)])
+
+    def test_receita_2026_aceita_novo_esquema_oficial(self):
+        bruto = pd.DataFrame({
+            "ANO": ["2026"],
+            "ANO_MES": ["202608"],
+            "ORGÃO": ["ESTADO DE GOIAS - TESOURO ESTADUAL"],
+            "CATEGIA_ECONOMICA": ["RECEITAS CORRENTES"],
+            "DESC_ESPECIE": ["BENS INCORPORADOS"],
+            "DESC_ALINEA": ["DEMAIS RECEITAS"],
+            "COD_NAT_RECEITA": ["19319901"],
+            "VALR_RECEITA_LOA": ["11130.52"],
+        })
+
+        receita = transformar("receitas", bruto).iloc[0]
+
+        self.assertEqual(receita["ano"], 2026)
+        self.assertEqual(receita["mes"], 8)
+        self.assertEqual(receita["nome_orgao"], "ESTADO DE GOIAS - TESOURO ESTADUAL")
+        self.assertEqual(receita["categoria_economica"], "RECEITAS CORRENTES")
+        self.assertEqual(receita["codigo_natureza"], "19319901")
+        self.assertEqual(receita["valor_previsto"], 0.0)
+        self.assertEqual(receita["valor_realizado"], 11130.52)
 
     def test_corrige_mojibake_sem_alterar_texto_correto(self):
         self.assertEqual(corrigir_mojibake("Secretaria da Educação"), "Secretaria da Educação")

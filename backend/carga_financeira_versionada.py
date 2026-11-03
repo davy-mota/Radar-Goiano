@@ -105,6 +105,19 @@ def campo(df: pd.DataFrame, nome: str, padrao=None):
     return df[nome] if nome in df.columns else pd.Series([padrao] * len(df), index=df.index)
 
 
+def primeiro_campo(df: pd.DataFrame, *nomes: str, padrao=None):
+    """Retorna a primeira coluna disponível entre aliases oficiais.
+
+    O catálogo de receitas mudou o esquema em 2026 sem criar um novo conjunto:
+    os arquivos antigos usam, por exemplo, NOME_ORGAO e RECEITA_REALIZADA,
+    enquanto os mensais novos publicam ORGAO e VALR_RECEITA_LOA.
+    """
+    for nome in nomes:
+        if nome in df.columns:
+            return df[nome]
+    return pd.Series([padrao] * len(df), index=df.index)
+
+
 def transformar(conjunto: str, bruto: pd.DataFrame) -> pd.DataFrame:
     bruto.columns = [nome_normalizado(c) for c in bruto.columns]
     if conjunto == "empenhos":
@@ -146,10 +159,20 @@ def transformar(conjunto: str, bruto: pd.DataFrame) -> pd.DataFrame:
         mes_receita = pd.to_numeric(ano_mes.str[4:6], errors="coerce").fillna(mes_numerico(campo(bruto, "MES")))
         saida = pd.DataFrame({
             "ano": ano_receita, "mes": mes_receita,
-            "codigo_orgao": campo(bruto, "CODG_ORGAO"), "nome_orgao": campo(bruto, "NOME_ORGAO"), "categoria_economica": campo(bruto, "CATEGORIA_ECONOMICA"),
-            "origem": campo(bruto, "ORIGEM"), "especie": campo(bruto, "ESPECIE"), "rubrica": campo(bruto, "RUBRICA"), "alinea": campo(bruto, "ALINEA"),
-            "subalinea": campo(bruto, "SUBALINEA"), "codigo_natureza": campo(bruto, "CODG_NATUREZA_RECEITA"),
-            "valor_previsto": moeda(campo(bruto, "RECEITA_PREVISTA_LOA", 0)), "valor_realizado": moeda(campo(bruto, "RECEITA_REALIZADA", 0)),
+            "codigo_orgao": campo(bruto, "CODG_ORGAO"),
+            "nome_orgao": primeiro_campo(bruto, "NOME_ORGAO", "ORGAO"),
+            "categoria_economica": primeiro_campo(bruto, "CATEGORIA_ECONOMICA", "CATEGIA_ECONOMICA"),
+            "origem": campo(bruto, "ORIGEM"),
+            "especie": primeiro_campo(bruto, "ESPECIE", "DESC_ESPECIE"),
+            "rubrica": campo(bruto, "RUBRICA"),
+            "alinea": primeiro_campo(bruto, "ALINEA", "DESC_ALINEA"),
+            "subalinea": campo(bruto, "SUBALINEA"),
+            "codigo_natureza": primeiro_campo(bruto, "CODG_NATUREZA_RECEITA", "COD_NAT_RECEITA"),
+            "valor_previsto": moeda(campo(bruto, "RECEITA_PREVISTA_LOA", 0)),
+            # A descrição oficial do conjunto identifica o valor como receita
+            # realizada. Em 2026 a fonte renomeou a única coluna monetária para
+            # VALR_RECEITA_LOA, apesar de manter essa mesma semântica no catálogo.
+            "valor_realizado": moeda(primeiro_campo(bruto, "RECEITA_REALIZADA", "VALR_RECEITA_LOA", padrao=0)),
         })
     saida["ano"] = saida["ano"].fillna(0).astype(int)
     saida["mes"] = saida["mes"].fillna(0).astype(int)
@@ -264,13 +287,30 @@ def validar_versao(versao_id: int, conjuntos: list[str], ano_esperado: int | Non
                 SELECT COUNT(*) FROM (SELECT chave_conteudo FROM {tabela} WHERE versao_id=:versao
                 GROUP BY chave_conteudo HAVING COUNT(DISTINCT recurso_id) > 1) x
             """), {"versao": versao_id}).scalar_one()
-            metricas[conjunto] = {**dict(linha), "conteudos_entre_recursos": sobreposicoes}
+            periodos_correntes_sem_valor = conexao.execute(text(f"""
+                SELECT COALESCE(jsonb_agg(jsonb_build_object('ano', ano, 'mes', mes) ORDER BY ano, mes), '[]'::jsonb)
+                FROM (
+                    SELECT ano, mes
+                    FROM {tabela}
+                    WHERE versao_id=:versao
+                      AND ano=EXTRACT(YEAR FROM CURRENT_DATE)::int
+                    GROUP BY ano, mes
+                    HAVING SUM(ABS({coluna_valor})) = 0
+                ) periodos
+            """), {"versao": versao_id}).scalar_one()
+            metricas[conjunto] = {
+                **dict(linha),
+                "conteudos_entre_recursos": sobreposicoes,
+                "periodos_correntes_sem_valor": periodos_correntes_sem_valor,
+            }
             ano_divergente = ano_esperado is not None and conjunto != "receitas" and (
                 linha["ano_exercicio_min"] != ano_esperado or linha["ano_exercicio_max"] != ano_esperado
             )
             if ano_esperado is not None and conjunto == "receitas":
                 ano_divergente = linha["ano_min"] != ano_esperado or linha["ano_max"] != ano_esperado
-            if not linha["registros"] or linha["meses_invalidos"] or linha["anos_invalidos"] or not linha["soma_absoluta"] or sobreposicoes or ano_divergente:
+            if (not linha["registros"] or linha["meses_invalidos"] or linha["anos_invalidos"]
+                    or not linha["soma_absoluta"] or sobreposicoes
+                    or periodos_correntes_sem_valor or ano_divergente):
                 raise ValueError(f"Validação bloqueante falhou para {conjunto}: {metricas[conjunto]}")
     return metricas
 
