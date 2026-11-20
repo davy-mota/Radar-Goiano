@@ -40,7 +40,9 @@ export default function EmendasParlamentares({ temaClaro }) {
       descricao="Acompanhe autores, áreas, beneficiários e as etapas financeiras das emendas destinadas pela Assembleia Legislativa de Goiás."
       pergunta="Quanto foi indicado, empenhado, liquidado e pago, e para quais áreas e localidades o recurso foi destinado?"
       ressalva="Emenda indicada não é pagamento realizado. Os valores representam etapas diferentes e não devem ser somados. A presença de um autor ou beneficiário não indica favorecimento ou irregularidade."
-    />
+    >
+      <span className={`inline-flex rounded-lg border px-3 py-2 text-sm font-bold ${tema.campo}`}>Exercício disponível: 2025</span>
+    </ContextoTela>
     {erro && <div role="alert">{erro}</div>}
     {dados && <>
       <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4" aria-label="Etapas financeiras das emendas">

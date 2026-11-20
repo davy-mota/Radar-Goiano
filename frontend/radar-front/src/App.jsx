@@ -18,6 +18,7 @@ import { useTema } from './theme.js';
 
 const CORES_GRAFICOS = ['#00D4FF', '#8A2BE2', '#FF007F', '#00FA9A', '#FFA500'];
 const formatarMoeda = (valor) => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(valor || 0);
+const ABAS_COM_FILTRO_DE_EXERCICIO = new Set(['Visão Geral', 'Despesas', 'Contratos', 'Diárias', 'Folha']);
 
 function App() {
   const parametrosIniciais = new URLSearchParams(window.location.search);
@@ -140,6 +141,7 @@ function App() {
     Folha: dadosFolha,
     Diárias: dadosDiarias,
   }[abaAtiva];
+  const exibeFiltroDeExercicio = ABAS_COM_FILTRO_DE_EXERCICIO.has(abaAtiva);
 
   const cssBotao = (nome) => `flex items-center gap-3 w-full px-4 py-3 rounded-lg transition-colors text-left ${
     abaAtiva === nome 
@@ -176,15 +178,6 @@ function App() {
           </div>
           <p className={`text-xs mb-4 ${t.subtitulo}`}>Auditoria de Contas Públicas</p>
 
-          <div className={`border rounded-lg p-1 transition-colors ${t.seletorAno}`}>
-            <label htmlFor="seletor-exercicio" className="sr-only">Exercício dos dados</label>
-            <select id="seletor-exercicio" value={anoAtivo} onChange={(e) => handleMudarAno(e.target.value)} className="w-full bg-transparent text-sm p-2 outline-none cursor-pointer font-medium">
-              <option value="todos" className={temaClaro ? "bg-white" : "bg-darkCard text-goiasYellow"}>Todos os Anos</option>
-              {Array.from({ length: 2026 - 2013 + 1 }, (_, i) => 2026 - i).map(ano => (
-                <option key={ano} value={ano.toString()} className={temaClaro ? "bg-white" : "bg-darkCard"}>Exercício {ano}</option>
-              ))}
-            </select>
-          </div>
         </div>        
         
         <nav aria-label="Seções do Radar Goiano" className="flex-1 px-4 space-y-2 overflow-y-auto">
@@ -227,6 +220,26 @@ function App() {
             <AlertTriangle size={20} className="shrink-0 mt-0.5" />
             <p><strong>Base auditada e versionada:</strong> pagamentos e receitas são servidos pela versão validada ativa. Os alertas apresentados são indícios analíticos e sempre exigem verificação na fonte oficial.</p>
           </div>
+
+          {exibeFiltroDeExercicio && (
+            <section aria-label="Filtros da tela" className={`mb-5 rounded-xl border p-4 ${t.card}`}>
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <h2 className={`text-sm font-bold ${t.titulo}`}>Período desta análise</h2>
+                  <p className={`mt-1 text-xs ${t.subtitulo}`}>Selecione o exercício aplicado aos dados desta tela.</p>
+                </div>
+                <div className={`w-full rounded-lg border p-1 sm:w-64 ${t.seletorAno}`}>
+                  <label htmlFor="seletor-exercicio" className="sr-only">Exercício dos dados</label>
+                  <select id="seletor-exercicio" value={anoAtivo} onChange={(e) => handleMudarAno(e.target.value)} className="w-full bg-transparent p-2 text-sm font-medium outline-none cursor-pointer">
+                    <option value="todos" className={temaClaro ? "bg-white" : "bg-darkCard text-goiasYellow"}>Todos os anos</option>
+                    {Array.from({ length: 2026 - 2013 + 1 }, (_, i) => 2026 - i).map((ano) => (
+                      <option key={ano} value={ano.toString()} className={temaClaro ? "bg-white" : "bg-darkCard"}>Exercício {ano}</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            </section>
+          )}
 
           {carregando && (
             <div role="status" aria-live="polite" className="flex flex-col items-center justify-center h-64">

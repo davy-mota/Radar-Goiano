@@ -36,7 +36,9 @@ export default function ParlamentaresGoias({ temaClaro }) {
   const tituloCargo = titulos[cargo];
 
   return <div className="animate-fade-in">
-    <ContextoTela temaClaro={temaClaro} etiqueta="Comparação responsável entre pares" titulo="Despesas de Parlamentares" descricao="Compare reembolsos da atividade parlamentar entre representantes do mesmo cargo e no mesmo período." pergunta="Quais gabinetes apresentam valores, picos ou concentrações que merecem consulta aos documentos?" ressalva="Estar acima da mediana não prova gasto excessivo, desperdício ou irregularidade. Mandato parcial, funções, território, glosas e datas de reembolso podem alterar a comparação." />
+    <ContextoTela temaClaro={temaClaro} etiqueta="Comparação responsável entre pares" titulo="Despesas de Parlamentares" descricao="Compare reembolsos da atividade parlamentar entre representantes do mesmo cargo e no mesmo período." pergunta="Quais gabinetes apresentam valores, picos ou concentrações que merecem consulta aos documentos?" ressalva="Estar acima da mediana não prova gasto excessivo, desperdício ou irregularidade. Mandato parcial, funções, território, glosas e datas de reembolso podem alterar a comparação.">
+      <span className={`inline-flex rounded-lg border px-3 py-2 text-sm font-bold ${tema.campo}`}>Exercício disponível: 2025</span>
+    </ContextoTela>
     {erro && <div role="alert">{erro}</div>}
     {dados && <>
       <section className="grid gap-3 md:grid-cols-4" aria-label="Cobertura dos cargos eletivos">

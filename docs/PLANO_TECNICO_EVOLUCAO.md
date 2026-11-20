@@ -443,6 +443,30 @@ possuem cobertura de janeiro a agosto de 2026.
 - a API pública apresenta 2026 e os oito meses após a troca;
 - a versão anterior permanece arquivada e reversível.
 
+### Incremento 27 — filtros temporais por contexto (implementado)
+
+O seletor de exercício foi removido da navegação lateral e passou a integrar o
+conteúdo das telas que compartilham seu estado: Visão Geral, Explorador de
+Despesas, Contratos, Diárias e Folha de Pagamento. Assim, a navegação representa
+somente a estrutura do site e cada análise apresenta seu próprio escopo
+temporal.
+
+Repasses, Emendas e Parlamentares apresentam a cobertura fixa de 2025 junto ao
+contexto da análise. Comparador, Orçamento e Receita, Políticas e Alertas mantêm
+controles locais adequados às suas consultas. Os limites dos componentes
+financeiros foram atualizados para aceitar 2026.
+
+#### Critérios de aceitação
+
+- nenhum filtro é apresentado em uma tela na qual sua alteração seja ignorada;
+- análises comparativas preservam seletores independentes para cada cenário;
+- telas de fonte única informam o exercício disponível sem simular opções
+  inexistentes;
+- o exercício de 2026 pode ser selecionado nos módulos financeiros compatíveis;
+- o estado temporal permanece representado na URL nas telas que compartilham o
+  seletor de exercício;
+- build de produção e lint do frontend terminam sem erros.
+
 ## 7. Definição de pronto
 
 Uma feature está pronta quando possui contrato de API documentado, validação, estado de erro no frontend, teste automatizado, consulta indexada quando necessário e origem dos dados identificada.

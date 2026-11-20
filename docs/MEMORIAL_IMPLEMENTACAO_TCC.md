@@ -1058,3 +1058,27 @@ previsão igual a 0%, não calcula o percentual arrecadado sobre a previsão e e
 apresentar uma razão sem denominador confiável. O endpoint público confirmou
 HTTP 200, API e banco online, pagamentos até 31 de agosto de 2026 e presença de
 2026 no painel fiscal.
+
+## 27. Filtros temporais orientados pelo contexto da análise
+
+A avaliação de uso identificou que o seletor de exercício da navegação lateral
+era apresentado em todas as telas, embora controlasse somente Visão Geral,
+Explorador de Despesas, Contratos, Diárias e Folha de Pagamento. Outras análises
+possuem filtros próprios, trabalham com dois períodos simultâneos ou dependem de
+fontes cuja cobertura disponível está restrita a 2025. Essa diferença fazia uma
+alteração válida no menu parecer ignorada pelo sistema.
+
+Foi adotada uma solução contextual. O seletor foi totalmente removido da
+navegação lateral, que voltou a ter função exclusivamente estrutural. Visão
+Geral, Explorador de Despesas, Contratos, Diárias e Folha de Pagamento exibem o
+exercício em um bloco de filtros dentro do próprio conteúdo. Comparador,
+Orçamento e Receita, Políticas Públicas e Central de Alertas mantêm seus
+controles especializados; Repasses, Emendas e Parlamentares exibem
+explicitamente o exercício disponível; Governador utiliza a série histórica
+completa; e Qualidade dos Dados abrange versões e períodos.
+
+Também foi removido o limite residual de 2025 nos filtros financeiros locais.
+Comparador de Órgãos, Orçamento e Receita e Central de Alertas agora reconhecem
+2026 como exercício inicial válido, em conformidade com a versão financeira
+ativa. A compilação de produção e a análise estática do frontend foram
+executadas sem erros.

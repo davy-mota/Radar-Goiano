@@ -21,7 +21,7 @@ function Evidencia({ tipo, item, titulo, secundario }) {
 
 
 function CentralAlertas({ anoInicial, temaClaro }) {
-  const anoPadrao = anoInicial === 'todos' || Number(anoInicial) > 2025 ? '2025' : anoInicial;
+  const anoPadrao = anoInicial === 'todos' || Number(anoInicial) > 2026 ? '2026' : anoInicial;
   const [ano, setAno] = useState(anoPadrao);
   const [grupos, setGrupos] = useState([]);
   const [carregando, setCarregando] = useState(true);
@@ -55,7 +55,7 @@ function CentralAlertas({ anoInicial, temaClaro }) {
   return (
     <div className="animate-fade-in">
       <ContextoTela temaClaro={temaClaro} etiqueta="Priorizar não é acusar" titulo="Central de Alertas Explicáveis" descricao="Quatro regras reproduzíveis reduzem milhões de registros a uma lista menor para conferência humana." pergunta="Quais padrões merecem abrir o documento original e buscar uma explicação administrativa?" ressalva="O total representa ocorrências de regras, não casos comprovados. Um mesmo registro pode aparecer em mais de uma regra e possuir justificativa legítima.">
-        <select aria-label="Ano dos alertas" value={ano} onChange={alterarAno} className={`border rounded-lg p-3 text-sm ${campo}`}>{Array.from({ length: 2025 - 2003 + 1 }, (_, indice) => 2025 - indice).map((item) => <option key={item} value={item}>{item}</option>)}</select>
+        <select aria-label="Ano dos alertas" value={ano} onChange={alterarAno} className={`border rounded-lg p-3 text-sm ${campo}`}>{Array.from({ length: 2026 - 2003 + 1 }, (_, indice) => 2026 - indice).map((item) => <option key={item} value={item}>{item}</option>)}</select>
       </ContextoTela>
 
       <div className="mb-6 flex gap-3 p-4 rounded-xl border border-cyan-500/30 bg-cyan-500/10 text-cyan-600"><ShieldAlert className="shrink-0" /><p className="text-sm"><strong>Alerta não é acusação.</strong> Os resultados indicam padrões nos dados publicados e precisam de contexto documental e análise humana.</p></div>

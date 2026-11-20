@@ -13,7 +13,7 @@ const moedaCompleta = (valor) => new Intl.NumberFormat('pt-BR', { style: 'curren
 
 
 function PainelFiscal({ anoInicial, temaClaro }) {
-  const anoPadrao = anoInicial === 'todos' || Number(anoInicial) > 2025 || Number(anoInicial) < 2006 ? '2025' : anoInicial;
+  const anoPadrao = anoInicial === 'todos' || Number(anoInicial) > 2026 || Number(anoInicial) < 2006 ? '2026' : anoInicial;
   const [anos, setAnos] = useState([]);
   const [ano, setAno] = useState(anoPadrao);
   const [mes, setMes] = useState('');

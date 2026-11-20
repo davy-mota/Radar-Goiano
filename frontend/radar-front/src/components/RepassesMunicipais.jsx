@@ -51,7 +51,9 @@ export default function RepassesMunicipais({ temaClaro }) {
       descricao="Acompanhe os valores de ICMS, IPI e IPVA efetivamente creditados aos municípios goianos."
       pergunta="Quais municípios receberam os maiores repasses e como o resultado muda quando consideramos a população?"
       ressalva="O valor absoluto mostra a dimensão financeira; o valor per capita divide o total pela população estimada e não representa quanto cada morador recebeu. A cobertura financeira vai de janeiro a julho de 2025."
-    />
+    >
+      <span className={`inline-flex rounded-lg border px-3 py-2 text-sm font-bold ${tema.campo}`}>Período disponível: 2025</span>
+    </ContextoTela>
     {erro && <div role="alert">{erro}</div>}
     {dados && <>
       <div className="mb-6 grid gap-4 sm:grid-cols-4">

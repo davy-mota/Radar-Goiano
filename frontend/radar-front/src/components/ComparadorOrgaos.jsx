@@ -13,7 +13,7 @@ const percentual = (valor) => valor == null ? '—' : `${Number(valor).toFixed(1
 
 
 function ComparadorOrgaos({ anoInicial, temaClaro }) {
-  const anoPadrao = anoInicial === 'todos' || Number(anoInicial) > 2025 ? '2025' : anoInicial;
+  const anoPadrao = anoInicial === 'todos' || Number(anoInicial) > 2026 ? '2026' : anoInicial;
   const [anos, setAnos] = useState([]);
   const [anoA, setAnoA] = useState(anoPadrao);
   const [anoB, setAnoB] = useState(anoPadrao);
