@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
+import { Bar, BarChart, CartesianGrid, LabelList, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import ContextoTela from './ContextoTela.jsx';
 import { useTema } from '../theme.js';
 import { formatarNomeProprio } from '../utils/formatarTexto.js';
@@ -34,6 +34,12 @@ export default function ParlamentaresGoias({ temaClaro }) {
   const total = dados?.totais.find((item) => item.cargo === cargo);
   const titulos = { deputado_federal: 'Deputados federais de Goiás', deputado_estadual: 'Deputados estaduais de Goiás', senador: 'Senadores de Goiás' };
   const tituloCargo = titulos[cargo];
+  const dadosGrafico = lista.map((item, indice) => ({
+    ...item,
+    nome: formatarNomeProprio(item.parlamentar_nome),
+    rotulo: `${indice + 1}. ${formatarNomeProprio(item.parlamentar_nome)}`,
+  }));
+  const alturaGrafico = Math.max(280, dadosGrafico.length * 32);
 
   return <div className="animate-fade-in">
     <ContextoTela temaClaro={temaClaro} etiqueta="Comparação responsável entre pares" titulo="Despesas de Parlamentares" descricao="Compare reembolsos da atividade parlamentar entre representantes do mesmo cargo e no mesmo período." pergunta="Quais gabinetes apresentam valores, picos ou concentrações que merecem consulta aos documentos?" ressalva="Estar acima da mediana não prova gasto excessivo, desperdício ou irregularidade. Mandato parcial, funções, território, glosas e datas de reembolso podem alterar a comparação.">
@@ -65,8 +71,20 @@ export default function ParlamentaresGoias({ temaClaro }) {
         </div>
         {cargo === 'senador' && cobertura?.sem_registros > 0 && <p className={`mt-4 rounded-lg bg-amber-500/10 p-3 text-sm ${tema.secundario}`}>{dados.sem_registros.filter((item) => item.cargo === 'senador').map((item) => formatarNomeProprio(item.parlamentar_nome)).join(', ')} não possui registro na CEAPS de 2025. Isso significa ausência de documentos nessa fonte, não gasto comprovadamente igual a zero.</p>}
         <h4 className={`mt-6 font-black ${tema.titulo}`}>Média por mês com registro</h4>
-        <p className={`mt-1 text-sm ${tema.secundario}`}>Essa medida reduz parte da distorção de mandatos ou reembolsos que não cobrem os doze meses.</p>
-        <div className="mt-4 h-[440px]"><ResponsiveContainer><BarChart data={lista.map((item) => ({ ...item, nome: formatarNomeProprio(item.parlamentar_nome) }))} layout="vertical"><CartesianGrid strokeDasharray="3 3" opacity={0.15} /><XAxis type="number" tickFormatter={(valor) => moeda(valor, true)} /><YAxis type="category" dataKey="nome" width={135} fontSize={10} /><Tooltip formatter={(valor) => moeda(valor)} /><Bar dataKey="media_mensal" name="Média mensal" fill="#00813A" /></BarChart></ResponsiveContainer></div>
+        <p className={`mt-1 text-sm ${tema.secundario}`}>Ranking em ordem decrescente. A posição, o nome e o valor permanecem visíveis sem depender do mouse.</p>
+        <div className="mt-4" style={{ height: alturaGrafico }}>
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart data={dadosGrafico} layout="vertical" margin={{ top: 4, right: 90, bottom: 4, left: 8 }} barCategoryGap={5}>
+              <CartesianGrid strokeDasharray="3 3" opacity={0.15} />
+              <XAxis type="number" tickFormatter={(valor) => moeda(valor, true)} tick={{ fill: tema.graficoTexto }} />
+              <YAxis type="category" dataKey="rotulo" width={190} fontSize={11} interval={0} tick={{ fill: tema.graficoTexto }} />
+              <Tooltip contentStyle={tema.tooltip} formatter={(valor) => moeda(valor)} labelFormatter={(rotulo) => rotulo} />
+              <Bar dataKey="media_mensal" name="Média mensal" fill="#00813A" radius={[0, 4, 4, 0]}>
+                <LabelList dataKey="media_mensal" position="right" formatter={(valor) => moeda(valor, true)} fill={tema.graficoTexto} fontSize={11} />
+              </Bar>
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
       </section>
 
       <section className={`mt-6 rounded-xl border p-5 ${tema.card}`}>

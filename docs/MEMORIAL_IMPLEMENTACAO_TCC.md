@@ -1130,3 +1130,16 @@ registros no período, a interface informa “Dados não disponíveis”, em vez
 converter ausência de cobertura em valor financeiro igual a zero. A cobertura
 financeira também é exibida junto aos indicadores, permitindo distinguir ano
 completo de exercício parcial.
+
+## 30. Legibilidade do ranking de parlamentares
+
+O gráfico de média mensal utilizava altura fixa para grupos de tamanhos muito
+diferentes. No conjunto de deputados estaduais, com 44 nomes, a biblioteca de
+visualização omitia automaticamente parte dos rótulos do eixo e exigia interação
+com o cursor para identificar algumas barras.
+
+A altura passou a ser calculada pela quantidade de parlamentares, com espaço
+vertical reservado para cada registro. O eixo apresenta todos os rótulos, agora
+formados pela posição ordinal e pelo nome, e cada barra mostra também o valor
+monetário. O tooltip foi mantido como informação complementar e recebeu as cores
+do tema ativo, deixando de ser necessário para compreender a ordem do ranking.

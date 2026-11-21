@@ -510,6 +510,20 @@ movimentação financeira no exercício.
   irregularidade;
 - testes do backend, lint e build do frontend terminam sem erros.
 
+### Incremento 30 — ranking parlamentar integralmente rotulado (implementado)
+
+O gráfico de média mensal passou a calcular sua altura conforme o número de
+parlamentares. Todos os nomes são renderizados com posição ordinal, sem a
+supressão automática de rótulos, e o valor é exibido junto à respectiva barra.
+
+#### Critérios de aceitação
+
+- cada parlamentar do grupo possui uma linha identificada no gráfico;
+- a primeira posição pode ser reconhecida sem interação com o cursor;
+- nomes e valores permanecem visíveis nos temas claro e escuro;
+- o tooltip atua apenas como detalhe complementar;
+- lint e build do frontend terminam sem erros.
+
 ## 7. Definição de pronto
 
 Uma feature está pronta quando possui contrato de API documentado, validação, estado de erro no frontend, teste automatizado, consulta indexada quando necessário e origem dos dados identificada.
