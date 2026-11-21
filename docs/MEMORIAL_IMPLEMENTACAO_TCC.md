@@ -1104,7 +1104,9 @@ independentes da listagem detalhada. Assim, a parte agregada pode ser exibida
 imediatamente, enquanto os registros são consultados, e uma mudança de página
 recarrega somente a tabela. Testes de regressão verificam a escolha da visão
 materializada sem busca e a preservação da contagem nos fatos quando há busca
-textual.
+textual. Na listagem e na exportação, a versão ativa também é aplicada
+explicitamente sobre `fatos_pagamentos`, permitindo que o planejador use o índice
+composto de versão, valor e identificador sem depender da expansão da view.
 
 ## 29. Visão Geral integrada à versão financeira ativa
 

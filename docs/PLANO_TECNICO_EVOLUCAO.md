@@ -476,7 +476,9 @@ empenho continuam consultando os fatos, pois dependem da granularidade original.
 
 Resumo e listagem foram separados no frontend. Os indicadores não aguardam a
 tabela detalhada, e a paginação atualiza apenas os registros. A mudança reduz o
-tempo real e também o tempo percebido sem aumentar o timeout da API.
+tempo real e também o tempo percebido sem aumentar o timeout da API. A listagem
+e a exportação consultam a tabela de fatos com filtro explícito da versão ativa,
+habilitando o índice de ordenação por versão, valor e identificador.
 
 #### Critérios de aceitação
 

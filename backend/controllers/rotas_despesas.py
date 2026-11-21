@@ -23,6 +23,12 @@ COLUNAS_ORDENACAO = {
     "credor": "nome_credor",
     "orgao": ORGAO_NORMALIZADO,
 }
+VERSAO_ATIVA_SQL = "versao_id = (SELECT id FROM versoes_dados WHERE status = 'ativa' LIMIT 1)"
+
+
+def _filtros_fatos_ativos(where: str) -> str:
+    filtros = where.removeprefix(" WHERE ")
+    return f" WHERE {VERSAO_ATIVA_SQL}" + (f" AND {filtros}" if filtros else "")
 
 
 def _filtros_sql(
@@ -81,7 +87,8 @@ def _consulta_total_listagem(
     """Retorna a contagem exata usando a menor camada compatível com os filtros."""
     if busca and busca.strip():
         where, parametros = _filtros_sql(ano, mes, orgao, busca)
-        return f"SELECT COUNT(*) FROM vw_pagamentos_ativos {where}", parametros
+        where_ativo = _filtros_fatos_ativos(where)
+        return f"SELECT COUNT(*) FROM fatos_pagamentos {where_ativo}", parametros
 
     where, parametros = _filtros_resumo_sql(ano, mes, orgao)
     conector = " AND" if where else " WHERE"
@@ -284,14 +291,15 @@ def exportar_despesas(
 ):
     ano = _validar_ano(ano)
     where, parametros = _filtros_sql(ano, mes, orgao, busca)
+    where_ativo = _filtros_fatos_ativos(where)
     parametros["limite"] = limite
     consulta = text(f"""
         SELECT numero_empenho, ano_exercicio, mes,
                {ORGAO_NORMALIZADO} AS nome_orgao,
                documento_credor, nome_credor, data_pagamento,
                valor_pago
-        FROM vw_pagamentos_ativos
-        {where}
+        FROM fatos_pagamentos
+        {where_ativo}
         ORDER BY valor_pago DESC NULLS LAST, id DESC
         LIMIT :limite
     """)
@@ -344,6 +352,7 @@ def listar_despesas(
 ):
     ano = _validar_ano(ano)
     where, parametros = _filtros_sql(ano, mes, orgao, busca)
+    where_ativo = _filtros_fatos_ativos(where)
     parametros.update({"limite": por_pagina, "offset": (pagina - 1) * por_pagina})
     coluna = COLUNAS_ORDENACAO[ordenar_por]
     consulta_total, parametros_total = _consulta_total_listagem(
@@ -358,8 +367,8 @@ def listar_despesas(
             SELECT id AS id_registro, numero_empenho, ano_exercicio, mes AS mes_exercicio,
                    {ORGAO_NORMALIZADO} AS nome_orgao, documento_credor AS cnpj_cpf_credor,
                    nome_credor, data_pagamento AS data_emissao, valor_pago
-            FROM vw_pagamentos_ativos
-            {where}
+            FROM fatos_pagamentos
+            {where_ativo}
             ORDER BY {coluna} {direcao.upper()} NULLS LAST, id DESC
             LIMIT :limite OFFSET :offset
         """), parametros).mappings().all()

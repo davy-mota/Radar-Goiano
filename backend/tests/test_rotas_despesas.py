@@ -12,6 +12,7 @@ from controllers.rotas_despesas import (  # noqa: E402
     _celula_csv,
     _consulta_total_listagem,
     _documento_para_exportacao,
+    _filtros_fatos_ativos,
     _filtros_sql,
     _filtros_resumo_sql,
     _validar_ano,
@@ -78,8 +79,16 @@ class FiltrosDespesasTest(unittest.TestCase):
     def test_total_com_busca_preserva_contagem_dos_fatos(self):
         consulta, parametros = _consulta_total_listagem("todos", busca="empresa")
         self.assertIn("COUNT(*)", consulta)
-        self.assertIn("vw_pagamentos_ativos", consulta)
+        self.assertIn("fatos_pagamentos", consulta)
+        self.assertIn("versao_id", consulta)
         self.assertEqual(parametros, {"busca": "%empresa%"})
+
+    def test_fatos_recebem_filtro_explicito_da_versao_ativa(self):
+        where, _ = _filtros_sql("2026", mes=8)
+        where_ativo = _filtros_fatos_ativos(where)
+        self.assertIn("versao_id =", where_ativo)
+        self.assertIn("ano_exercicio = :ano", where_ativo)
+        self.assertIn("mes = :mes", where_ativo)
 
     def test_csv_neutraliza_formula(self):
         self.assertEqual(_celula_csv("=1+1"), "'=1+1")
