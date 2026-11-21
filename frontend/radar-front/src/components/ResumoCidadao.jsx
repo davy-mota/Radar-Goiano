@@ -1,5 +1,5 @@
 import { createElement } from 'react';
-import { AlertCircle, ArrowRight, Building2, FileText, HelpCircle, Plane, Search, ShieldCheck, Users } from 'lucide-react';
+import { AlertCircle, ArrowRight, Building2, FileText, HelpCircle, Landmark, Plane, Search, ShieldCheck, Users, WalletCards } from 'lucide-react';
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { useTema } from '../theme.js';
 import { formatarNomeProprio } from '../utils/formatarTexto.js';
@@ -14,13 +14,13 @@ function NumeroEtapa({ children, temaClaro }) {
   return <span className={`inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-black ${temaClaro ? 'bg-green-100 text-green-800' : 'bg-goiasGreen/20 text-goiasGreen'}`}>{children}</span>;
 }
 
-function CartaoEscopo({ icone, titulo, valor, explicacao, cor, tema }) {
+function CartaoEscopo({ icone, titulo, valor, explicacao, cor, tema, disponivel = true }) {
   return (
     <article className={`relative overflow-hidden rounded-2xl border p-5 md:p-6 ${tema.card}`}>
       <div className={`absolute inset-x-0 top-0 h-1 ${cor}`} />
       {createElement(icone, { size: 22, className: 'mb-5 text-goiasGreen', 'aria-hidden': true })}
       <p className={`text-xs font-bold uppercase tracking-[0.16em] ${tema.subtitulo}`}>{titulo}</p>
-      <p className={`mt-2 text-2xl font-black tracking-tight md:text-3xl ${tema.titulo}`}>{moeda(valor)}</p>
+      <p className={`mt-2 text-2xl font-black tracking-tight md:text-3xl ${tema.titulo}`}>{disponivel ? moeda(valor) : 'Dados não disponíveis'}</p>
       <p className={`mt-3 text-sm leading-6 ${tema.subtitulo}`}>{explicacao}</p>
     </article>
   );
@@ -28,7 +28,8 @@ function CartaoEscopo({ icone, titulo, valor, explicacao, cor, tema }) {
 
 export default function ResumoCidadao({ dados, ano, temaClaro, navegar }) {
   const tema = useTema(temaClaro);
-  const categorias = Object.fromEntries((dados.raio_x || []).map((item) => [item.name.toLowerCase(), item.value]));
+  const financeiro = dados.financeiro || {};
+  const fontesComplementares = dados.fontes_complementares || [];
   const topOrgaos = (dados.top_orgaos || []).map((item) => ({ ...item, nome: formatarNomeProprio(item.nome) }));
   const alertas = dados.radar_ia_geral || [];
 
@@ -42,27 +43,49 @@ export default function ResumoCidadao({ dados, ano, temaClaro, navegar }) {
           <p className={`mt-5 max-w-3xl text-base leading-7 md:text-lg ${tema.subtitulo}`}>Uma leitura guiada de {periodo(ano)}, em linguagem direta. Primeiro apresentamos o alcance dos dados; depois mostramos onde estão os maiores valores e quais registros merecem uma análise mais cuidadosa.</p>
           <div className={`mt-7 flex items-start gap-3 rounded-xl border p-4 text-sm leading-6 ${temaClaro ? 'border-blue-200 bg-blue-50 text-blue-950' : 'border-blue-400/25 bg-blue-400/10 text-blue-100'}`}>
             <ShieldCheck className="mt-0.5 shrink-0" size={20} />
-            <p><strong>Importante:</strong> contratos, folha e diárias têm significados diferentes. Por isso, não os somamos como se fossem o “gasto total do governo”. Valor contratado não significa, necessariamente, valor pago no mesmo período.</p>
+            <p><strong>Cobertura financeira:</strong> {dados.cobertura?.texto || 'período não informado'}. Empenho, liquidação, pagamento e receita são etapas ou fluxos distintos e não devem ser somados entre si.</p>
           </div>
         </div>
       </section>
 
-      <section aria-labelledby="escopo-dados">
+      <section aria-labelledby="execucao-financeira">
         <div className="mb-5 flex items-start gap-3">
           <NumeroEtapa temaClaro={temaClaro}>1</NumeroEtapa>
-          <div><h3 id="escopo-dados" className={`text-xl font-black md:text-2xl ${tema.titulo}`}>Três perspectivas, três significados</h3><p className={`mt-1 text-sm ${tema.subtitulo}`}>Leia cada número de forma independente.</p></div>
+          <div><h3 id="execucao-financeira" className={`text-xl font-black md:text-2xl ${tema.titulo}`}>Como os recursos avançaram no período?</h3><p className={`mt-1 text-sm ${tema.subtitulo}`}>Valores da versão financeira auditada e ativa. Leia cada etapa separadamente.</p></div>
+        </div>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          <CartaoEscopo icone={FileText} titulo="Empenhado" valor={financeiro.empenhado?.valor} cor="bg-cyan-500" tema={tema} explicacao="Reserva orçamentária registrada para uma despesa planejada; ainda não representa pagamento." />
+          <CartaoEscopo icone={Landmark} titulo="Liquidado" valor={financeiro.liquidado?.valor} cor="bg-purple-500" tema={tema} explicacao="Valor reconhecido após a administração registrar a entrega do bem ou serviço." />
+          <CartaoEscopo icone={WalletCards} titulo="Pago" valor={financeiro.pago?.valor} cor="bg-green-500" tema={tema} explicacao="Valor efetivamente desembolsado nos registros de pagamento disponíveis." />
+          <CartaoEscopo icone={Building2} titulo="Receita realizada" valor={financeiro.receita_realizada?.valor} cor="bg-amber-500" tema={tema} explicacao="Receita arrecadada segundo os arquivos publicados para o período." />
+        </div>
+      </section>
+
+      <section aria-labelledby="fontes-complementares">
+        <div className="mb-5 flex items-start gap-3">
+          <NumeroEtapa temaClaro={temaClaro}>2</NumeroEtapa>
+          <div><h3 id="fontes-complementares" className={`text-xl font-black md:text-2xl ${tema.titulo}`}>Outras perspectivas disponíveis</h3><p className={`mt-1 text-sm ${tema.subtitulo}`}>Estas fontes possuem cobertura própria e não compõem o total pago acima.</p></div>
         </div>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-          <CartaoEscopo icone={Users} titulo="Folha de pagamento" valor={categorias.folha} cor="bg-cyan-500" tema={tema} explicacao="Soma das remunerações brutas registradas. Não representa a quantidade de pessoas distintas nem o valor líquido recebido." />
-          <CartaoEscopo icone={FileText} titulo="Contratos formalizados" valor={categorias.contratos} cor="bg-purple-500" tema={tema} explicacao="Valor registrado nos contratos. Pode abranger mais de um exercício e não comprova que todo o montante já foi pago." />
-          <CartaoEscopo icone={Plane} titulo="Diárias e passagens" valor={categorias['diárias'] || categorias.diarias} cor="bg-amber-500" tema={tema} explicacao="Soma dos registros de deslocamento disponíveis na base para o período selecionado." />
+          {fontesComplementares.map((fonte, indice) => (
+            <CartaoEscopo
+              key={fonte.nome}
+              icone={[Users, FileText, Plane][indice]}
+              titulo={fonte.nome}
+              valor={fonte.valor}
+              disponivel={fonte.disponivel}
+              cor={['bg-cyan-500', 'bg-purple-500', 'bg-amber-500'][indice]}
+              tema={tema}
+              explicacao={fonte.disponivel ? `${Number(fonte.registros).toLocaleString('pt-BR')} registros na fonte complementar.` : `A fonte complementar não possui registros para ${periodo(ano)}.`}
+            />
+          ))}
         </div>
       </section>
 
       <section className={`rounded-3xl border p-5 md:p-8 ${tema.card}`} aria-labelledby="concentracao-orgaos">
         <div className="mb-6 flex items-start gap-3">
-          <NumeroEtapa temaClaro={temaClaro}>2</NumeroEtapa>
-          <div><h3 id="concentracao-orgaos" className={`text-xl font-black md:text-2xl ${tema.titulo}`}>Onde folha e diárias se concentram?</h3><p className={`mt-1 text-sm leading-6 ${tema.subtitulo}`}>O ranking combina somente folha e diárias por órgão. Órgãos maiores ou responsáveis por aposentadorias tendem naturalmente a aparecer no topo.</p></div>
+          <NumeroEtapa temaClaro={temaClaro}>3</NumeroEtapa>
+          <div><h3 id="concentracao-orgaos" className={`text-xl font-black md:text-2xl ${tema.titulo}`}>Quais órgãos concentram os pagamentos?</h3><p className={`mt-1 text-sm leading-6 ${tema.subtitulo}`}>O ranking usa somente valores pagos da versão financeira ativa. Concentração não indica, isoladamente, desperdício ou irregularidade.</p></div>
         </div>
         <div className="h-80 min-h-[300px]">
           <ResponsiveContainer width="100%" height="100%">
@@ -75,12 +98,12 @@ export default function ResumoCidadao({ dados, ano, temaClaro, navegar }) {
             </BarChart>
           </ResponsiveContainer>
         </div>
-        <button type="button" onClick={() => navegar('Folha')} className="mt-4 inline-flex items-center gap-2 rounded-lg bg-goiasGreen px-4 py-3 text-sm font-bold text-white hover:opacity-90">Entender a folha por órgão <ArrowRight size={17} /></button>
+        <button type="button" onClick={() => navegar('Despesas')} className="mt-4 inline-flex items-center gap-2 rounded-lg bg-goiasGreen px-4 py-3 text-sm font-bold text-white hover:opacity-90">Explorar pagamentos por órgão <ArrowRight size={17} /></button>
       </section>
 
-      <section aria-labelledby="pontos-atencao">
+      {alertas.length > 0 && <section aria-labelledby="pontos-atencao">
         <div className="mb-5 flex items-start gap-3">
-          <NumeroEtapa temaClaro={temaClaro}>3</NumeroEtapa>
+          <NumeroEtapa temaClaro={temaClaro}>4</NumeroEtapa>
           <div><h3 id="pontos-atencao" className={`text-xl font-black md:text-2xl ${tema.titulo}`}>Pontos que merecem contexto</h3><p className={`mt-1 text-sm leading-6 ${tema.subtitulo}`}>São maiores valores encontrados por regras reproduzíveis. Não são acusações nem prova de irregularidade.</p></div>
         </div>
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
@@ -95,7 +118,7 @@ export default function ResumoCidadao({ dados, ano, temaClaro, navegar }) {
           ))}
         </div>
         <button type="button" onClick={() => navegar('Alertas')} className={`mt-5 inline-flex items-center gap-2 rounded-lg border px-4 py-3 text-sm font-bold ${temaClaro ? 'border-gray-300 bg-white text-gray-800' : 'border-white/15 bg-white/5 text-white'}`}>Ver metodologia e evidências <ArrowRight size={17} /></button>
-      </section>
+      </section>}
 
       <section className={`grid grid-cols-1 gap-5 rounded-3xl border p-6 md:grid-cols-[1fr_auto] md:items-center md:p-8 ${temaClaro ? 'border-green-200 bg-green-50' : 'border-goiasGreen/25 bg-goiasGreen/10'}`}>
         <div className="flex items-start gap-4"><Building2 className="mt-1 shrink-0 text-goiasGreen" /><div><h3 className={`text-xl font-black ${tema.titulo}`}>Quer conferir um valor até o registro de origem?</h3><p className={`mt-2 max-w-2xl text-sm leading-6 ${tema.subtitulo}`}>Use o Explorador de Despesas para filtrar pagamentos por período, órgão ou fornecedor. Os resultados são paginados e podem ser exportados para conferência.</p></div></div>

@@ -72,6 +72,27 @@ def _filtros_resumo_sql(
     return (" WHERE " + " AND ".join(condicoes)) if condicoes else "", parametros
 
 
+def _consulta_total_listagem(
+    ano: str,
+    mes: int | None = None,
+    orgao: str | None = None,
+    busca: str | None = None,
+) -> tuple[str, dict]:
+    """Retorna a contagem exata usando a menor camada compatível com os filtros."""
+    if busca and busca.strip():
+        where, parametros = _filtros_sql(ano, mes, orgao, busca)
+        return f"SELECT COUNT(*) FROM vw_pagamentos_ativos {where}", parametros
+
+    where, parametros = _filtros_resumo_sql(ano, mes, orgao)
+    conector = " AND" if where else " WHERE"
+    consulta = f"""
+        SELECT COALESCE(SUM(registros), 0)
+        FROM mv_despesas_execucao_mensal
+        {where}{conector} etapa = 'pago'
+    """
+    return consulta, parametros
+
+
 def _validar_ano(ano: str) -> str:
     if ano == "todos":
         return ano
@@ -325,11 +346,14 @@ def listar_despesas(
     where, parametros = _filtros_sql(ano, mes, orgao, busca)
     parametros.update({"limite": por_pagina, "offset": (pagina - 1) * por_pagina})
     coluna = COLUNAS_ORDENACAO[ordenar_por]
+    consulta_total, parametros_total = _consulta_total_listagem(
+        ano, mes, orgao, busca
+    )
 
     with engine.connect() as conexao:
-        total = conexao.execute(
-            text(f"SELECT COUNT(*) FROM vw_pagamentos_ativos {where}"), parametros
-        ).scalar_one()
+        total = int(
+            conexao.execute(text(consulta_total), parametros_total).scalar_one() or 0
+        )
         linhas = conexao.execute(text(f"""
             SELECT id AS id_registro, numero_empenho, ano_exercicio, mes AS mes_exercicio,
                    {ORGAO_NORMALIZADO} AS nome_orgao, documento_credor AS cnpj_cpf_credor,

@@ -1082,3 +1082,49 @@ Comparador de Órgãos, Orçamento e Receita e Central de Alertas agora reconhec
 2026 como exercício inicial válido, em conformidade com a versão financeira
 ativa. A compilação de produção e a análise estática do frontend foram
 executadas sem erros.
+
+## 28. Otimização da consulta histórica do Explorador de Despesas
+
+A medição do ambiente de produção mostrou respostas de aproximadamente 0,64 s
+para os filtros, 0,23 s para o resumo agregado e 27,66 s para a primeira página
+da listagem com “Todos os anos”. O principal custo estava na contagem exata de
+todos os pagamentos ativos, executada diretamente sobre aproximadamente 2,8
+milhões de fatos antes da seleção dos 25 registros apresentados.
+
+A contagem continua exata, mas agora usa `SUM(registros)` sobre a visão
+materializada `mv_despesas_execucao_mensal` quando não existe pesquisa textual.
+Essa visão já é atualizada na ativação transacional de cada versão financeira e
+preserva as dimensões de exercício, mês e órgão usadas pela listagem. Pesquisas
+por credor, documento ou empenho permanecem sobre os fatos individuais, pois a
+agregação não contém esses atributos.
+
+O frontend também deixou de aguardar resumo e tabela em um único
+`Promise.all`. Indicadores e gráficos possuem requisição e estado de carregamento
+independentes da listagem detalhada. Assim, a parte agregada pode ser exibida
+imediatamente, enquanto os registros são consultados, e uma mudança de página
+recarrega somente a tabela. Testes de regressão verificam a escolha da visão
+materializada sem busca e a preservação da contagem nos fatos quando há busca
+textual.
+
+## 29. Visão Geral integrada à versão financeira ativa
+
+A Visão Geral utilizava exclusivamente caches de Folha de Pagamento, Contratos e
+Diárias. Como essas fontes complementares ainda não possuem registros de 2026,
+o painel exibia valores zerados, embora a camada financeira versionada contivesse
+98.692 pagamentos e aproximadamente R$ 27,68 bilhões pagos no exercício. O
+comportamento não representava perda de dados, mas uma divergência entre fontes
+e ciclos de atualização.
+
+O frontend passou a consultar `GET /api/geral/resumo?ano=...`. O endpoint combina
+a visão materializada da execução financeira ativa com as receitas ativas e os
+caches das fontes complementares. Empenho, liquidação, pagamento, receita
+realizada, cobertura temporal e ranking de órgãos por valor pago passam a
+refletir automaticamente a versão aprovada no banco, sem depender da regeneração
+do cache da Visão Geral após cada ativação.
+
+Folha, Contratos e Diárias permanecem apresentadas separadamente porque possuem
+significados e coberturas diferentes. Quando uma dessas fontes não contém
+registros no período, a interface informa “Dados não disponíveis”, em vez de
+converter ausência de cobertura em valor financeiro igual a zero. A cobertura
+financeira também é exibida junto aos indicadores, permitindo distinguir ano
+completo de exercício parcial.

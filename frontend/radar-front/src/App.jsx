@@ -19,6 +19,7 @@ import { useTema } from './theme.js';
 const CORES_GRAFICOS = ['#00D4FF', '#8A2BE2', '#FF007F', '#00FA9A', '#FFA500'];
 const formatarMoeda = (valor) => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(valor || 0);
 const ABAS_COM_FILTRO_DE_EXERCICIO = new Set(['Visão Geral', 'Despesas', 'Contratos', 'Diárias', 'Folha']);
+const API_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
 
 function App() {
   const parametrosIniciais = new URLSearchParams(window.location.search);
@@ -72,7 +73,7 @@ function App() {
       let setDadosAtuais = null;
 
       if (abaAtiva === 'Visão Geral' && !dadosGerais) { 
-        url = `/dados/cache_visao_geral_${anoAtivo}.json`; 
+        url = `${API_URL}/api/geral/resumo?ano=${anoAtivo}`;
         setDadosAtuais = setDadosGerais; 
       }
       else if (abaAtiva === 'Contratos' && !dadosContratos) { 
@@ -91,7 +92,8 @@ function App() {
       if (url && setDadosAtuais) {
         setCarregando(true);
         try {
-          const urlSemCache = `${url}?t=${new Date().getTime()}`;
+          const separador = url.includes('?') ? '&' : '?';
+          const urlSemCache = `${url}${separador}t=${new Date().getTime()}`;
           const resposta = await fetch(urlSemCache, { signal: abortController.signal });
           clearTimeout(timeoutId); 
           
@@ -278,7 +280,7 @@ function App() {
             <QualidadeDados temaClaro={temaClaro} />
           )}
 
-          {abaAtiva === 'Visão Geral' && dadosGerais?.kpis && !carregando && (
+          {abaAtiva === 'Visão Geral' && dadosGerais?.financeiro && !carregando && (
             <ResumoCidadao dados={dadosGerais} ano={anoAtivo} temaClaro={temaClaro} navegar={mudarAba} />
           )}
 

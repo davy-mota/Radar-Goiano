@@ -42,7 +42,8 @@ function ExploradorDespesas({ anoAtivo, temaClaro }) {
   const [opcoes, setOpcoes] = useState({ orgaos: [] });
   const [resumo, setResumo] = useState(null);
   const [listagem, setListagem] = useState(null);
-  const [carregando, setCarregando] = useState(true);
+  const [carregandoResumo, setCarregandoResumo] = useState(true);
+  const [carregandoLista, setCarregandoLista] = useState(true);
   const [erro, setErro] = useState('');
   const [fornecedorSelecionado, setFornecedorSelecionado] = useState(null);
 
@@ -67,29 +68,44 @@ function ExploradorDespesas({ anoAtivo, temaClaro }) {
     if (orgao) parametros.set('orgao', orgao);
     if (busca) parametros.set('busca', busca);
 
-    const parametrosLista = new URLSearchParams(parametros);
-    parametrosLista.set('pagina', pagina);
-    parametrosLista.set('por_pagina', '25');
-
-    Promise.all([
-      fetch(`${API_URL}/api/despesas/resumo?${parametros}`, { signal: controller.signal }),
-      fetch(`${API_URL}/api/despesas?${parametrosLista}`, { signal: controller.signal }),
-    ])
-      .then(async ([respostaResumo, respostaLista]) => {
-        if (!respostaResumo.ok || !respostaLista.ok) {
-          throw new Error('Não foi possível consultar as despesas.');
-        }
-        return Promise.all([respostaResumo.json(), respostaLista.json()]);
+    fetch(`${API_URL}/api/despesas/resumo?${parametros}`, { signal: controller.signal })
+      .then((resposta) => {
+        if (!resposta.ok) throw new Error('Não foi possível carregar os indicadores das despesas.');
+        return resposta.json();
       })
-      .then(([novoResumo, novaListagem]) => {
-        setResumo(novoResumo);
-        setListagem(novaListagem);
-      })
+      .then(setResumo)
       .catch((falha) => {
         if (falha.name !== 'AbortError') setErro(falha.message);
       })
       .finally(() => {
-        if (!controller.signal.aborted) setCarregando(false);
+        if (!controller.signal.aborted) setCarregandoResumo(false);
+      });
+
+    return () => controller.abort();
+  }, [anoAtivo, mes, orgao, busca]);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    const parametros = new URLSearchParams({
+      ano: anoAtivo,
+      pagina: String(pagina),
+      por_pagina: '25',
+    });
+    if (mes) parametros.set('mes', mes);
+    if (orgao) parametros.set('orgao', orgao);
+    if (busca) parametros.set('busca', busca);
+
+    fetch(`${API_URL}/api/despesas?${parametros}`, { signal: controller.signal })
+      .then((resposta) => {
+        if (!resposta.ok) throw new Error('Não foi possível carregar os registros detalhados.');
+        return resposta.json();
+      })
+      .then(setListagem)
+      .catch((falha) => {
+        if (falha.name !== 'AbortError') setErro(falha.message);
+      })
+      .finally(() => {
+        if (!controller.signal.aborted) setCarregandoLista(false);
       });
 
     return () => controller.abort();
@@ -110,21 +126,23 @@ function ExploradorDespesas({ anoAtivo, temaClaro }) {
     evento.preventDefault();
     const novaBusca = buscaDigitada.trim();
     if (novaBusca === busca && pagina === 1) return;
-    setCarregando(true);
+    setCarregandoResumo(true);
+    setCarregandoLista(true);
     setErro('');
     setPagina(1);
     setBusca(novaBusca);
   };
 
   const alterarFiltro = (setter) => (evento) => {
-    setCarregando(true);
+    setCarregandoResumo(true);
+    setCarregandoLista(true);
     setErro('');
     setPagina(1);
     setter(evento.target.value);
   };
 
   const mudarPagina = (novaPagina) => {
-    setCarregando(true);
+    setCarregandoLista(true);
     setErro('');
     setPagina(novaPagina);
   };
@@ -160,9 +178,9 @@ function ExploradorDespesas({ anoAtivo, temaClaro }) {
       </div>
 
       {erro && <div role="alert" className="mb-6 p-4 rounded-lg border border-red-500/40 bg-red-500/10 text-red-500">{erro}</div>}
-      {carregando && <div className="h-48 flex items-center justify-center"><Loader2 className="animate-spin text-goiasGreen" size={40} /></div>}
+      {carregandoResumo && <div role="status" className="h-48 flex items-center justify-center gap-3"><Loader2 className="animate-spin text-goiasGreen" size={40} /><span className={secundario}>Carregando indicadores…</span></div>}
 
-      {!carregando && resumo && listagem && (
+      {!carregandoResumo && resumo && (
         <>
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-6">
             {[
@@ -208,6 +226,17 @@ function ExploradorDespesas({ anoAtivo, temaClaro }) {
             </div>
           </div>
 
+        </>
+      )}
+
+      {carregandoLista && (
+        <div role="status" className={`mb-6 flex min-h-40 items-center justify-center gap-3 rounded-xl border ${card}`}>
+          <Loader2 className="animate-spin text-goiasGreen" size={32} />
+          <span className={secundario}>Carregando registros detalhados…</span>
+        </div>
+      )}
+
+      {!carregandoLista && listagem && (
           <div className={`border rounded-xl overflow-hidden ${card}`}>
             <div className="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-gray-500/20">
               <div><h3 className={`font-semibold ${titulo}`}>Registros detalhados</h3><p className={`text-xs ${secundario}`}>{Number(listagem.paginacao.total).toLocaleString('pt-BR')} resultados</p></div>
@@ -236,7 +265,6 @@ function ExploradorDespesas({ anoAtivo, temaClaro }) {
               <button disabled={pagina >= listagem.paginacao.total_paginas} onClick={() => mudarPagina(pagina + 1)} className="p-2 rounded disabled:opacity-30"><ChevronRight /></button>
             </div>
           </div>
-        </>
       )}
     </div>
   );

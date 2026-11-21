@@ -2,6 +2,7 @@ import os
 import sys
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 
 os.environ.setdefault("DATABASE_URL", "sqlite://")
@@ -9,12 +10,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from controllers.rotas_despesas import (  # noqa: E402
     _celula_csv,
+    _consulta_total_listagem,
     _documento_para_exportacao,
     _filtros_sql,
     _filtros_resumo_sql,
     _validar_ano,
 )
 from controllers.rotas_fornecedores import validar_cnpj  # noqa: E402
+from controllers.rotas_gerais import _fontes_complementares, _texto_cobertura  # noqa: E402
 from controllers.rotas_comparacoes import validar_cenario, variacao_percentual  # noqa: E402
 from controllers.sql_utils import ORGAO_NORMALIZADO  # noqa: E402
 from controllers.rotas_fiscal import avaliar_previsao  # noqa: E402
@@ -63,6 +66,21 @@ class FiltrosDespesasTest(unittest.TestCase):
         self.assertNotIn("normalizar_texto_utf8", where)
         self.assertEqual(parametros, {"ano": 2025, "mes": 4, "orgao": "Secretaria"})
 
+    def test_total_sem_busca_usa_visao_materializada(self):
+        consulta, parametros = _consulta_total_listagem(
+            "todos", mes=4, orgao="Secretaria"
+        )
+        self.assertIn("SUM(registros)", consulta)
+        self.assertIn("mv_despesas_execucao_mensal", consulta)
+        self.assertNotIn("vw_pagamentos_ativos", consulta)
+        self.assertEqual(parametros, {"mes": 4, "orgao": "Secretaria"})
+
+    def test_total_com_busca_preserva_contagem_dos_fatos(self):
+        consulta, parametros = _consulta_total_listagem("todos", busca="empresa")
+        self.assertIn("COUNT(*)", consulta)
+        self.assertIn("vw_pagamentos_ativos", consulta)
+        self.assertEqual(parametros, {"busca": "%empresa%"})
+
     def test_csv_neutraliza_formula(self):
         self.assertEqual(_celula_csv("=1+1"), "'=1+1")
         self.assertEqual(_celula_csv("texto\nquebrado"), "texto quebrado")
@@ -70,6 +88,21 @@ class FiltrosDespesasTest(unittest.TestCase):
     def test_exportacao_mascara_cpf(self):
         self.assertEqual(_documento_para_exportacao("123.456.789-00"), "***.***.***-**")
         self.assertEqual(_documento_para_exportacao("11.991.625/0001-89"), "11991625000189")
+
+
+class VisaoGeralTest(unittest.TestCase):
+    def test_cobertura_do_exercicio_informa_ultimo_mes(self):
+        self.assertEqual(
+            _texto_cobertura("2026", [2026], list(range(1, 9))),
+            "Janeiro a agosto de 2026",
+        )
+
+    @patch("controllers.rotas_gerais.carregar_cache")
+    def test_fonte_sem_registros_e_indisponivel_em_vez_de_zero(self, carregar):
+        carregar.return_value = {"kpis": {}}
+        fontes = _fontes_complementares("2026")
+        self.assertTrue(all(not fonte["disponivel"] for fonte in fontes))
+        self.assertTrue(all(fonte["valor"] is None for fonte in fontes))
 
 
 class HistoricoCargasTest(unittest.TestCase):

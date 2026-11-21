@@ -467,6 +467,47 @@ financeiros foram atualizados para aceitar 2026.
   seletor de exercício;
 - build de produção e lint do frontend terminam sem erros.
 
+### Incremento 28 — desempenho histórico do Explorador de Despesas (implementado)
+
+A contagem da listagem sem pesquisa textual passou da leitura integral dos fatos
+para a soma exata dos registros na visão materializada mensal. Filtros por ano,
+mês e órgão são aplicados na camada agregada; buscas por credor, documento ou
+empenho continuam consultando os fatos, pois dependem da granularidade original.
+
+Resumo e listagem foram separados no frontend. Os indicadores não aguardam a
+tabela detalhada, e a paginação atualiza apenas os registros. A mudança reduz o
+tempo real e também o tempo percebido sem aumentar o timeout da API.
+
+#### Critérios de aceitação
+
+- a contagem sem busca permanece exata e usa `mv_despesas_execucao_mensal`;
+- pesquisas textuais preservam a contagem sobre `vw_pagamentos_ativos`;
+- resumo e tabela possuem requisições e indicadores de carregamento separados;
+- a troca de página não recarrega KPIs nem gráficos;
+- testes do backend, lint e build do frontend terminam sem erros.
+
+### Incremento 29 — Visão Geral conectada à versão financeira ativa (implementado)
+
+A página inicial deixou de depender apenas do cache formado por Folha, Contratos
+e Diárias. O novo endpoint `/api/geral/resumo` consolida empenhos, liquidações,
+pagamentos e receitas da versão ativa, informa a cobertura temporal e calcula o
+ranking de órgãos a partir dos pagamentos.
+
+As fontes complementares continuam isoladas e apresentam disponibilidade e
+quantidade de registros. Ausência de cobertura é representada por estado
+informativo, não por `R$ 0`, evitando a interpretação incorreta de que não houve
+movimentação financeira no exercício.
+
+#### Critérios de aceitação
+
+- os indicadores financeiros utilizam exclusivamente a versão ativa;
+- a cobertura parcial de 2026 é exibida junto ao resumo;
+- a ativação de nova versão atualiza o painel sem regenerar o cache geral;
+- fontes complementares sem registros mostram indisponibilidade, não valor zero;
+- o ranking de órgãos usa pagamentos e explicita que concentração não prova
+  irregularidade;
+- testes do backend, lint e build do frontend terminam sem erros.
+
 ## 7. Definição de pronto
 
 Uma feature está pronta quando possui contrato de API documentado, validação, estado de erro no frontend, teste automatizado, consulta indexada quando necessário e origem dos dados identificada.
